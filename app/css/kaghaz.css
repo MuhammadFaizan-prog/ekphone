@@ -286,3 +286,5 @@ html[lang="ur"] .q-text { font-family: var(--font-ur); font-weight: 400; line-he
   .s.on { forced-color-adjust: none; background: Highlight; color: HighlightText; }
   .tag, .card, .btn { border: 2px solid CanvasText; }
 }
+.packrow .row .btn { flex: 1 1 auto; padding-inline: 14px; }
+#go-receive { margin-bottom: 16px; }
