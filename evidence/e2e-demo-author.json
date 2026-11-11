@@ -1,0 +1,112 @@
+{
+  "test": "e2e-demo-author",
+  "pass": false,
+  "started": "2026-11-11T17:58:52.650Z",
+  "finished": "2026-11-11T17:59:02.356Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "empty phone: \"Try the demo\" on the first screen",
+      "pass": true
+    },
+    {
+      "step": "demo button reachable with Tab",
+      "pass": true
+    },
+    {
+      "step": "one keypress loads 4 synthetic learners",
+      "pass": true,
+      "detail": [
+        "Ayesha",
+        "Bilal",
+        "Zara",
+        "Hamza"
+      ]
+    },
+    {
+      "step": "demo PIN 1234 shown on screen",
+      "pass": true,
+      "detail": "Demo: these learners are made up. Zara's PIN is 1234. The others open with one tap."
+    },
+    {
+      "step": "only Zara has a PIN",
+      "pass": true
+    },
+    {
+      "step": "focus moves to the first name tag",
+      "pass": true
+    },
+    {
+      "step": "Ayesha opens with one tap (no PIN)",
+      "pass": true
+    },
+    {
+      "step": "demo progress present for Ayesha",
+      "pass": true,
+      "detail": [
+        "4.1 KB · 0.004 MB · 5 questions · Best: 4 of 5",
+        "4.2 KB · 0.004 MB · 5 questions · Not started",
+        "3.8 KB · 0.004 MB · 5 questions · Not started"
+      ]
+    },
+    {
+      "step": "Zara opens with the shown PIN 1234",
+      "pass": true
+    },
+    {
+      "step": "demo note in Urdu",
+      "pass": true
+    },
+    {
+      "step": "Reset demo restores starting progress",
+      "pass": true,
+      "detail": {
+        "hamzaBest": null
+      }
+    },
+    {
+      "step": "lesson writer loaded lazily (js/author.js)",
+      "pass": true
+    },
+    {
+      "step": "empty form: error summary + aria-invalid fields",
+      "pass": true,
+      "detail": {
+        "summary": "Please fix 27 things below.",
+        "invalid": 27
+      }
+    },
+    {
+      "step": "title error text linked by aria-describedby",
+      "pass": true
+    },
+    {
+      "step": "focus moves to the first invalid field",
+      "pass": true
+    },
+    {
+      "step": "lesson text split into sentences live",
+      "pass": true,
+      "detail": "6 sentences found"
+    },
+    {
+      "step": "preview: 6 sentences, right answers marked",
+      "pass": true
+    },
+    {
+      "step": "preview shows pack size",
+      "pass": true,
+      "detail": "0.9 KB · 0.001 MB · 6 sentences · 5 questions"
+    },
+    {
+      "step": "saved as local pack with an id",
+      "pass": true,
+      "detail": "my-day-and-night-xx38"
+    },
+    {
+      "step": "saved pack passes the same validator as shared packs",
+      "pass": true
+    }
+  ],
+  "error": "locator.click: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Share by QR' })\u001b[22m\n"
+}

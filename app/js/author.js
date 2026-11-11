@@ -30,7 +30,7 @@
     else if (s.length > 60 || s.some(function (x) { return x.length > 400; })) e['w-text'] = 'wErrTooMany';
     d.quiz.forEach(function (q, i) {
       if (!q.q.trim()) e['w-q' + i] = 'wErrQ';
-      if (q.options.some(function (o) { return !o.trim(); })) e['w-q' + i + '-opts'] = 'wErrOpt';
+      q.options.forEach(function (o, k) { if (!o.trim()) e['w-q' + i + '-o' + k] = 'wErrOpt'; });
       if (q.answer == null) e['w-q' + i + '-right'] = 'wErrRight';
     });
     return e;
@@ -96,7 +96,7 @@
       var summary = h('div', { class: 'error-summary', id: 'w-summary', role: 'alert', tabindex: '-1', hidden: !nErr }, nErr ? t('wErrSummary', { n: nErr }) : '');
       var count = h('p', { class: 'hint', id: 'w-count', 'aria-live': 'polite' }, t('wSentCount', { n: splitSentences(draft.text).length }));
       var qBlocks = draft.quiz.map(function (q, i) {
-        var optsErr = errors['w-q' + i + '-opts'], rightErr = errors['w-q' + i + '-right'];
+        var rightErr = errors['w-q' + i + '-right'];
         var optFields = q.options.map(function (o, k) {
           return field('w-q' + i + '-o' + k, null, o, { label: t('wOpt', { l: LETTERS[k] }), max: 80, set: function (v) { q.options[k] = v; } });
         });
@@ -112,7 +112,6 @@
           h('legend', { class: 'w-q-legend' }, t('wQ', { i: i + 1 })),
           field('w-q' + i, null, q.q, { label: t('wQText', { i: i + 1 }), max: 200, required: true, set: function (v) { q.q = v; } }),
           optFields,
-          optsErr ? h('p', { class: 'error', id: 'w-q' + i + '-opts-err' }, t(optsErr)) : null,
           radios);
       });
       var form = h('form', { class: 'form w-form', novalidate: true, onsubmit: function (e) {
@@ -121,8 +120,7 @@
         if (Object.keys(errors).length) {
           u.render(true);
           var first = document.querySelector('[aria-invalid="true"]');
-          var s = document.getElementById('w-summary'); if (s) s.focus();
-          if (first) { var target = first.tagName === 'FIELDSET' ? first.querySelector('input') : first; setTimeout(function () { target.focus(); }, 60); }
+          if (first) (first.tagName === 'FIELDSET' ? first.querySelector('input') : first).focus();
           return;
         }
         mode = 'preview'; u.render(true); var pv = document.getElementById('w-pv-h'); if (pv) pv.focus();
