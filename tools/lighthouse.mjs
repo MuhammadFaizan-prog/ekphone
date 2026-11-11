@@ -52,7 +52,7 @@ Browser: ${lhr.environment.hostUserAgent}
 
 PWA audits failing: ${failedPwa.length ? failedPwa.join(', ') : 'none'}
 
-Notes: run on a cloud sandbox, not a real phone. The PWA category was removed in Lighthouse 12, so v11.7.1 is used.
+Notes: run on a cloud sandbox, not a real phone. The local test server gzip-compresses text files the way the Vercel host compresses them (before Nov 11 evening it sent them uncompressed, which is part of the old score of 80). The PWA category was removed in Lighthouse 12, so v11.7.1 is used.
 `;
   fs.writeFileSync(evid + 'lighthouse-summary.md', md);
   console.log(md);
