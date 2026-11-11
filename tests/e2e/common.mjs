@@ -13,7 +13,7 @@ export function recorder(name) {
     ok(step, detail) { steps.push({ step, pass: true, detail }); console.log('  ✓', step, detail ? '— ' + JSON.stringify(detail) : ''); },
     check(cond, step, detail) { steps.push({ step, pass: !!cond, detail }); console.log(cond ? '  ✓' : '  ✗', step, detail ? '— ' + JSON.stringify(detail) : ''); if (!cond) throw new Error('FAILED: ' + step + ' ' + JSON.stringify(detail || '')); },
     save(extra = {}) {
-      const pass = steps.every((s) => s.pass);
+      const pass = steps.every((s) => s.pass) && !extra.error;
       const out = { test: name, pass, started: started.toISOString(), finished: new Date().toISOString(), browser: 'Chromium headless shell 141 (Playwright 1.56.1)', steps, ...extra };
       fs.writeFileSync(EVID + name + '.json', JSON.stringify(out, null, 2));
       console.log(pass ? 'PASS' : 'FAIL', name, steps.filter((s) => s.pass).length + '/' + steps.length);

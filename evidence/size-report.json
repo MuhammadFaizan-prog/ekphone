@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T16:24:09.798Z",
-  "version": "006e837325",
+  "generated": "2026-11-11T16:47:44.530Z",
+  "version": "e600c411e7",
   "groups": {
     "shell (first screen: HTML+CSS+own JS)": {
-      "bytes": 104786,
-      "gzip": 31676,
-      "kb": 102.3,
-      "gzipKb": 30.9
+      "bytes": 105066,
+      "gzip": 31769,
+      "kb": 102.6,
+      "gzipKb": 31
     },
     "built-in lesson packs (js/packs.js)": {
       "bytes": 12512,
@@ -51,8 +51,8 @@
       "gzip": 742
     },
     "css/kaghaz.css": {
-      "bytes": 22718,
-      "gzip": 5860
+      "bytes": 22771,
+      "gzip": 5874
     },
     "js/i18n.js": {
       "bytes": 13031,
@@ -71,8 +71,8 @@
       "gzip": 2111
     },
     "js/app.js": {
-      "bytes": 42713,
-      "gzip": 11956
+      "bytes": 42940,
+      "gzip": 12036
     },
     "manifest.webmanifest": {
       "bytes": 697,
@@ -80,7 +80,7 @@
     },
     "sw.js": {
       "bytes": 1859,
-      "gzip": 834
+      "gzip": 833
     },
     "js/packs.js": {
       "bytes": 12512,
@@ -140,11 +140,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 453325,
-  "totalKb": 442.7,
+  "totalBytesEverything": 453605,
+  "totalKb": 443,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 104786,
+    "shellBytes": 105066,
     "pass": true
   }
 }

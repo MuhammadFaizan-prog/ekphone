@@ -31,7 +31,7 @@ try {
   await tabTo((x) => x.id === 'f-name', 'name field');
   await page.keyboard.type('Ayesha'); log.push({ key: 'type "Ayesha"' });
   await press('Enter', 'submit form');
-  f = await tabTo((x) => x.name === 'Ayesha', 'Ayesha name tag');
+  f = await tabTo((x) => x.tag === 'button' && x.name.startsWith('Ayesha'), 'Ayesha name tag');
   await press('Enter');
   R.check(await page.getByRole('heading', { name: 'Salaam, Ayesha' }).isVisible(), 'opened Ayesha by keyboard');
   await tabTo((x) => x.name.includes('Start reading'), 'Start reading');

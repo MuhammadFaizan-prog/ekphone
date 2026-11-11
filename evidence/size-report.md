@@ -1,33 +1,33 @@
 # Byte-size report
 
-Generated 2026-11-11T16:24:09.798Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T16:47:44.530Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
-| shell (first screen: HTML+CSS+own JS) | 102.3 KB | 30.9 KB |
+| shell (first screen: HTML+CSS+own JS) | 102.6 KB | 31 KB |
 | built-in lesson packs (js/packs.js) | 12.2 KB | 3.9 KB |
 | lazy: QR encoder (share screen only) | 21.1 KB | 7.9 KB |
 | lazy: jsQR scanner fallback (only if no BarcodeDetector) | 127.7 KB | 46 KB |
 | Latin fonts (always) | 55.3 KB | 55.3 KB |
 | lazy: Urdu font + css (only when Urdu is on) | 98.6 KB | 97.5 KB |
 | icons | 25.5 KB | 23 KB |
-| **Everything (incl. fonts, icons, lazy parts)** | **442.7 KB** | |
+| **Everything (incl. fonts, icons, lazy parts)** | **443 KB** | |
 
-Shell budget ≤150 KB: **PASS** (102.3 KB).
+Shell budget ≤150 KB: **PASS** (102.6 KB).
 
 ## Files
 
 | File | Bytes | gzip |
 |---|---|---|
 | index.html | 1595 | 742 |
-| css/kaghaz.css | 22718 | 5860 |
+| css/kaghaz.css | 22771 | 5874 |
 | js/i18n.js | 13031 | 4460 |
 | js/storage.js | 9559 | 3354 |
 | js/qrchunk.js | 5082 | 2018 |
 | js/art.js | 7532 | 2111 |
-| js/app.js | 42713 | 11956 |
+| js/app.js | 42940 | 12036 |
 | manifest.webmanifest | 697 | 341 |
-| sw.js | 1859 | 834 |
+| sw.js | 1859 | 833 |
 | js/packs.js | 12512 | 3949 |
 | vendor/qrcode-generator.min.js | 21627 | 8066 |
 | vendor/jsQR.min.js | 130716 | 47144 |

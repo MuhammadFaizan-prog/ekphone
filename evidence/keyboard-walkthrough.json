@@ -1,0 +1,694 @@
+{
+  "test": "keyboard-walkthrough",
+  "pass": true,
+  "started": "2026-11-11T16:47:57.119Z",
+  "finished": "2026-11-11T16:48:02.621Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "first Tab reaches the skip link",
+      "pass": true,
+      "detail": "Skip to main content"
+    },
+    {
+      "step": "focus ring visible on Add a learner",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus moves to the new screen heading",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on name field",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Ayesha name tag",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "opened Ayesha by keyboard",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on Start reading",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on lesson text region",
+      "pass": true,
+      "detail": "dashed 3px"
+    },
+    {
+      "step": "arrow keys move the highlight (sentence 4)",
+      "pass": true
+    },
+    {
+      "step": "End jumps to the last sentence",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on Start practice",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on first answer of question 1",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Check answer",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "feedback announced for question 1",
+      "pass": true
+    },
+    {
+      "step": "focus stays on the action button after checking",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on first answer of question 2",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Check answer",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "feedback announced for question 2",
+      "pass": true
+    },
+    {
+      "step": "focus stays on the action button after checking",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on first answer of question 3",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Check answer",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "feedback announced for question 3",
+      "pass": true
+    },
+    {
+      "step": "focus stays on the action button after checking",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on first answer of question 4",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Check answer",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "feedback announced for question 4",
+      "pass": true
+    },
+    {
+      "step": "focus stays on the action button after checking",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on first answer of question 5",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Check answer",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "feedback announced for question 5",
+      "pass": true
+    },
+    {
+      "step": "focus stays on the action button after checking",
+      "pass": true
+    },
+    {
+      "step": "quiz finished with keyboard only: 5 of 5",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on Urdu toggle",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "Urdu switched by keyboard",
+      "pass": true
+    },
+    {
+      "step": "focus kept on the toggle after re-render",
+      "pass": true
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "step": "every focused button/link showed a ≥2px focus outline",
+      "pass": true,
+      "detail": {
+        "checked": 24
+      }
+    }
+  ],
+  "keyPresses": 58,
+  "log": [
+    {
+      "key": "Tab",
+      "note": "first Tab",
+      "tag": "a",
+      "id": "",
+      "name": "Skip to main content",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "English",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "اردو",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "Add a learner",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "New learner",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "f-name",
+      "name": "Name",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Ayesha\""
+    },
+    {
+      "key": "Enter",
+      "note": "submit form",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Who is studying?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "AyeshaA",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Salaam, Ayesha",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Start reading",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Fractions: Halves and Quarters",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "div",
+      "id": "lesson-text",
+      "name": "Fractions: Halves and Quarters",
+      "ring": true,
+      "outline": "dashed 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "",
+      "tag": "div",
+      "id": "lesson-text",
+      "name": "Fractions: Halves and Quarters",
+      "ring": true,
+      "outline": "dashed 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "",
+      "tag": "div",
+      "id": "lesson-text",
+      "name": "Fractions: Halves and Quarters",
+      "ring": true,
+      "outline": "dashed 3px"
+    },
+    {
+      "key": "ArrowRight",
+      "note": "",
+      "tag": "div",
+      "id": "lesson-text",
+      "name": "Fractions: Halves and Quarters",
+      "ring": true,
+      "outline": "dashed 3px"
+    },
+    {
+      "key": "End",
+      "note": "",
+      "tag": "div",
+      "id": "lesson-text",
+      "name": "Fractions: Halves and Quarters",
+      "ring": true,
+      "outline": "dashed 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "start-quiz",
+      "name": "Start practice",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "legend",
+      "id": "screen-title",
+      "name": "A roti is cut into 4 equal parts. What is one part called?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "q0-0",
+      "name": "One half",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q0-1",
+      "name": "One quarter",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "select",
+      "tag": "input",
+      "id": "q0-1",
+      "name": "One quarter",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Check answer",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "check",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Next question",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "next question",
+      "tag": "legend",
+      "id": "screen-title",
+      "name": "In 3/4, which number is the denominator?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "q1-0",
+      "name": "3",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q1-1",
+      "name": "4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "select",
+      "tag": "input",
+      "id": "q1-1",
+      "name": "4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Check answer",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "check",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Next question",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "next question",
+      "tag": "legend",
+      "id": "screen-title",
+      "name": "Which fraction is the same as 1/2?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "q2-0",
+      "name": "1/4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q2-1",
+      "name": "2/4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "select",
+      "tag": "input",
+      "id": "q2-1",
+      "name": "2/4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Check answer",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "check",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Next question",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "next question",
+      "tag": "legend",
+      "id": "screen-title",
+      "name": "How many quarters make one whole?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "q3-0",
+      "name": "2",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q3-1",
+      "name": "3",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q3-2",
+      "name": "4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "select",
+      "tag": "input",
+      "id": "q3-2",
+      "name": "4",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Check answer",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "check",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Next question",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "next question",
+      "tag": "legend",
+      "id": "screen-title",
+      "name": "A roti is cut into one big piece and one small piece. Is eac",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "q4-0",
+      "name": "Yes, there are two pieces",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "ArrowDown",
+      "note": "move radio",
+      "tag": "input",
+      "id": "q4-1",
+      "name": "No, the pieces are not equal",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "select",
+      "tag": "input",
+      "id": "q4-1",
+      "name": "No, the pieces are not equal",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "Check answer",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "check",
+      "tag": "button",
+      "id": "quiz-action",
+      "name": "See my score",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "see score",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Well done, Ayesha!",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "My lessons",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Try the quiz again",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Read the lesson again",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "name": "(body)"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Skip to main content",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "English",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "اردو",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "اردو",
+      "ring": true,
+      "outline": "solid 3px"
+    }
+  ]
+}
