@@ -1,0 +1,299 @@
+{
+  "test": "axe-en",
+  "pass": true,
+  "started": "2026-11-11T16:34:20.573Z",
+  "finished": "2026-11-11T16:34:39.257Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "01-picker: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "02-add-learner: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "03-pin: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "04-home: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "05-lesson: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "06-lesson-menu: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "07-quiz: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "08-quiz-feedback: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "09-quiz-wrong: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "10-result: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "11-teacher: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "12-share-qr: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "13-receive: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "14-receive-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "zero axe violations on all 14 screens (en)",
+      "pass": true,
+      "detail": {
+        "total": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "axeVersion": "4.14.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "viewport": "360x740 @2x",
+  "results": [
+    {
+      "screen": "01-picker",
+      "url": "/index.html#/",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-01-picker.png"
+    },
+    {
+      "screen": "02-add-learner",
+      "url": "/index.html#/add",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-02-add-learner.png"
+    },
+    {
+      "screen": "03-pin",
+      "url": "/index.html#/pin/wnzwtyws",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-03-pin.png"
+    },
+    {
+      "screen": "04-home",
+      "url": "/index.html#/home",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-04-home.png"
+    },
+    {
+      "screen": "05-lesson",
+      "url": "/index.html#/read/g5-fractions",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-05-lesson.png"
+    },
+    {
+      "screen": "06-lesson-menu",
+      "url": "/index.html#/read/g5-water-cycle",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-06-lesson-menu.png"
+    },
+    {
+      "screen": "07-quiz",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-07-quiz.png"
+    },
+    {
+      "screen": "08-quiz-feedback",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-08-quiz-feedback.png"
+    },
+    {
+      "screen": "09-quiz-wrong",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-09-quiz-wrong.png"
+    },
+    {
+      "screen": "10-result",
+      "url": "/index.html#/result/g5-fractions",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-10-result.png"
+    },
+    {
+      "screen": "11-teacher",
+      "url": "/index.html#/teacher",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-11-teacher.png"
+    },
+    {
+      "screen": "12-share-qr",
+      "url": "/index.html#/share/g5-fractions",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-12-share-qr.png"
+    },
+    {
+      "screen": "13-receive",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-13-receive.png"
+    },
+    {
+      "screen": "14-receive-preview",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-14-receive-preview.png"
+    }
+  ]
+}

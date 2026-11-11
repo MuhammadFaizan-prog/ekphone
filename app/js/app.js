@@ -329,8 +329,8 @@
         h('h1', { class: 'lesson-title', tabindex: '-1', id: 'screen-title' }, rich(L(p.title))),
         artFor(p),
         help, text, counter, note,
-        h('div', { class: 'after-text' }, btn(t('startQuiz'), { href: '#/quiz/' + p.id, kind: 'btn-outline', id: 'start-quiz' }))),
-      h('div', { class: 'toolbar' }, offlineChip(), playBtn, h('span', { class: 'spacer' }), prevBtn, nextBtn));
+        h('div', { class: 'after-text' }, btn(t('startQuiz'), { href: '#/quiz/' + p.id, kind: 'btn-outline', id: 'start-quiz' })),
+        h('div', { class: 'toolbar' }, offlineChip(), playBtn, h('span', { class: 'spacer' }), prevBtn, nextBtn)));
     setTimeout(function () { move(cur, false); }, 0);
     // Hide the speak button entirely only if the browser has no speech engine.
     if (!('speechSynthesis' in window)) { playBtn.disabled = true; setTimeout(function () { showNote('none'); }, 0); }
@@ -401,10 +401,10 @@
     return h('div', { class: 'screen screen-quiz' },
       topbar(backBtn('/read/' + p.id), h('p', { class: 'q-count' }, t('question', { i: st.i + 1, n: qs.length }))),
       h('main', { id: 'main', class: 'page' },
-        h('p', { class: 'kicker' }, rich(L(p.title))),
+        h('h1', { class: 'kicker' }, rich(L(p.title))),
         quizDots(qs, st.answers, st.i),
-        h('form', { class: 'quiz-form', onsubmit: function (e) { e.preventDefault(); action.click(); } }, fs, feedback)),
-      h('div', { class: 'toolbar toolbar--single' }, action));
+        h('form', { class: 'quiz-form', onsubmit: function (e) { e.preventDefault(); action.click(); } }, fs, feedback),
+        h('div', { class: 'toolbar toolbar--single' }, action)));
   };
 
   screens.result = function (packId) {
@@ -435,7 +435,7 @@
       var f = size(p);
       list.appendChild(h('li', { class: 'card packrow' },
         h('p', { class: 'spine-subj' }, (p._imported ? t('received') : t('builtIn')) + ' · ' + (L(p.subject) || '')),
-        h('h3', { class: 'spine-title' }, rich(L(p.title))),
+        h('h2', { class: 'spine-title' }, rich(L(p.title))),
         h('p', { class: 'meta' }, t('sizeLine', { kb: f.kb, mb: f.mb }) + ' · ' + t('sentences', { n: p.sentences.en.length })),
         h('div', { class: 'row' },
           btn(t('shareQR'), { href: '#/share/' + p.id, kind: 'btn-primary btn-small', icon: 'qr' }),
@@ -545,8 +545,8 @@
         dotsWrap,
         h('div', { class: 'row row-center' }, prev, next),
         h('p', { class: 'hint' }, t('qrHelp')),
-        h('p', { class: 'hint hint-strong' }, t('zeroData'))),
-      h('div', { class: 'toolbar toolbar--single' }, pauseBtn));
+        h('p', { class: 'hint hint-strong' }, t('zeroData')),
+        h('div', { class: 'toolbar toolbar--single' }, pauseBtn)));
   };
 
   screens.receive = function () {
