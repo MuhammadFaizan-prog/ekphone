@@ -1,16 +1,16 @@
 {
   "test": "live-check",
   "pass": true,
-  "started": "2026-11-11T18:15:36.101Z",
-  "finished": "2026-11-11T18:15:44.261Z",
+  "started": "2026-11-11T18:33:36.914Z",
+  "finished": "2026-11-11T18:33:45.866Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
       "step": "live site serves the same build as this commit",
       "pass": true,
       "detail": {
-        "live": "ekphone-09c7bfe8e2",
-        "local": "ekphone-09c7bfe8e2"
+        "live": "ekphone-b0bb20cca0",
+        "local": "ekphone-b0bb20cca0"
       }
     },
     {
@@ -38,6 +38,14 @@
       "pass": true,
       "detail": {
         "best": 5
+      }
+    },
+    {
+      "step": "live: QR codes are links into the live app (any camera can open them)",
+      "pass": true,
+      "detail": {
+        "start": "https://ekphone-app.vercel.app/#/r/g5-fractions/1/9/z.691bd3…",
+        "length": 296
       }
     },
     {
@@ -73,8 +81,8 @@
   ],
   "url": "https://ekphone-app.vercel.app/",
   "deploy": {
-    "live": "ekphone-09c7bfe8e2",
-    "local": "ekphone-09c7bfe8e2"
+    "live": "ekphone-b0bb20cca0",
+    "local": "ekphone-b0bb20cca0"
   },
   "axe": [
     {
