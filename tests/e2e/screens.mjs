@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import { AxeBuilder } from '../../tools/axe.mjs';
 import { launch, serve, newPhone, seed, asLearner, fontsReady, recorder, ROOT, EVID } from './common.mjs';
 const lang = process.argv[2] || 'en';
-const R = recorder('axe-' + lang);
+const from = +(process.argv[3] || 0), to = +(process.argv[4] || 99);
+const R = recorder('axe-' + lang + (process.argv[3] ? '-' + from + '-' + to : ''));
 const SHOTS = ROOT + 'screenshots/'; fs.mkdirSync(SHOTS, { recursive: true });
 const { server, url } = await serve();
 const b = await launch();
@@ -31,7 +32,8 @@ try {
     ['13-receive', '/receive', null],
     ['14-receive-preview', null, async () => { await page.setInputFiles('#rx-file', ROOT + 'app/samples/g3-plant-parts.ekpack.json'); await page.waitForSelector('.pv-size'); }]
   ];
-  for (const [name, route, action, who] of screens) {
+  for (const [idx, [name, route, action, who]] of screens.entries()) {
+    if (idx < from || idx >= to) { if (idx < from && action && !route) { /* stateful step skipped */ } continue; }
     if (who) await asLearner(page, who);
     if (route) { await page.goto(url + 'index.html#' + route); await page.waitForTimeout(250); }
     if (action) await action();
