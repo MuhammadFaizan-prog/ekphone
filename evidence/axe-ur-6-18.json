@@ -1,0 +1,259 @@
+{
+  "test": "axe-ur-6-18",
+  "pass": true,
+  "started": "2026-11-11T18:12:08.826Z",
+  "finished": "2026-11-11T18:12:25.564Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "07-quiz: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "08-quiz-feedback: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "09-quiz-wrong: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "10-result: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "11-teacher: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 40
+      }
+    },
+    {
+      "step": "12-share-qr: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "13-receive: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "14-receive-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "15-demo: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "16-write-errors: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "17-write-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "18-write-saved: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "zero axe violations on all 12 screens (ur)",
+      "pass": true,
+      "detail": {
+        "total": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "axeVersion": "4.14.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "viewport": "360x740 @2x",
+  "results": [
+    {
+      "screen": "07-quiz",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-07-quiz.png"
+    },
+    {
+      "screen": "08-quiz-feedback",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-08-quiz-feedback.png"
+    },
+    {
+      "screen": "09-quiz-wrong",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-09-quiz-wrong.png"
+    },
+    {
+      "screen": "10-result",
+      "url": "/index.html#/result/g5-fractions",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-10-result.png"
+    },
+    {
+      "screen": "11-teacher",
+      "url": "/index.html#/teacher",
+      "violations": 0,
+      "passes": 40,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-11-teacher.png"
+    },
+    {
+      "screen": "12-share-qr",
+      "url": "/index.html#/share/g5-fractions",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [],
+      "details": [],
+      "screenshot": "screenshots/ur-12-share-qr.png"
+    },
+    {
+      "screen": "13-receive",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-13-receive.png"
+    },
+    {
+      "screen": "14-receive-preview",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-14-receive-preview.png"
+    },
+    {
+      "screen": "15-demo",
+      "url": "/index.html#/",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-15-demo.png"
+    },
+    {
+      "screen": "16-write-errors",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-16-write-errors.png"
+    },
+    {
+      "screen": "17-write-preview",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-17-write-preview.png"
+    },
+    {
+      "screen": "18-write-saved",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-18-write-saved.png"
+    }
+  ]
+}
