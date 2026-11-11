@@ -94,7 +94,7 @@ try {
   R.check(/KB/.test(await cp.page.locator('.pv-size').textContent()), 'Phone C: pasted codes (any order) rebuild the pack');
   R.check([...a.errors, ...bp.errors, ...cp.errors].length === 0, 'no console errors on any phone', [...a.errors, ...bp.errors, ...cp.errors]);
   // QR code count for every built-in pack (same encoder as the share screen)
-  const counts = await cp.page.evaluate(async () => { if (!window.EkQR) { await new Promise((r) => { const s = document.createElement('script'); s.src = 'js/qrchunk.js'; s.onload = r; document.head.appendChild(s); }); } const out = {}; for (const p of window.EK_BUILTIN) out[p.id] = { bytes: new TextEncoder().encode(JSON.stringify(p)).length, codes: (await window.EkQR.encode(p)).length }; return out; });
+  const counts = await cp.page.evaluate(async () => { if (!window.EkQR) { await new Promise((r) => { const s = document.createElement('script'); s.src = 'js/qrchunk.js'; s.onload = r; document.head.appendChild(s); }); } const out = {}; for (const p of window.EK_BUILTIN) out[p.id] = { bytes: new TextEncoder().encode(JSON.stringify(p)).length, codes: (await window.EkQR.encode(p, { base: location.href.split('#')[0] })).length }; return out; });
   R.ok('QR code count per built-in pack', counts);
   R.save({ chunks: n, decoder: hasBD ? 'BarcodeDetector' : 'jsQR', scanSeconds, scanNetwork: scanNet, packCodes: counts });
 } catch (e) { console.error(e.message); R.save({ error: e.message }); process.exitCode = 1; }

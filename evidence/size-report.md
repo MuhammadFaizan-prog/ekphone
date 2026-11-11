@@ -1,12 +1,12 @@
 # Byte-size report
 
-Generated 2026-11-11T18:12:48.914Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T18:23:33.652Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
-| shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS) | 115.8 KB | 34.3 KB |
+| shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS) | 122.8 KB | 36.3 KB |
 | built-in lesson packs (js/packs.js) | 12.3 KB | 3.9 KB |
-| lazy: QR chunking (share/receive screens only) | 5 KB | 2 KB |
+| lazy: QR chunking (share/receive screens only) | 7.1 KB | 2.7 KB |
 | lazy: lesson writer (Write a lesson screen only) | 10.6 KB | 3.7 KB |
 | lazy: Save as page (lesson menu only) | 4.1 KB | 1.9 KB |
 | static lesson pages (JS-off fallback, not cached) | 22.2 KB | 8.9 KB |
@@ -15,24 +15,24 @@ Generated 2026-11-11T18:12:48.914Z by tools/build.mjs (uncompressed bytes; gzip 
 | Latin fonts (always) | 55.3 KB | 55.3 KB |
 | lazy: Urdu font + css (only when Urdu is on) | 98.6 KB | 97.5 KB |
 | icons | 25.5 KB | 23 KB |
-| **Everything (incl. fonts, icons, lazy parts)** | **498.1 KB** | |
+| **Everything (incl. fonts, icons, lazy parts)** | **507.2 KB** | |
 
-Shell budget ≤150 KB: **PASS** (115.8 KB).
+Shell budget ≤150 KB: **PASS** (122.8 KB).
 
 ## Files
 
 | File | Bytes | gzip |
 |---|---|---|
 | index.html | 15524 | 4914 |
-| css/screens.css | 15339 | 3969 |
-| js/i18n.js | 18276 | 5916 |
+| css/screens.css | 15673 | 4045 |
+| js/i18n.js | 20925 | 6554 |
 | js/storage.js | 11079 | 3805 |
 | js/art.js | 7532 | 2111 |
-| js/app.js | 48285 | 13266 |
+| js/app.js | 52451 | 14580 |
 | manifest.webmanifest | 697 | 341 |
-| sw.js | 1890 | 842 |
+| sw.js | 1890 | 843 |
 | js/packs.js | 12577 | 4005 |
-| js/qrchunk.js | 5082 | 2018 |
+| js/qrchunk.js | 7226 | 2802 |
 | js/author.js | 10892 | 3743 |
 | js/export.js | 4192 | 1990 |
 | lessons/g5-fractions.html | 5902 | 2332 |

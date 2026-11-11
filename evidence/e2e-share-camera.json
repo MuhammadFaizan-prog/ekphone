@@ -1,0 +1,126 @@
+{
+  "test": "e2e-share-camera",
+  "pass": true,
+  "started": "2026-11-11T18:24:28.326Z",
+  "finished": "2026-11-11T18:24:31.442Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "phone A offline, app served by the service worker",
+      "pass": true
+    },
+    {
+      "step": "offline, no share sheet: file saved",
+      "pass": true,
+      "detail": "g5-fractions.ekpack.json"
+    },
+    {
+      "step": "saved file is the full lesson pack",
+      "pass": true
+    },
+    {
+      "step": "success text shown",
+      "pass": true,
+      "detail": "Saved g5-fractions.ekpack.json. Send it with Bluetooth or any app."
+    },
+    {
+      "step": "offline share sheet gets the pack as a text file",
+      "pass": true,
+      "detail": {
+        "n": 1,
+        "name": "g5-water-cycle.ekpack.txt",
+        "type": "text/plain"
+      }
+    },
+    {
+      "step": "share failed -> file saved instead",
+      "pass": true,
+      "detail": "g4-english-sentence.ekpack.json"
+    },
+    {
+      "step": "cancelled share shows a clear message",
+      "pass": true
+    },
+    {
+      "step": "every QR code is a link into the app, ≤300 characters",
+      "pass": true,
+      "detail": {
+        "n": 9,
+        "longest": 296,
+        "first": "http://127.0.0.1:41849/index.html#/r/g5-fractions/1/9/z.691bd3c0.rVfNa…"
+      }
+    },
+    {
+      "step": "caption under the QR: scan in Ek Phone or with any camera",
+      "pass": true
+    },
+    {
+      "step": "offline: first link opened -> \"Got 1 of 9 for G5 fractions\"",
+      "pass": true,
+      "detail": "Got 1 of 9 for G5 fractions"
+    },
+    {
+      "step": "link replaced by the receive screen (reload does not re-add)",
+      "pass": true
+    },
+    {
+      "step": "all links opened (any order, offline) -> size preview",
+      "pass": true,
+      "detail": "This pack is 4.1 KB (0.004 MB)."
+    },
+    {
+      "step": "imported after the last link",
+      "pass": true
+    },
+    {
+      "step": "stored pieces cleared after import",
+      "pass": true
+    },
+    {
+      "step": "pasted links are accepted by the receive screen",
+      "pass": true
+    },
+    {
+      "step": "old EK1 text codes still accepted",
+      "pass": true
+    },
+    {
+      "step": "NotAllowedError -> specific message + Try again",
+      "pass": true,
+      "detail": "Camera permission is off for Ek Phone. Allow the camera in the browser or app settings, then press Try again."
+    },
+    {
+      "step": "NotFoundError -> specific message + Try again",
+      "pass": true,
+      "detail": "No camera was found on this phone. Open a pack file or paste the codes instead."
+    },
+    {
+      "step": "NotReadableError -> specific message + Try again",
+      "pass": true,
+      "detail": "The camera is being used by another app. Close that app, then press Try again."
+    },
+    {
+      "step": "OverconstrainedError -> retried with {video:true}, camera started",
+      "pass": true,
+      "detail": [
+        "{\"video\":{\"facingMode\":{\"ideal\":\"environment\"}},\"audio\":false}",
+        "{\"video\":true,\"audio\":false}"
+      ]
+    },
+    {
+      "step": "error and Try again cleared once the camera runs",
+      "pass": true
+    },
+    {
+      "step": "leaving the screen stops every camera track",
+      "pass": true
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "qrLinks": 9,
+  "longestLink": 296
+}

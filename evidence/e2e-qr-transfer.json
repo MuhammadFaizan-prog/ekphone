@@ -1,8 +1,8 @@
 {
   "test": "e2e-qr-transfer",
   "pass": true,
-  "started": "2026-11-11T18:09:36.349Z",
-  "finished": "2026-11-11T18:09:40.528Z",
+  "started": "2026-11-11T18:23:33.953Z",
+  "finished": "2026-11-11T18:23:45.558Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -15,25 +15,25 @@
       "pass": true
     },
     {
-      "step": "Phone A: pack split into 4 QR codes",
+      "step": "Phone A: pack split into 7 QR codes",
       "pass": true,
       "detail": {
-        "n": 4
+        "n": 7
       }
     },
     {
       "step": "captured Phone A screen as camera video",
       "pass": true,
       "detail": {
-        "frames": 24,
+        "frames": 42,
         "file": "/tmp/ekphone-qr-feed.y4m"
       }
     },
     {
-      "step": "Phone B: all 4 codes scanned in 2.4 s (fake camera shows each code 0.6 s, looping)",
+      "step": "Phone B: all 7 codes scanned in 3.9 s (fake camera shows each code 0.6 s, looping)",
       "pass": true,
       "detail": {
-        "scanSeconds": 2.4,
+        "scanSeconds": 3.9,
         "scanNet": {
           "requests": [
             "/vendor/jsQR.min.js"
@@ -47,7 +47,7 @@
       "step": "Phone B: camera scan collected all codes",
       "pass": true,
       "detail": {
-        "status": "Got 4 of 4 codes",
+        "status": "Got 7 of 7 for G3 plant parts",
         "decoder": "jsQR (vendored)"
       }
     },
@@ -102,9 +102,9 @@
       }
     }
   ],
-  "chunks": 4,
+  "chunks": 7,
   "decoder": "jsQR",
-  "scanSeconds": 2.4,
+  "scanSeconds": 3.9,
   "scanNetwork": {
     "requests": [
       "/vendor/jsQR.min.js"
