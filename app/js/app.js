@@ -474,13 +474,15 @@
     var list = h('ul', { class: 'packlist', role: 'list' });
     allPacks().forEach(function (p) {
       var f = size(p);
+      var out = h('p', { class: 'file-msg', role: 'status', id: 'file-msg-' + p.id });
       list.appendChild(h('li', { class: 'card packrow' },
         h('p', { class: 'spine-subj' }, (mine.indexOf(p.id) >= 0 ? t('writtenHere') : p._imported ? t('received') : t('builtIn')) + ' · ' + (L(p.subject) || '')),
         h('h2', { class: 'spine-title' }, rich(L(p.title))),
         h('p', { class: 'meta' }, t('sizeLine', { kb: f.kb, mb: f.mb }) + ' · ' + t('sentences', { n: p.sentences.en.length })),
         h('div', { class: 'row' },
           btn(t('shareQR'), { href: '#/share/' + p.id, kind: 'btn-primary btn-small', icon: 'qr' }),
-          btn(t('shareFile'), { kind: 'btn-outline btn-small', icon: 'file', onclick: function () { shareFile(p); } }))));
+          btn(t('shareFile'), { kind: 'btn-outline btn-small', icon: 'file', id: 'file-' + p.id, onclick: function () { shareFile(p, out); } })),
+        out));
     });
     var learners = h('ul', { class: 'learners', role: 'list' });
     store.listProfiles().forEach(function (pr) {
@@ -493,19 +495,28 @@
       fetch('fonts/nastaliq-urdu-subset.woff2').then(function (r) { if (!r.ok) throw 0; fontStatus.textContent = t('urduFontSaved'); }).catch(function () { fontStatus.textContent = t('cameraOff').split('.')[0]; });
     } });
     var fileMsg = h('p', { class: 'hint', role: 'status', id: 'file-msg' });
-    function shareFile(p) {
+    /** Works offline: Web Share with a file when the phone allows it, else (or if sharing fails) save the file. */
+    function shareFile(p, out) {
       var json = JSON.stringify(cleanPack(p));
       var fname = p.id + '.ekpack.json';
-      var file = null;
-      try { file = new File([json], fname, { type: 'application/json' }); } catch (e) { /* old browsers */ }
-      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
-        navigator.share({ files: [file], title: L(p.title) }).then(function () { fileMsg.textContent = t('fileSent'); }).catch(function () {});
-        return;
+      function say(msg, ok) { out.textContent = msg; out.className = 'file-msg ' + (ok ? 'file-msg--ok' : 'file-msg--bad'); }
+      function save() {
+        try {
+          var url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
+          var a = h('a', { href: url, download: fname }); document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+          say(t('fileDownloaded', { file: fname }), true);
+        } catch (e) { say(t('fileFailed'), false); }
       }
-      var url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
-      var a = h('a', { href: url, download: fname }); document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-      fileMsg.textContent = t('fileDownloaded', { file: fname });
+      var files = null;
+      // Android share sheets accept text files; .json is often refused, so the shared copy is .ekpack.txt (same content).
+      try { files = [new File([json], p.id + '.ekpack.txt', { type: 'text/plain' })]; } catch (e) { files = null; }
+      var can = false;
+      try { can = !!(files && navigator.share && navigator.canShare && navigator.canShare({ files: files })); } catch (e) { can = false; }
+      if (!can) { save(); return; }
+      navigator.share({ files: files, title: L(p.title) }).then(function () { say(t('fileSent'), true); }).catch(function (err) {
+        if (err && err.name === 'AbortError') say(t('fileCancelled'), false); else save();
+      });
     }
     return h('div', { class: 'screen screen-teacher' },
       topbar(backBtn('/'), langToggle()),
@@ -562,6 +573,24 @@
     return ul;
   }
 
+  /** Address of this app, used as the start of every QR link (works on the live site and on a local copy). */
+  function appBase() { return location.href.split('#')[0]; }
+  var RX_KEY = 'ekphone:v1:rx';
+  function getPending() { try { return JSON.parse(localStorage.getItem(RX_KEY)); } catch (e) { return null; } }
+  function setPending(st) { try { if (st) localStorage.setItem(RX_KEY, JSON.stringify(st)); else localStorage.removeItem(RX_KEY); } catch (e) { /* storage full */ } }
+  /** A QR link opened by any camera app: #/r/<packId>/<i>/<n>/<data>. Store the piece, then show the receive screen. */
+  screens.r = function () {
+    var href = location.href, c = QR.parse(href);
+    if (c) {
+      var saved = getPending();
+      var asm = QR.createAssembler(saved && saved.sum === c.sum ? saved : null);
+      asm.add(href);
+      setPending(asm.toState());
+    }
+    go('/receive', true);
+    return null;
+  };
+
   /** QR chunking code loads only for the share and receive screens. */
   function needQR(fn) {
     return function (arg) {
@@ -595,7 +624,7 @@
     }
     function schedule() { clearTimeout(timer); if (playing && chunks.length > 1) timer = setTimeout(function () { show(idx + 1); }, 2000); }
     cleanup.push(function () { clearTimeout(timer); });
-    Promise.all([loadScript('vendor/qrcode-generator.min.js'), QR.encode(cleanPack(p))]).then(function (r) {
+    Promise.all([loadScript('vendor/qrcode-generator.min.js'), QR.encode(cleanPack(p), { base: appBase() })]).then(function (r) {
       chunks = r[1];
       dotsWrap.appendChild(chunkDots(chunks.length, t('qrDots')));
       if (chunks.length < 2) { pauseBtn.hidden = true; prev.hidden = true; next.hidden = true; }
@@ -612,6 +641,7 @@
         label,
         dotsWrap,
         h('div', { class: 'row row-center' }, prev, next),
+        h('p', { class: 'qr-caption', id: 'qr-caption' }, t('qrAnyCamera')),
         h('p', { class: 'hint' }, t('qrHelp')),
         h('p', { class: 'hint hint-strong' }, t('zeroData')),
         h('div', { class: 'toolbar toolbar--single' }, pauseBtn)));
@@ -620,7 +650,7 @@
   screens.share = needQR(screens.share);
 
   screens.receive = function () {
-    var asm = QR.createAssembler();
+    var asm = QR.createAssembler(getPending());
     var status = h('p', { class: 'status', role: 'status', id: 'rx-status' });
     var dotsWrap = h('div', { class: 'dots-wrap' });
     var preview = h('div', { class: 'preview', id: 'rx-preview' });
@@ -629,7 +659,10 @@
     var camBox = h('div', { class: 'cam-frame', hidden: true }, video);
     var stream = null, scanTimer = null, detector = null, busy = false;
     var scanBtn = btn(t('scanQR'), { icon: 'camera', id: 'rx-scan', onclick: function () { if (stream) stopCam(); else startCam(); } });
-    var fileInput = h('input', { type: 'file', id: 'rx-file', accept: '.json,application/json,.ekpack', class: 'sr-file', onchange: function () {
+    var camErr = h('p', { class: 'error', id: 'rx-cam-err', role: 'alert' });
+    var retryBtn = btn(t('camRetry'), { kind: 'btn-outline btn-small', id: 'rx-retry', onclick: function () { startCam(); } });
+    retryBtn.hidden = true;
+    var fileInput = h('input', { type: 'file', id: 'rx-file', accept: '.json,application/json,.ekpack,.txt,text/plain', class: 'sr-file', onchange: function () {
       var file = fileInput.files && fileInput.files[0]; if (!file) return;
       file.text().then(function (txt) { handleJSON(txt); });
     } });
@@ -650,11 +683,17 @@
       Array.prototype.forEach.call(ul.children, function (d, k) { if (asm.have(k + 1)) d.classList.add('cdot--seen'); });
       dotsWrap.appendChild(ul);
     }
+    function progressText() { return asm.id() ? t('gotFor', { r: asm.received(), n: asm.total(), title: QR.labelFromId(asm.id()) }) : t('gotCodes', { r: asm.received(), n: asm.total() }); }
+    function finishIfDone() {
+      if (!asm.complete()) return;
+      stopCam();
+      asm.finish().then(handleJSON).catch(function () { status.textContent = t('badPack'); asm.reset(); setPending(null); renderDots(); });
+    }
     function feed(text) {
       var r = asm.add(text);
       if (!r.accepted) { if (r.reason === 'other-pack') status.textContent = t('otherPack'); return; }
-      if (!r.duplicate) { status.textContent = t('gotCodes', { r: r.received, n: r.total }); renderDots(); }
-      if (asm.complete()) { stopCam(); asm.finish().then(handleJSON).catch(function () { status.textContent = t('badPack'); asm.reset(); renderDots(); }); }
+      if (!r.duplicate) { setPending(asm.toState()); status.textContent = progressText(); renderDots(); }
+      finishIfDone();
     }
     function handleJSON(txt) {
       var pack;
@@ -668,22 +707,38 @@
         h('p', { class: 'meta' }, rich(t('previewInfo', { title: L(pack.title), n: pack.sentences.en.length, q: pack.quiz.length }))),
         h('div', { class: 'row' },
           btn(t('loadPack'), { id: 'rx-load', onclick: function () {
-            store.importPack(pack);
+            store.importPack(pack); setPending(null); asm.reset();
             preview.replaceChildren(h('p', { class: 'success', tabindex: '-1', id: 'rx-done' }, icon('tick'), h('span', null, t('packLoaded', { title: L(pack.title) }))), btn(t('teacherTitle'), { href: '#/teacher', kind: 'btn-outline' }));
             document.getElementById('rx-done').focus();
           } }),
-          btn(t('startAgain'), { kind: 'btn-outline', onclick: function () { asm.reset(); renderDots(); preview.replaceChildren(); status.textContent = ''; } }))));
+          btn(t('startAgain'), { kind: 'btn-outline', onclick: function () { asm.reset(); setPending(null); renderDots(); preview.replaceChildren(); status.textContent = ''; } }))));
       preview.querySelector('#pv-h').focus();
     }
+    /** Specific message for each camera failure (error names from the Media Capture spec). */
+    function camMessage(err) {
+      var n = err && err.name;
+      if (n === 'NotAllowedError' || n === 'SecurityError' || n === 'PermissionDeniedError') return t('camAllow');
+      if (n === 'NotFoundError' || n === 'DevicesNotFoundError') return t('camNone');
+      if (n === 'NotReadableError' || n === 'TrackStartError' || n === 'AbortError') return t('camBusy');
+      if (n === 'OverconstrainedError' || n === 'ConstraintNotSatisfiedError') return t('camConstraint');
+      return t('cameraOff');
+    }
+    function camFailed(msg) { camErr.textContent = msg; retryBtn.hidden = false; status.textContent = ''; camBox.hidden = true; }
     function startCam() {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { status.textContent = t('cameraOff'); return; }
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false }).then(function (s) {
+      camErr.textContent = ''; retryBtn.hidden = true;
+      if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { camFailed(t('camUnsupported')); return; }
+      var md = navigator.mediaDevices;
+      // Back camera first; if that setup fails (no back camera, busy, constraint), try any camera once.
+      md.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false }).catch(function (err) {
+        if (err && (err.name === 'NotAllowedError' || err.name === 'SecurityError')) throw err;
+        return md.getUserMedia({ video: true, audio: false });
+      }).then(function (s) {
         stream = s; video.srcObject = s; camBox.hidden = false; video.play().catch(function () {});
         scanBtn.querySelector('span:last-child').textContent = t('stopScan');
-        status.textContent = t('scanning');
+        status.textContent = asm.total() ? progressText() : t('scanning');
         var setup = ('BarcodeDetector' in window) ? window.BarcodeDetector.getSupportedFormats().then(function (f) { if (f.indexOf('qr_code') >= 0) detector = new window.BarcodeDetector({ formats: ['qr_code'] }); }).catch(function () {}) : Promise.resolve();
         setup.then(function () { return detector ? null : loadScript('vendor/jsQR.min.js'); }).then(tick);
-      }).catch(function () { status.textContent = t('cameraOff'); });
+      }).catch(function (err) { camFailed(camMessage(err)); });
     }
     var work = document.createElement('canvas');
     function tick() {
@@ -707,17 +762,23 @@
       stream = null; camBox.hidden = true;
       var sp = scanBtn.querySelector('span:last-child'); if (sp) sp.textContent = t('scanQR');
     }
-    cleanup.push(stopCam);
+    function onHide() { if (document.hidden) stopCam(); }
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', stopCam);
+    cleanup.push(function () { stopCam(); document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', stopCam); });
+    // pieces that arrived earlier (links opened by the phone's camera app, or an earlier scan)
+    if (asm.total()) { setTimeout(function () { renderDots(); status.textContent = progressText(); finishIfDone(); }, 0); }
     return h('div', { class: 'screen screen-receive' },
       topbar(backBtn('/teacher'), langToggle()),
       h('main', { id: 'main', class: 'page' },
         underlined('h1', t('receiveTitle')),
-        h('div', { class: 'stack' }, scanBtn, camBox, dotsWrap, status, fileInput, fileLabel),
+        h('div', { class: 'stack' }, scanBtn, camErr, retryBtn, camBox, dotsWrap, status, h('p', { class: 'hint' }, t('rxAnyCamera')), fileInput, fileLabel),
         h('label', { for: 'rx-paste', class: 'label' }, t('pasteLabel')), paste, pasteBtn,
         preview));
   };
 
   screens.receive = needQR(screens.receive);
+  screens.r = needQR(screens.r);
 
   /* ---------- router ---------- */
   function render(keepFocus) {
