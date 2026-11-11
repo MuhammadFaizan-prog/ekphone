@@ -1,6 +1,6 @@
 {
   "test": "responsive",
-  "generated": "2026-11-11T18:31:45.493Z",
+  "generated": "2026-11-11T18:32:09.696Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "views": [
     "320 phone",
@@ -1380,7 +1380,7 @@
       },
       {
         "screen": "03-pin",
-        "route": "/pin/7gjthirp",
+        "route": "/pin/r9pd4id5",
         "results": [
           {
             "view": "320 phone",
