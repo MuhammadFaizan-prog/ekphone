@@ -1,15 +1,15 @@
 {
   "test": "e2e-offline",
   "pass": true,
-  "started": "2026-11-11T18:02:46.374Z",
-  "finished": "2026-11-11T18:02:48.653Z",
+  "started": "2026-11-11T18:10:18.391Z",
+  "finished": "2026-11-11T18:10:21.676Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
       "step": "service worker precached the app",
       "pass": true,
       "detail": {
-        "name": "ekphone-fff1901128",
+        "name": "ekphone-d678bdb777",
         "count": 23
       }
     },
@@ -42,7 +42,7 @@
         "best": 5,
         "last": 5,
         "attempts": 1,
-        "updated": 1794420168091,
+        "updated": 1794420620629,
         "total": 5,
         "doneDay": "Wed Nov 11 2026"
       }
@@ -64,9 +64,37 @@
       "pass": true
     },
     {
+      "step": "Write a lesson screen works offline (lazy code precached)",
+      "pass": true
+    },
+    {
+      "step": "Try the demo works offline",
+      "pass": true
+    },
+    {
+      "step": "offline run: 0 app requests reached the network (26 answered by the service worker cache; browser sw.js update checks: 1)",
+      "pass": true,
+      "detail": {
+        "fromCache": 26,
+        "networkAttempts": [],
+        "serverHits": 1,
+        "serverUrls": [
+          "/sw.js"
+        ]
+      }
+    },
+    {
       "step": "no console errors offline",
       "pass": true,
       "detail": []
     }
-  ]
+  ],
+  "offlineRequests": {
+    "fromServiceWorkerCache": 26,
+    "appRequestsToNetwork": 0,
+    "browserSwUpdateChecks": 1,
+    "serverUrls": [
+      "/sw.js"
+    ]
+  }
 }

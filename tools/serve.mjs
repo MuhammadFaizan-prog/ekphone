@@ -17,7 +17,7 @@ export function serve(port = 0) {
     const headers = { 'content-type': type, 'cache-control': 'no-cache', vary: 'accept-encoding' };
     if (/text|json|javascript|svg|manifest/.test(type) && /gzip/.test(req.headers['accept-encoding'] || '')) { body = zlib.gzipSync(body, { level: 9 }); headers['content-encoding'] = 'gzip'; }
     headers['content-length'] = body.length;
-    serve.hits = (serve.hits || 0) + 1; serve.bytes = (serve.bytes || 0) + body.length;
+    serve.hits = (serve.hits || 0) + 1; serve.bytes = (serve.bytes || 0) + body.length; (serve.log = serve.log || []).push(p);
     res.writeHead(200, headers);
     res.end(body);
   });

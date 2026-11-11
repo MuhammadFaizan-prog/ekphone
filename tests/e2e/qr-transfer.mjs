@@ -58,8 +58,16 @@ try {
   await bp.page.evaluate(() => localStorage.clear());
   await bp.page.reload();
   const hasBD = await bp.page.evaluate(() => 'BarcodeDetector' in window);
+  // Measure: time from pressing Scan to the pack preview, and every request made while scanning.
+  const scanReqs = [];
+  bp.ctx.on('request', (r) => scanReqs.push(r.url().replace(url, '/')));
+  const hits0 = serve.hits || 0, bytes0 = serve.bytes || 0;
+  const t0 = Date.now();
   await bp.page.getByRole('button', { name: 'Scan QR codes with camera' }).click();
   await bp.page.waitForSelector('.pv-size', { timeout: 45000 });
+  const scanSeconds = +((Date.now() - t0) / 1000).toFixed(1);
+  const scanNet = { requests: scanReqs, serverHits: (serve.hits || 0) - hits0, serverBytes: (serve.bytes || 0) - bytes0 };
+  R.ok('Phone B: all ' + n + ' codes scanned in ' + scanSeconds + ' s (fake camera shows each code 0.6 s, looping)', { scanSeconds, scanNet });
   const status = await bp.page.locator('#rx-status').textContent();
   R.check(true, 'Phone B: camera scan collected all codes', { status, decoder: hasBD ? 'BarcodeDetector' : 'jsQR (vendored)' });
   const pvB = await bp.page.locator('.pv-size').textContent();
@@ -85,6 +93,9 @@ try {
   await cp.page.getByRole('button', { name: 'Read pasted code' }).click();
   R.check(/KB/.test(await cp.page.locator('.pv-size').textContent()), 'Phone C: pasted codes (any order) rebuild the pack');
   R.check([...a.errors, ...bp.errors, ...cp.errors].length === 0, 'no console errors on any phone', [...a.errors, ...bp.errors, ...cp.errors]);
-  R.save({ chunks: n, decoder: hasBD ? 'BarcodeDetector' : 'jsQR' });
+  // QR code count for every built-in pack (same encoder as the share screen)
+  const counts = await cp.page.evaluate(async () => { if (!window.EkQR) { await new Promise((r) => { const s = document.createElement('script'); s.src = 'js/qrchunk.js'; s.onload = r; document.head.appendChild(s); }); } const out = {}; for (const p of window.EK_BUILTIN) out[p.id] = { bytes: new TextEncoder().encode(JSON.stringify(p)).length, codes: (await window.EkQR.encode(p)).length }; return out; });
+  R.ok('QR code count per built-in pack', counts);
+  R.save({ chunks: n, decoder: hasBD ? 'BarcodeDetector' : 'jsQR', scanSeconds, scanNetwork: scanNet, packCodes: counts });
 } catch (e) { console.error(e.message); R.save({ error: e.message }); process.exitCode = 1; }
 finally { if (A) await A.close(); if (B) await B.close(); server.close(); }

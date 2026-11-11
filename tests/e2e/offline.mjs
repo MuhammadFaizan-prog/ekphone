@@ -18,7 +18,18 @@ try {
   await page.getByRole('button', { name: 'English' }).click();
   await page.evaluate(async () => { await window.EkApp.store.addProfile('Zara', ''); });
 
-  await ctx.setOffline(true);
+  // From here on, every request is logged: served by the service worker cache, or an attempt to use the network.
+  const net = { fromCache: 0, networkAttempts: [], serverHitsBefore: serve.hits || 0 };
+  let offline = false;
+  const track = async (r) => {
+    if (!offline || !/^https?:/.test(r.url())) return;
+    if (r.serviceWorker()) { net.networkAttempts.push('sw-fetch ' + r.url()); return; }
+    const resp = await r.response().catch(() => null);
+    if (resp && resp.fromServiceWorker()) net.fromCache++; else net.networkAttempts.push(r.url());
+  };
+  ctx.on('requestfinished', track); ctx.on('requestfailed', track);
+  await ctx.setOffline(true); offline = true;
+  await page.waitForTimeout(500); net.serverHitsBefore = serve.hits || 0; // let any request already in flight finish first
   R.check(await page.evaluate(() => !navigator.onLine), 'browser is offline (navigator.onLine=false)');
   await page.reload();
   R.check(await page.getByRole('heading', { name: 'Who is studying?' }).isVisible(), 'app reloads with no network');
@@ -51,8 +62,24 @@ try {
   await page.goto(url + 'index.html#/share/g5-water-cycle');
   await page.waitForSelector('#qr-canvas[data-chunk]');
   R.check(true, 'QR share screen works offline (encoder precached)');
+  await page.goto(url + 'index.html#/write');
+  await page.waitForSelector('#w-title');
+  R.check(true, 'Write a lesson screen works offline (lazy code precached)');
+  await page.goto(url + 'index.html#/');
+  await page.evaluate(() => localStorage.removeItem('ekphone:v1:profiles'));
+  await page.reload();
+  await page.getByRole('button', { name: 'Try the demo' }).click();
+  await page.waitForSelector('.tag');
+  R.check(await page.locator('.tag').count() === 4, 'Try the demo works offline');
+  await page.waitForTimeout(300);
+  net.serverHits = (serve.hits || 0) - net.serverHitsBefore; net.serverUrls = (serve.log || []).slice(net.serverHitsBefore);
+  // Chromium's offline emulation does not cover the browser's own service-worker update check (GET /sw.js).
+  // It is listed separately; on a real phone in airplane mode that check simply fails and nothing changes.
+  net.swUpdateChecks = net.serverUrls.filter((u) => u === '/sw.js').length;
+  const appHits = net.serverUrls.filter((u) => u !== '/sw.js');
+  R.check(net.networkAttempts.length === 0 && appHits.length === 0, 'offline run: 0 app requests reached the network (' + net.fromCache + ' answered by the service worker cache; browser sw.js update checks: ' + net.swUpdateChecks + ')', { fromCache: net.fromCache, networkAttempts: net.networkAttempts, serverHits: net.serverHits, serverUrls: net.serverUrls });
   const failed = errors.filter((e) => !/ERR_INTERNET_DISCONNECTED/.test(e));
   R.check(failed.length === 0, 'no console errors offline', failed);
-  R.save();
+  R.save({ offlineRequests: { fromServiceWorkerCache: net.fromCache, appRequestsToNetwork: net.networkAttempts.length + net.serverUrls.filter((u) => u !== '/sw.js').length, browserSwUpdateChecks: net.swUpdateChecks, serverUrls: net.serverUrls } });
 } catch (e) { console.error(e.message); R.save({ error: e.message }); process.exitCode = 1; }
 finally { await b.close(); server.close(); }

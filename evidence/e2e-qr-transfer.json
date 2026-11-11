@@ -1,8 +1,8 @@
 {
   "test": "e2e-qr-transfer",
   "pass": true,
-  "started": "2026-11-11T16:59:38.353Z",
-  "finished": "2026-11-11T16:59:43.242Z",
+  "started": "2026-11-11T18:09:36.349Z",
+  "finished": "2026-11-11T18:09:40.528Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -27,6 +27,20 @@
       "detail": {
         "frames": 24,
         "file": "/tmp/ekphone-qr-feed.y4m"
+      }
+    },
+    {
+      "step": "Phone B: all 4 codes scanned in 2.4 s (fake camera shows each code 0.6 s, looping)",
+      "pass": true,
+      "detail": {
+        "scanSeconds": 2.4,
+        "scanNet": {
+          "requests": [
+            "/vendor/jsQR.min.js"
+          ],
+          "serverHits": 0,
+          "serverBytes": 0
+        }
       }
     },
     {
@@ -68,8 +82,48 @@
       "step": "no console errors on any phone",
       "pass": true,
       "detail": []
+    },
+    {
+      "step": "QR code count per built-in pack",
+      "pass": true,
+      "detail": {
+        "g5-fractions": {
+          "bytes": 4193,
+          "codes": 6
+        },
+        "g5-water-cycle": {
+          "bytes": 4285,
+          "codes": 7
+        },
+        "g4-english-sentence": {
+          "bytes": 3934,
+          "codes": 6
+        }
+      }
     }
   ],
   "chunks": 4,
-  "decoder": "jsQR"
+  "decoder": "jsQR",
+  "scanSeconds": 2.4,
+  "scanNetwork": {
+    "requests": [
+      "/vendor/jsQR.min.js"
+    ],
+    "serverHits": 0,
+    "serverBytes": 0
+  },
+  "packCodes": {
+    "g5-fractions": {
+      "bytes": 4193,
+      "codes": 6
+    },
+    "g5-water-cycle": {
+      "bytes": 4285,
+      "codes": 7
+    },
+    "g4-english-sentence": {
+      "bytes": 3934,
+      "codes": 6
+    }
+  }
 }
