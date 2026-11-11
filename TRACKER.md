@@ -18,5 +18,5 @@ Build window: Oct 17 to Nov 20, 2026 (Devpost). All work below was done on Nov 1
 | Deploy demo + fill https://ekphone-app.vercel.app | **Open** (Faizi) | |
 | Demo video | **Open** (Faizi) | |
 | Real-phone test (low-end Android, real voices, two cameras) | **Open** (Faizi) | |
-| Fill [FAIZI: …] slots in README and devpost-story.md | **Open** (Faizi) | |
+| Remove [FAIZI: …] placeholders from README and devpost-story.md (nothing personal added) | **Done** | 2026-11-11 |
 | Perf: inline critical CSS to lift Lighthouse Perf above 80 | Optional | |
