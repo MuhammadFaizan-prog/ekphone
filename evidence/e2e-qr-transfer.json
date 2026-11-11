@@ -1,8 +1,8 @@
 {
   "test": "e2e-qr-transfer",
-  "pass": false,
-  "started": "2026-11-11T16:26:41.852Z",
-  "finished": "2026-11-11T16:26:47.999Z",
+  "pass": true,
+  "started": "2026-11-11T16:32:15.352Z",
+  "finished": "2026-11-11T16:32:25.126Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -15,17 +15,17 @@
       "pass": true
     },
     {
-      "step": "Phone A: pack split into 5 QR codes",
+      "step": "Phone A: pack split into 4 QR codes",
       "pass": true,
       "detail": {
-        "n": 5
+        "n": 4
       }
     },
     {
       "step": "captured Phone A screen as camera video",
       "pass": true,
       "detail": {
-        "frames": 30,
+        "frames": 24,
         "file": "/tmp/ekphone-qr-feed.y4m"
       }
     },
@@ -33,7 +33,7 @@
       "step": "Phone B: camera scan collected all codes",
       "pass": true,
       "detail": {
-        "status": "Got 5 of 5 codes",
+        "status": "Got 4 of 4 codes",
         "decoder": "jsQR (vendored)"
       }
     },
@@ -54,8 +54,22 @@
     },
     {
       "step": "Phone B: pack is byte-identical to the original",
-      "pass": false
+      "pass": true
+    },
+    {
+      "step": "Phone B: pack appears on a learner's shelf",
+      "pass": true
+    },
+    {
+      "step": "Phone C: pasted codes (any order) rebuild the pack",
+      "pass": true
+    },
+    {
+      "step": "no console errors on any phone",
+      "pass": true,
+      "detail": []
     }
   ],
-  "error": "FAILED: Phone B: pack is byte-identical to the original \"\""
+  "chunks": 4,
+  "decoder": "jsQR"
 }
