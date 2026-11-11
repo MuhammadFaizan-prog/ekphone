@@ -43,6 +43,11 @@ try {
   await page.waitForTimeout(300);
   const urduFont = await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('20px "Noto Nastaliq Urdu"', 'کسر'); });
   R.check(urduFont, 'Urdu Nastaliq font works offline (cached on first use)');
+  await page.getByRole('button', { name: 'English' }).click();
+  await page.goto(url + 'index.html#/teacher');
+  const fontLabel = await page.locator('button', { hasText: 'Save Urdu font' }).textContent();
+  const realKb = await page.evaluate(async () => { const r = await fetch('fonts/nastaliq-urdu-subset.woff2'); return ((await r.arrayBuffer()).byteLength / 1024).toFixed(1); });
+  R.check(fontLabel.includes('(' + realKb + ' KB)'), 'Save Urdu font button shows the real font file size', { fontLabel, realKb });
   await page.goto(url + 'index.html#/share/g5-water-cycle');
   await page.waitForSelector('#qr-canvas[data-chunk]');
   R.check(true, 'QR share screen works offline (encoder precached)');

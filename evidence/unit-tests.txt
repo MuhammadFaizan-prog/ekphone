@@ -1,14 +1,14 @@
-✔ profiles: add, duplicate, limit, clean name (6.509369ms)
-✔ PIN: hashed (never stored plain), checked, lockout after 5 wrong tries (8.42917ms)
-✔ progress is kept per child and removed with the child (2.292645ms)
-✔ today's pack: first not mastered, then rotates by day (0.638655ms)
-✔ all shipped packs are valid, bilingual and 5 questions (1.271325ms)
-✔ pack validation rejects bad packs (4.875218ms)
-✔ formatSize shows KB and MB (0.348041ms)
-✔ QR chunks: encode -> shuffle + duplicates -> assemble -> identical pack (compressed) (60.346977ms)
-✔ QR chunks: raw mode, other-pack rejection, corrupt data detected (9.689418ms)
-✔ QR chunks survive a real QR encode (qrcode-generator) and decode (jsQR) (285.991406ms)
-✔ i18n: every English key has an Urdu string; placeholders match (2.760011ms)
+✔ profiles: add, duplicate, limit, clean name (4.980323ms)
+✔ PIN: hashed (never stored plain), checked, lockout after 5 wrong tries (10.571208ms)
+✔ progress is kept per child and removed with the child (1.631426ms)
+✔ today's pack: first not mastered, then rotates by day (0.401958ms)
+✔ all shipped packs are valid, bilingual and 5 questions (0.798826ms)
+✔ pack validation rejects bad packs (4.068312ms)
+✔ formatSize shows KB and MB (0.227143ms)
+✔ QR chunks: encode -> shuffle + duplicates -> assemble -> identical pack (compressed) (82.065209ms)
+✔ QR chunks: raw mode, other-pack rejection, corrupt data detected (13.010133ms)
+✔ QR chunks survive a real QR encode (qrcode-generator) and decode (jsQR) (329.116989ms)
+✔ i18n: every English key has an Urdu string; placeholders match (1.764874ms)
 ℹ tests 11
 ℹ suites 0
 ℹ pass 11
@@ -16,4 +16,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 501.901024
+ℹ duration_ms 566.256024

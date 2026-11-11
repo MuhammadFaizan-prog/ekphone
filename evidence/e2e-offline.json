@@ -1,15 +1,15 @@
 {
   "test": "e2e-offline",
   "pass": true,
-  "started": "2026-11-11T16:49:37.278Z",
-  "finished": "2026-11-11T16:49:39.533Z",
+  "started": "2026-11-11T16:59:23.340Z",
+  "finished": "2026-11-11T16:59:26.918Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
       "step": "service worker precached the app",
       "pass": true,
       "detail": {
-        "name": "ekphone-e600c411e7",
+        "name": "ekphone-9ba2f572cb",
         "count": 21
       }
     },
@@ -42,7 +42,7 @@
         "best": 5,
         "last": 5,
         "attempts": 1,
-        "updated": 1794415779014,
+        "updated": 1794416366292,
         "total": 5,
         "doneDay": "Wed Nov 11 2026"
       }
@@ -50,6 +50,14 @@
     {
       "step": "Urdu Nastaliq font works offline (cached on first use)",
       "pass": true
+    },
+    {
+      "step": "Save Urdu font button shows the real font file size",
+      "pass": true,
+      "detail": {
+        "fontLabel": "Save Urdu font (98.2 KB)",
+        "realKb": "98.2"
+      }
     },
     {
       "step": "QR share screen works offline (encoder precached)",

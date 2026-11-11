@@ -1,17 +1,17 @@
 {
-  "generated": "2026-11-11T16:48:59.102Z",
-  "version": "e600c411e7",
+  "generated": "2026-11-11T16:59:22.382Z",
+  "version": "9ba2f572cb",
   "groups": {
     "shell (first screen: HTML+CSS+own JS)": {
-      "bytes": 105066,
-      "gzip": 31769,
-      "kb": 102.6,
-      "gzipKb": 31
+      "bytes": 105185,
+      "gzip": 31818,
+      "kb": 102.7,
+      "gzipKb": 31.1
     },
     "built-in lesson packs (js/packs.js)": {
-      "bytes": 12512,
-      "gzip": 3949,
-      "kb": 12.2,
+      "bytes": 12577,
+      "gzip": 4005,
+      "kb": 12.3,
       "gzipKb": 3.9
     },
     "lazy: QR encoder (share screen only)": {
@@ -71,8 +71,8 @@
       "gzip": 2111
     },
     "js/app.js": {
-      "bytes": 42940,
-      "gzip": 12036
+      "bytes": 43059,
+      "gzip": 12084
     },
     "manifest.webmanifest": {
       "bytes": 697,
@@ -80,11 +80,11 @@
     },
     "sw.js": {
       "bytes": 1859,
-      "gzip": 833
+      "gzip": 834
     },
     "js/packs.js": {
-      "bytes": 12512,
-      "gzip": 3949
+      "bytes": 12577,
+      "gzip": 4005
     },
     "vendor/qrcode-generator.min.js": {
       "bytes": 21627,
@@ -140,11 +140,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 453605,
-  "totalKb": 443,
+  "totalBytesEverything": 453789,
+  "totalKb": 443.2,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 105066,
+    "shellBytes": 105185,
     "pass": true
   }
 }

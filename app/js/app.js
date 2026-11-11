@@ -447,7 +447,8 @@
         h('button', { type: 'button', class: 'btn btn-link btn-small', 'aria-label': t('remove') + ' ' + pr.name, onclick: function () { if (confirm(t('confirmRemove', { name: pr.name }))) { store.removeProfile(pr.id); render(true); } } }, t('remove'))));
     });
     var fontStatus = h('p', { class: 'hint', role: 'status' });
-    var fontBtn = btn(t('urduFontSave', { kb: 98 }), { kind: 'btn-outline btn-small', onclick: function () {
+    var fontBytes = (window.EK_ASSET_BYTES || {})['fonts/nastaliq-urdu-subset.woff2'] || 0;
+    var fontBtn = btn(t('urduFontSave', { kb: (fontBytes / 1024).toFixed(1) }), { kind: 'btn-outline btn-small', onclick: function () {
       fetch('fonts/nastaliq-urdu-subset.woff2').then(function (r) { if (!r.ok) throw 0; fontStatus.textContent = t('urduFontSaved'); }).catch(function () { fontStatus.textContent = t('cameraOff').split('.')[0]; });
     } });
     var fileMsg = h('p', { class: 'hint', role: 'status', id: 'file-msg' });

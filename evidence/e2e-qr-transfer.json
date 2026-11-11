@@ -1,8 +1,8 @@
 {
   "test": "e2e-qr-transfer",
   "pass": true,
-  "started": "2026-11-11T16:49:44.660Z",
-  "finished": "2026-11-11T16:49:48.801Z",
+  "started": "2026-11-11T16:59:38.353Z",
+  "finished": "2026-11-11T16:59:43.242Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
