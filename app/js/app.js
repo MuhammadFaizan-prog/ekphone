@@ -562,6 +562,15 @@
     return ul;
   }
 
+  /** QR chunking code loads only for the share and receive screens. */
+  function needQR(fn) {
+    return function (arg) {
+      if (window.EkQR) { QR = window.EkQR; return fn(arg); }
+      loadScript('js/qrchunk.js').then(function () { QR = window.EkQR; render(); });
+      return h('div', { class: 'screen' }, topbar(backBtn('/teacher'), langToggle()), h('main', { id: 'main', class: 'page' }, h('p', { class: 'hint' }, '…')));
+    };
+  }
+
   screens.share = function (packId) {
     var p = findPack(packId);
     if (!p) { go('/teacher', true); return null; }
@@ -607,6 +616,8 @@
         h('p', { class: 'hint hint-strong' }, t('zeroData')),
         h('div', { class: 'toolbar toolbar--single' }, pauseBtn)));
   };
+
+  screens.share = needQR(screens.share);
 
   screens.receive = function () {
     var asm = QR.createAssembler();
@@ -706,6 +717,8 @@
         preview));
   };
 
+  screens.receive = needQR(screens.receive);
+
   /* ---------- router ---------- */
   function render(keepFocus) {
     cleanup.forEach(function (fn) { try { fn(); } catch (e) { /* ignore */ } }); cleanup = [];
@@ -727,9 +740,13 @@
   window.addEventListener('popstate', function () { render(); });
   window.addEventListener('offline', function () { announce(t('offlineNow')); });
   document.documentElement.style.setProperty('--ts', settings.textSize || 1);
-  var rest = document.getElementById('screens-css'); if (rest) rest.media = 'all';
+  // Screen styles (everything after the first screen) load after the first paint; deep links load them at once.
+  function loadScreensCss() { if (document.getElementById('screens-css')) return; var l = document.createElement('link'); l.id = 'screens-css'; l.rel = 'stylesheet'; l.href = 'css/screens.css'; document.head.appendChild(l); }
+  var startRoute = ((location.hash || '#/').slice(2).split('/')[0]) || 'picker';
+  if (startRoute !== 'picker') loadScreensCss();
   applyLang();
   render();
+  if (window.requestAnimationFrame) requestAnimationFrame(function () { setTimeout(loadScreensCss, 0); }); else setTimeout(loadScreensCss, 0);
 
   if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     navigator.serviceWorker.register('sw.js').catch(function () { /* offline install is best effort */ });

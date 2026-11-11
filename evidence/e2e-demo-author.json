@@ -1,8 +1,8 @@
 {
   "test": "e2e-demo-author",
   "pass": true,
-  "started": "2026-11-11T17:59:29.842Z",
-  "finished": "2026-11-11T17:59:32.803Z",
+  "started": "2026-11-11T18:02:43.833Z",
+  "finished": "2026-11-11T18:02:46.068Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -101,7 +101,7 @@
     {
       "step": "saved as local pack with an id",
       "pass": true,
-      "detail": "my-day-and-night-kiu4"
+      "detail": "my-day-and-night-sgap"
     },
     {
       "step": "saved pack passes the same validator as shared packs",

@@ -102,8 +102,9 @@ self.addEventListener('fetch', function (e) {
 // 4. size report
 const sz = (f) => fs.statSync(app + f).size;
 const groups = {
-  'shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)': ['index.html', 'css/screens.css', 'js/i18n.js', 'js/storage.js', 'js/qrchunk.js', 'js/art.js', 'js/app.js', 'manifest.webmanifest', 'sw.js'],
+  'shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)': ['index.html', 'css/screens.css', 'js/i18n.js', 'js/storage.js', 'js/art.js', 'js/app.js', 'manifest.webmanifest', 'sw.js'],
   'built-in lesson packs (js/packs.js)': ['js/packs.js'],
+  'lazy: QR chunking (share/receive screens only)': ['js/qrchunk.js'],
   'lazy: lesson writer (Write a lesson screen only)': ['js/author.js'],
   'lazy: Save as page (lesson menu only)': ['js/export.js'],
   'static lesson pages (JS-off fallback, not cached)': lessonPages.map((l) => l.file),

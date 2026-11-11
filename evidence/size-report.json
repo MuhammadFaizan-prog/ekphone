@@ -1,12 +1,12 @@
 {
-  "generated": "2026-11-11T17:57:23.109Z",
-  "version": "085908c752",
+  "generated": "2026-11-11T18:02:08.083Z",
+  "version": "fff1901128",
   "groups": {
     "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
-      "bytes": 122706,
-      "gzip": 36902,
-      "kb": 119.8,
-      "gzipKb": 36
+      "bytes": 118579,
+      "gzip": 35138,
+      "kb": 115.8,
+      "gzipKb": 34.3
     },
     "built-in lesson packs (js/packs.js)": {
       "bytes": 12577,
@@ -14,11 +14,17 @@
       "kb": 12.3,
       "gzipKb": 3.9
     },
+    "lazy: QR chunking (share/receive screens only)": {
+      "bytes": 5082,
+      "gzip": 2018,
+      "kb": 5,
+      "gzipKb": 2
+    },
     "lazy: lesson writer (Write a lesson screen only)": {
-      "bytes": 11089,
-      "gzip": 3781,
-      "kb": 10.8,
-      "gzipKb": 3.7
+      "bytes": 10824,
+      "gzip": 3719,
+      "kb": 10.6,
+      "gzipKb": 3.6
     },
     "lazy: Save as page (lesson menu only)": {
       "bytes": 4192,
@@ -65,12 +71,12 @@
   },
   "files": {
     "index.html": {
-      "bytes": 15645,
-      "gzip": 4956
+      "bytes": 15523,
+      "gzip": 4916
     },
     "css/screens.css": {
-      "bytes": 15324,
-      "gzip": 3966
+      "bytes": 15339,
+      "gzip": 3969
     },
     "js/i18n.js": {
       "bytes": 18234,
@@ -80,17 +86,13 @@
       "bytes": 11079,
       "gzip": 3805
     },
-    "js/qrchunk.js": {
-      "bytes": 5082,
-      "gzip": 2018
-    },
     "js/art.js": {
       "bytes": 7532,
       "gzip": 2111
     },
     "js/app.js": {
-      "bytes": 47223,
-      "gzip": 12974
+      "bytes": 48285,
+      "gzip": 13266
     },
     "manifest.webmanifest": {
       "bytes": 697,
@@ -98,15 +100,19 @@
     },
     "sw.js": {
       "bytes": 1890,
-      "gzip": 843
+      "gzip": 842
     },
     "js/packs.js": {
       "bytes": 12577,
       "gzip": 4005
     },
+    "js/qrchunk.js": {
+      "bytes": 5082,
+      "gzip": 2018
+    },
     "js/author.js": {
-      "bytes": 11089,
-      "gzip": 3781
+      "bytes": 10824,
+      "gzip": 3719
     },
     "js/export.js": {
       "bytes": 4192,
@@ -182,11 +188,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 509274,
-  "totalKb": 497.3,
+  "totalBytesEverything": 509964,
+  "totalKb": 498,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 122706,
+    "shellBytes": 118579,
     "pass": true
   }
 }

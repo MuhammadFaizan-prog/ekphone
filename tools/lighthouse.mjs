@@ -19,7 +19,13 @@ const config = {
 };
 try {
   const target = url + 'index.html';
-  const r = await lighthouse(target, { port, output: 'json', logLevel: 'error' }, config);
+  // 3 runs; the median-performance run is kept (Lighthouse's own advice for variance). All 3 scores are listed.
+  const runs = [];
+  for (let i = 0; i < 3; i++) runs.push(await lighthouse(target, { port, output: 'json', logLevel: 'error' }, config));
+  const perfOf = (x) => Math.round(x.lhr.categories.performance.score * 100);
+  const sorted = runs.slice().sort((a, b) => perfOf(a) - perfOf(b));
+  const r = sorted[1];
+  const allRuns = runs.map((x) => perfOf(x) + ' (LCP ' + x.lhr.audits['largest-contentful-paint'].displayValue + ')').join(', ');
   const lhr = r.lhr;
   fs.writeFileSync(evid + 'lighthouse.json', r.report);
   const cats = Object.fromEntries(Object.entries(lhr.categories).map(([k, v]) => [k, v.score == null ? null : Math.round(v.score * 100)]));
@@ -51,6 +57,8 @@ Browser: ${lhr.environment.hostUserAgent}
 | Service worker | ${pick('service-worker')} |
 
 PWA audits failing: ${failedPwa.length ? failedPwa.join(', ') : 'none'}
+
+Performance in each of 3 runs: ${allRuns}. The table shows the median run.
 
 Notes: run on a cloud sandbox, not a real phone. The local test server gzip-compresses text files the way the Vercel host compresses them (before Nov 11 evening it sent them uncompressed, which is part of the old score of 80). The PWA category was removed in Lighthouse 12, so v11.7.1 is used.
 `;

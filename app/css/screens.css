@@ -1,4 +1,4 @@
-/* Ek Phone — screen styles after the first screen. Loaded without blocking first paint (index.html media swap). */
+/* Ek Phone — screen styles after the first screen. Loaded without blocking first paint (app.js adds it after the first paint). */
 /* ---------- cards / shelf ---------- */
 .card { background: var(--paper-2) var(--grain); border: 2px solid var(--ink); border-radius: var(--radius); padding: 16px 16px 18px; box-shadow: 0 3px 0 rgba(27,26,23,.12); }
 .today { margin-top: 10px; }
