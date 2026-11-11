@@ -1,8 +1,8 @@
 {
   "test": "e2e-demo-author",
   "pass": true,
-  "started": "2026-11-11T18:12:49.183Z",
-  "finished": "2026-11-11T18:12:51.227Z",
+  "started": "2026-11-11T18:27:47.565Z",
+  "finished": "2026-11-11T18:27:49.897Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -101,7 +101,7 @@
     {
       "step": "saved as local pack with an id",
       "pass": true,
-      "detail": "my-day-and-night-kbxp"
+      "detail": "my-day-and-night-adbs"
     },
     {
       "step": "saved pack passes the same validator as shared packs",
@@ -111,7 +111,7 @@
       "step": "written lesson shares by QR",
       "pass": true,
       "detail": {
-        "chunks": 2
+        "chunks": 3
       }
     },
     {

@@ -1,19 +1,106 @@
-✔ profiles: add, duplicate, limit, clean name (4.980323ms)
-✔ PIN: hashed (never stored plain), checked, lockout after 5 wrong tries (10.571208ms)
-✔ progress is kept per child and removed with the child (1.631426ms)
-✔ today's pack: first not mastered, then rotates by day (0.401958ms)
-✔ all shipped packs are valid, bilingual and 5 questions (0.798826ms)
-✔ pack validation rejects bad packs (4.068312ms)
-✔ formatSize shows KB and MB (0.227143ms)
-✔ QR chunks: encode -> shuffle + duplicates -> assemble -> identical pack (compressed) (82.065209ms)
-✔ QR chunks: raw mode, other-pack rejection, corrupt data detected (13.010133ms)
-✔ QR chunks survive a real QR encode (qrcode-generator) and decode (jsQR) (329.116989ms)
-✔ i18n: every English key has an Urdu string; placeholders match (1.764874ms)
-ℹ tests 11
-ℹ suites 0
-ℹ pass 11
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 566.256024
+TAP version 13
+# Subtest: profiles: add, duplicate, limit, clean name
+ok 1 - profiles: add, duplicate, limit, clean name
+  ---
+  duration_ms: 5.622053
+  type: 'test'
+  ...
+# Subtest: PIN: hashed (never stored plain), checked, lockout after 5 wrong tries
+ok 2 - PIN: hashed (never stored plain), checked, lockout after 5 wrong tries
+  ---
+  duration_ms: 7.450705
+  type: 'test'
+  ...
+# Subtest: progress is kept per child and removed with the child
+ok 3 - progress is kept per child and removed with the child
+  ---
+  duration_ms: 1.68319
+  type: 'test'
+  ...
+# Subtest: today's pack: first not mastered, then rotates by day
+ok 4 - today's pack: first not mastered, then rotates by day
+  ---
+  duration_ms: 0.572408
+  type: 'test'
+  ...
+# Subtest: all shipped packs are valid, bilingual and 5 questions
+ok 5 - all shipped packs are valid, bilingual and 5 questions
+  ---
+  duration_ms: 1.0615
+  type: 'test'
+  ...
+# Subtest: pack validation rejects bad packs
+ok 6 - pack validation rejects bad packs
+  ---
+  duration_ms: 3.588757
+  type: 'test'
+  ...
+# Subtest: formatSize shows KB and MB
+ok 7 - formatSize shows KB and MB
+  ---
+  duration_ms: 0.256697
+  type: 'test'
+  ...
+# Subtest: QR chunks: encode -> shuffle + duplicates -> assemble -> identical pack (compressed)
+ok 8 - QR chunks: encode -> shuffle + duplicates -> assemble -> identical pack (compressed)
+  ---
+  duration_ms: 48.810996
+  type: 'test'
+  ...
+# Subtest: QR chunks: raw mode, other-pack rejection, corrupt data detected
+ok 9 - QR chunks: raw mode, other-pack rejection, corrupt data detected
+  ---
+  duration_ms: 10.715494
+  type: 'test'
+  ...
+# Subtest: QR chunks survive a real QR encode (qrcode-generator) and decode (jsQR)
+ok 10 - QR chunks survive a real QR encode (qrcode-generator) and decode (jsQR)
+  ---
+  duration_ms: 263.367964
+  type: 'test'
+  ...
+# Subtest: i18n: every English key has an Urdu string; placeholders match
+ok 11 - i18n: every English key has an Urdu string; placeholders match
+  ---
+  duration_ms: 1.264219
+  type: 'test'
+  ...
+# Subtest: lesson writer: sentence split, validation, pack build
+ok 12 - lesson writer: sentence split, validation, pack build
+  ---
+  duration_ms: 1.273709
+  type: 'test'
+  ...
+# Subtest: demo mode: 4 synthetic learners, only Zara has PIN 1234, starting progress, reset keeps packs
+ok 13 - demo mode: 4 synthetic learners, only Zara has PIN 1234, starting progress, reset keeps packs
+  ---
+  duration_ms: 7.900374
+  type: 'test'
+  ...
+# Subtest: save as page: plain HTML, no script, escaped text, both languages
+ok 14 - save as page: plain HTML, no script, escaped text, both languages
+  ---
+  duration_ms: 0.877209
+  type: 'test'
+  ...
+# Subtest: lesson import: title from first line, Markdown stripped, deterministic fill-in-the-blank questions
+ok 15 - lesson import: title from first line, Markdown stripped, deterministic fill-in-the-blank questions
+  ---
+  duration_ms: 3.911587
+  type: 'test'
+  ...
+# Subtest: QR link chunks: any order, size limit, old text form still accepted
+ok 16 - QR link chunks: any order, size limit, old text form still accepted
+  ---
+  duration_ms: 8.740255
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 454.424544
