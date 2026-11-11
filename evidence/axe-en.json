@@ -1,8 +1,8 @@
 {
   "test": "axe-en",
   "pass": true,
-  "started": "2026-11-11T18:11:17.600Z",
-  "finished": "2026-11-11T18:11:42.130Z",
+  "started": "2026-11-11T18:29:14.169Z",
+  "finished": "2026-11-11T18:29:42.601Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -150,7 +150,23 @@
       }
     },
     {
-      "step": "zero axe violations on all 18 screens (en)",
+      "step": "19-write-imported: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "20-receive-camera-error: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "zero axe violations on all 20 screens (en)",
       "pass": true,
       "detail": {
         "total": 0
@@ -197,7 +213,7 @@
     },
     {
       "screen": "03-pin",
-      "url": "/index.html#/pin/7zrye3vt",
+      "url": "/index.html#/pin/r8hbnu3v",
       "violations": 0,
       "passes": 41,
       "incomplete": [
@@ -370,6 +386,28 @@
       ],
       "details": [],
       "screenshot": "screenshots/en-18-write-saved.png"
+    },
+    {
+      "screen": "19-write-imported",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-19-write-imported.png"
+    },
+    {
+      "screen": "20-receive-camera-error",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-20-receive-camera-error.png"
     }
   ]
 }

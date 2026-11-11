@@ -39,7 +39,9 @@ try {
       for (let i = 0; i < 5; i++) { await page.locator('#w-q' + i).fill('Question ' + (i + 1) + '?'); for (let k = 0; k < 3; k++) await page.locator('#w-q' + i + '-o' + k).fill('Answer ' + 'ABC'[k]); await page.locator('#w-q' + i + '-r' + (i % 3)).check(); }
       await page.locator('#w-preview').click(); await page.waitForSelector('#w-pv-h'); await page.evaluate(() => window.scrollTo(0, 0));
     }],
-    ['18-write-saved', null, async () => { await page.locator('#w-save').click(); await page.waitForSelector('#w-done'); }]
+    ['18-write-saved', null, async () => { await page.locator('#w-save').click(); await page.waitForSelector('#w-done'); }],
+    ['19-write-imported', '/write', async () => { await page.evaluate(() => { window.EkAuthor.reset(); window.EkApp.render(); }); await page.waitForSelector('#w-import-paste'); await page.locator('#w-import-paste').fill('The Water Cycle\nWater moves around the Earth in a cycle. The Sun heats water in rivers and seas. The vapour rises, cools and forms clouds. When the clouds are heavy, water falls as rain. Rain flows into rivers and back to the sea.'); await page.locator('#w-import-paste-btn').click(); await page.waitForSelector('.file-msg--ok'); }],
+    ['20-receive-camera-error', '/receive', async () => { await page.evaluate(() => { navigator.mediaDevices.getUserMedia = () => Promise.reject(new DOMException('test', 'NotAllowedError')); }); await page.locator('#rx-scan').click(); await page.waitForSelector('#rx-retry:not([hidden])'); }]
   ];
   for (const [idx, [name, route, action, who]] of screens.entries()) {
     if (idx < from || idx >= to) { if (idx < from && action && !route) { /* stateful step skipped */ } continue; }
