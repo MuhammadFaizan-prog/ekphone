@@ -12,7 +12,7 @@ All data is in the browser's `localStorage` on that one device, under the prefix
 | `ekphone:v1:progress:<id>` | One learner's progress per pack: sentence reached, whether the lesson was read, best and last quiz score, attempts, last update. |
 | `ekphone:v1:lock:<id>` | PIN lockout counter for one learner (wrong tries, locked-until time). |
 | `ekphone:v1:packs` | Lesson packs received from another phone (QR, file or paste). |
-| `ekphone:v1:settings` | Language (English/Urdu) and similar settings. |
+| `ekphone:v1:settings` | Language (English/Urdu), read-aloud speed, text size. |
 
 `sessionStorage` (`ekphone:who`) remembers who is signed in only until the tab or app is closed.
 
