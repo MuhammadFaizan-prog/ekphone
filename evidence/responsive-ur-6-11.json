@@ -1,8 +1,8 @@
 {
   "test": "responsive-ur-6-11",
   "pass": true,
-  "started": "2026-11-11T18:08:10.392Z",
-  "finished": "2026-11-11T18:08:23.053Z",
+  "started": "2026-11-11T18:32:19.105Z",
+  "finished": "2026-11-11T18:32:33.120Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
