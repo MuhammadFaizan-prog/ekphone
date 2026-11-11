@@ -116,7 +116,7 @@ try {
   await p2.goto(url + 'index.html');
   R.check((await p2.locator('noscript, .nojs').count()) >= 1 && await p2.getByRole('heading', { name: 'Who is studying?' }).isVisible(), 'app with JS off: heading + noscript lesson links');
   await p2.goto(url + 'lessons/g5-fractions.html');
-  R.check(await p2.locator('ol.s li').count() === 10 && await p2.locator('section[lang=ur]').count() === 1, 'static lesson page (EN + UR) works with JS off');
+  R.check(await p2.locator('section[lang=en] ol.s li').count() === 10 && await p2.locator('section[lang=ur]').count() === 1, 'static lesson page (EN + UR) works with JS off');
   await ctx2.close();
   R.check(errors.length === 0, 'no console errors', errors);
   R.save();
