@@ -1,8 +1,8 @@
 {
   "test": "e2e-import-lesson",
   "pass": true,
-  "started": "2026-11-11T18:27:12.239Z",
-  "finished": "2026-11-11T18:27:14.484Z",
+  "started": "2026-11-11T18:31:05.455Z",
+  "finished": "2026-11-11T18:31:07.883Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {

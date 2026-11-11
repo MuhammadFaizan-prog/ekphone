@@ -1,8 +1,8 @@
 {
   "test": "keyboard-walkthrough",
   "pass": true,
-  "started": "2026-11-11T18:10:47.867Z",
-  "finished": "2026-11-11T18:10:59.430Z",
+  "started": "2026-11-11T18:30:52.903Z",
+  "finished": "2026-11-11T18:31:05.075Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -350,11 +350,11 @@
       "step": "every focused button/link showed a ≥2px focus outline",
       "pass": true,
       "detail": {
-        "checked": 47
+        "checked": 49
       }
     }
   ],
-  "keyPresses": 145,
+  "keyPresses": 149,
   "log": [
     {
       "key": "Tab",
@@ -1102,6 +1102,42 @@
       "name": "Write a lesson",
       "ring": false,
       "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-import-file",
+      "name": "Open a .txt, .md or .pdf file",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "textarea",
+      "id": "w-import-paste",
+      "name": "Or paste a whole lesson",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "w-import-paste-btn",
+      "name": "Use pasted text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "w-suggest",
+      "name": "Suggest 5 questions from the lesson text",
+      "ring": true,
+      "outline": "solid 3px"
     },
     {
       "key": "Tab",
