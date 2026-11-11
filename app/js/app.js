@@ -59,7 +59,9 @@
   function underlined(tag, text, cls) {
     return h(tag, { class: 'title ' + (cls || ''), tabindex: '-1', id: 'screen-title' }, h('span', { class: 'title-ink' }, rich(text), svgEl(A.UNDERLINE)));
   }
-  function size(p) { var f = Store.formatSize(Store.packBytes(p)); return f; }
+  /** The pack exactly as it travels between phones (no app-only fields). */
+  function cleanPack(p) { var o = {}; Object.keys(p).forEach(function (k) { if (k.charAt(0) !== '_') o[k] = p[k]; }); return o; }
+  function size(p) { return Store.formatSize(Store.packBytes(cleanPack(p))); }
   function allPacks() {
     var imported = store.listImportedPacks();
     var ids = {};
@@ -450,7 +452,7 @@
     } });
     var fileMsg = h('p', { class: 'hint', role: 'status', id: 'file-msg' });
     function shareFile(p) {
-      var json = JSON.stringify(p, null, 0);
+      var json = JSON.stringify(cleanPack(p));
       var fname = p.id + '.ekpack.json';
       var file = null;
       try { file = new File([json], fname, { type: 'application/json' }); } catch (e) { /* old browsers */ }
@@ -525,7 +527,7 @@
     }
     function schedule() { clearTimeout(timer); if (playing && chunks.length > 1) timer = setTimeout(function () { show(idx + 1); }, 2000); }
     cleanup.push(function () { clearTimeout(timer); });
-    Promise.all([loadScript('vendor/qrcode-generator.min.js'), QR.encode(p)]).then(function (r) {
+    Promise.all([loadScript('vendor/qrcode-generator.min.js'), QR.encode(cleanPack(p))]).then(function (r) {
       chunks = r[1];
       dotsWrap.appendChild(chunkDots(chunks.length, t('qrDots')));
       if (chunks.length < 2) { pauseBtn.hidden = true; prev.hidden = true; next.hidden = true; }

@@ -1,0 +1,61 @@
+{
+  "test": "e2e-qr-transfer",
+  "pass": false,
+  "started": "2026-11-11T16:26:41.852Z",
+  "finished": "2026-11-11T16:26:47.999Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "Phone A: pack file opened, size shown before loading",
+      "pass": true,
+      "detail": "This pack is 2.9 KB (0.003 MB)."
+    },
+    {
+      "step": "Phone A: pack loaded from file",
+      "pass": true
+    },
+    {
+      "step": "Phone A: pack split into 5 QR codes",
+      "pass": true,
+      "detail": {
+        "n": 5
+      }
+    },
+    {
+      "step": "captured Phone A screen as camera video",
+      "pass": true,
+      "detail": {
+        "frames": 30,
+        "file": "/tmp/ekphone-qr-feed.y4m"
+      }
+    },
+    {
+      "step": "Phone B: camera scan collected all codes",
+      "pass": true,
+      "detail": {
+        "status": "Got 5 of 5 codes",
+        "decoder": "jsQR (vendored)"
+      }
+    },
+    {
+      "step": "Phone B: shows pack size before loading",
+      "pass": true,
+      "detail": "This pack is 2.9 KB (0.003 MB)."
+    },
+    {
+      "step": "Phone B: received pack is on the shelf",
+      "pass": true,
+      "detail": [
+        "Fractions: Halves and Quarters",
+        "The Water Cycle",
+        "A Simple English Sentence",
+        "Parts of a Plant"
+      ]
+    },
+    {
+      "step": "Phone B: pack is byte-identical to the original",
+      "pass": false
+    }
+  ],
+  "error": "FAILED: Phone B: pack is byte-identical to the original \"\""
+}

@@ -1,0 +1,64 @@
+{
+  "test": "e2e-offline",
+  "pass": true,
+  "started": "2026-11-11T16:25:54.393Z",
+  "finished": "2026-11-11T16:26:02.875Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "service worker precached the app",
+      "pass": true,
+      "detail": {
+        "name": "ekphone-006e837325",
+        "count": 21
+      }
+    },
+    {
+      "step": "browser is offline (navigator.onLine=false)",
+      "pass": true
+    },
+    {
+      "step": "app reloads with no network",
+      "pass": true
+    },
+    {
+      "step": "page is served by the service worker",
+      "pass": true
+    },
+    {
+      "step": "read to the last sentence offline",
+      "pass": true
+    },
+    {
+      "step": "quiz completed offline: 5 of 5",
+      "pass": true
+    },
+    {
+      "step": "progress saved offline",
+      "pass": true,
+      "detail": {
+        "read": true,
+        "sentence": 9,
+        "best": 5,
+        "last": 5,
+        "attempts": 1,
+        "updated": 1794414362223,
+        "total": 5,
+        "doneDay": "Wed Nov 11 2026"
+      }
+    },
+    {
+      "step": "Urdu Nastaliq font works offline (cached on first use)",
+      "pass": true
+    },
+    {
+      "step": "QR share screen works offline (encoder precached)",
+      "pass": true
+    },
+    {
+      "step": "no console errors offline",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}
