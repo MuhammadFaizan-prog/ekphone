@@ -1,13 +1,13 @@
 # Byte-size report
 
-Generated 2026-11-11T18:08:58.687Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T18:12:48.914Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
 | shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS) | 115.8 KB | 34.3 KB |
 | built-in lesson packs (js/packs.js) | 12.3 KB | 3.9 KB |
 | lazy: QR chunking (share/receive screens only) | 5 KB | 2 KB |
-| lazy: lesson writer (Write a lesson screen only) | 10.6 KB | 3.6 KB |
+| lazy: lesson writer (Write a lesson screen only) | 10.6 KB | 3.7 KB |
 | lazy: Save as page (lesson menu only) | 4.1 KB | 1.9 KB |
 | static lesson pages (JS-off fallback, not cached) | 22.2 KB | 8.9 KB |
 | lazy: QR encoder (share screen only) | 21.1 KB | 7.9 KB |
@@ -30,10 +30,10 @@ Shell budget ≤150 KB: **PASS** (115.8 KB).
 | js/art.js | 7532 | 2111 |
 | js/app.js | 48285 | 13266 |
 | manifest.webmanifest | 697 | 341 |
-| sw.js | 1890 | 843 |
+| sw.js | 1890 | 842 |
 | js/packs.js | 12577 | 4005 |
 | js/qrchunk.js | 5082 | 2018 |
-| js/author.js | 10824 | 3719 |
+| js/author.js | 10892 | 3743 |
 | js/export.js | 4192 | 1990 |
 | lessons/g5-fractions.html | 5902 | 2332 |
 | lessons/g5-water-cycle.html | 6133 | 2495 |

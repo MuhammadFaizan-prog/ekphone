@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-11T18:08:58.687Z",
-  "version": "d678bdb777",
+  "generated": "2026-11-11T18:12:48.914Z",
+  "version": "09c7bfe8e2",
   "groups": {
     "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
       "bytes": 118622,
-      "gzip": 35165,
+      "gzip": 35164,
       "kb": 115.8,
       "gzipKb": 34.3
     },
@@ -21,10 +21,10 @@
       "gzipKb": 2
     },
     "lazy: lesson writer (Write a lesson screen only)": {
-      "bytes": 10824,
-      "gzip": 3719,
+      "bytes": 10892,
+      "gzip": 3743,
       "kb": 10.6,
-      "gzipKb": 3.6
+      "gzipKb": 3.7
     },
     "lazy: Save as page (lesson menu only)": {
       "bytes": 4192,
@@ -100,7 +100,7 @@
     },
     "sw.js": {
       "bytes": 1890,
-      "gzip": 843
+      "gzip": 842
     },
     "js/packs.js": {
       "bytes": 12577,
@@ -111,8 +111,8 @@
       "gzip": 2018
     },
     "js/author.js": {
-      "bytes": 10824,
-      "gzip": 3719
+      "bytes": 10892,
+      "gzip": 3743
     },
     "js/export.js": {
       "bytes": 4192,
@@ -188,7 +188,7 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 510007,
+  "totalBytesEverything": 510075,
   "totalKb": 498.1,
   "shellBudget": {
     "limitBytes": 153600,

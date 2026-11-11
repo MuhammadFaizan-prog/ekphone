@@ -77,7 +77,7 @@
       var errId = id + '-err';
       var input = h(opts.area ? 'textarea' : 'input', {
         id: id, class: 'field' + (opts.area ? ' field-text' : ''), type: opts.area ? null : 'text', rows: opts.area ? '7' : null,
-        maxlength: opts.max ? String(opts.max) : null, autocomplete: 'off', lang: opts.lang || null, dir: opts.dir || null,
+        maxlength: opts.max ? String(opts.max) : null, autocomplete: 'off', lang: opts.lang || null, dir: opts.dir || 'auto',
         'aria-describedby': [hintId, err ? errId : null].filter(Boolean).join(' ') || null,
         'aria-invalid': err ? 'true' : null, 'aria-required': opts.required ? 'true' : null,
         oninput: function () { opts.set(input.value); if (opts.onchange) opts.onchange(); }
@@ -139,16 +139,16 @@
     function previewView() {
       var pack = buildPack(draft, 'xxxx');
       var f = u.Store.formatSize(u.Store.packBytes(pack));
-      var sl = h('ol', { class: 'pv-sents' }); pack.sentences.en.forEach(function (s) { sl.appendChild(h('li', null, s)); });
+      var sl = h('ol', { class: 'pv-sents' }); pack.sentences.en.forEach(function (s) { sl.appendChild(h('li', { dir: 'auto' }, s)); });
       var ql = h('ol', { class: 'pv-quiz' });
       pack.quiz.forEach(function (q) {
         var ol = h('ul', { class: 'pv-opts' });
-        q.options.en.forEach(function (o, k) { ol.appendChild(h('li', { class: k === q.answer ? 'pv-right' : null }, o, k === q.answer ? h('span', null, ' (' + t('wRightMark') + ')') : null)); });
-        ql.appendChild(h('li', null, h('p', { class: 'pv-q' }, q.q.en), ol));
+        q.options.en.forEach(function (o, k) { ol.appendChild(h('li', { class: k === q.answer ? 'pv-right' : null, dir: 'auto' }, h('bdi', null, o), k === q.answer ? h('span', null, ' (' + t('wRightMark') + ')') : null)); });
+        ql.appendChild(h('li', null, h('p', { class: 'pv-q', dir: 'auto' }, q.q.en), ol));
       });
       return h('section', { class: 'card w-preview', 'aria-labelledby': 'w-pv-h' },
         h('h2', { id: 'w-pv-h', class: 'kicker', tabindex: '-1' }, t('wPreview')),
-        h('h3', { class: 'today-title' }, pack.title.en), pack.title.ur ? h('p', { lang: 'ur', dir: 'rtl', class: 'pv-ur' }, pack.title.ur) : null,
+        h('h3', { class: 'today-title', dir: 'auto' }, pack.title.en), pack.title.ur ? h('p', { lang: 'ur', dir: 'rtl', class: 'pv-ur' }, pack.title.ur) : null,
         h('p', { class: 'meta' }, t('sizeLine', { kb: f.kb, mb: f.mb }) + ' · ' + t('sentences', { n: pack.sentences.en.length }) + ' · ' + t('questions', { n: pack.quiz.length })),
         h('div', { class: 'w-cols' }, h('div', { class: 'w-col' }, sl), h('div', { class: 'w-col' }, ql)),
         h('div', { class: 'row' },
