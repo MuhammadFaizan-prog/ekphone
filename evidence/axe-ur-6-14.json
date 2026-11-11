@@ -1,8 +1,8 @@
 {
-  "test": "axe-ur-6-10",
+  "test": "axe-ur-6-14",
   "pass": true,
-  "started": "2026-11-11T16:36:18.530Z",
-  "finished": "2026-11-11T16:36:24.133Z",
+  "started": "2026-11-11T16:50:33.972Z",
+  "finished": "2026-11-11T16:50:44.846Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -38,7 +38,39 @@
       }
     },
     {
-      "step": "zero axe violations on all 4 screens (ur)",
+      "step": "11-teacher: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "12-share-qr: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "13-receive: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "14-receive-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "zero axe violations on all 8 screens (ur)",
       "pass": true,
       "detail": {
         "total": 0
@@ -104,6 +136,48 @@
       ],
       "details": [],
       "screenshot": "screenshots/ur-10-result.png"
+    },
+    {
+      "screen": "11-teacher",
+      "url": "/index.html#/teacher",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-11-teacher.png"
+    },
+    {
+      "screen": "12-share-qr",
+      "url": "/index.html#/share/g5-fractions",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [],
+      "details": [],
+      "screenshot": "screenshots/ur-12-share-qr.png"
+    },
+    {
+      "screen": "13-receive",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-13-receive.png"
+    },
+    {
+      "screen": "14-receive-preview",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-14-receive-preview.png"
     }
   ]
 }

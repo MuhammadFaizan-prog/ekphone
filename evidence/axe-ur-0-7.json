@@ -1,8 +1,8 @@
 {
-  "test": "axe-ur-0-6",
+  "test": "axe-ur-0-7",
   "pass": true,
-  "started": "2026-11-11T16:35:58.720Z",
-  "finished": "2026-11-11T16:36:09.421Z",
+  "started": "2026-11-11T16:50:18.700Z",
+  "finished": "2026-11-11T16:50:28.908Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -54,7 +54,15 @@
       }
     },
     {
-      "step": "zero axe violations on all 6 screens (ur)",
+      "step": "07-quiz: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "zero axe violations on all 7 screens (ur)",
       "pass": true,
       "detail": {
         "total": 0
@@ -101,7 +109,7 @@
     },
     {
       "screen": "03-pin",
-      "url": "/index.html#/pin/ubpe56f9",
+      "url": "/index.html#/pin/gqx24gey",
       "violations": 0,
       "passes": 41,
       "incomplete": [
@@ -142,6 +150,17 @@
       ],
       "details": [],
       "screenshot": "screenshots/ur-06-lesson-menu.png"
+    },
+    {
+      "screen": "07-quiz",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-07-quiz.png"
     }
   ]
 }
