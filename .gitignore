@@ -1,0 +1,6 @@
+tools/node_modules/
+tools/sysroot/
+tools/pylib/
+tools/t.mjs
+*.log
+.DS_Store

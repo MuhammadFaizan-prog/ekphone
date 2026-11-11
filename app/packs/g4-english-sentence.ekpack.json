@@ -1,0 +1,68 @@
+{
+  "format": "ekphone-pack/1",
+  "id": "g4-english-sentence",
+  "version": 1,
+  "grade": 4,
+  "art": "blocks",
+  "subject": { "en": "English", "ur": "انگریزی" },
+  "title": { "en": "A Simple English Sentence", "ur": "انگریزی کا ایک سادہ جملہ" },
+  "license": "CC BY 4.0. Original text written for Ek Phone (synthetic, no real student data).",
+  "sentences": {
+    "en": [
+      "A sentence is a group of words that tells one complete idea.",
+      "Look at this sentence: Sara reads a book.",
+      "Sara is the subject; the subject is who or what the sentence is about.",
+      "Reads is the verb; the verb tells what the subject does.",
+      "A book is the object; it tells what gets the action.",
+      "In English, the usual order is subject, then verb, then object.",
+      "A sentence starts with a capital letter, like the S in Sara.",
+      "A telling sentence ends with a full stop.",
+      "Book reads Sara has the same words, but the order is wrong, so the meaning breaks.",
+      "Now try your own sentence: Ali drinks milk."
+    ],
+    "ur": [
+      "جملہ الفاظ کا ایسا مجموعہ ہے جو ایک مکمل بات بتاتا ہے۔",
+      "یہ جملہ دیکھیں: Sara reads a book.",
+      "Sara فاعل (subject) ہے؛ فاعل وہ ہے جس کے بارے میں جملہ بات کرتا ہے۔",
+      "reads فعل (verb) ہے؛ فعل بتاتا ہے کہ فاعل کیا کرتا ہے۔",
+      "a book مفعول (object) ہے؛ یہ بتاتا ہے کہ کام کس چیز پر ہو رہا ہے۔",
+      "انگریزی میں عام ترتیب یہ ہے: پہلے فاعل، پھر فعل، پھر مفعول۔",
+      "جملہ بڑے حرف (capital letter) سے شروع ہوتا ہے، جیسے Sara کا S۔",
+      "خبر دینے والا جملہ فل اسٹاپ پر ختم ہوتا ہے۔",
+      "Book reads Sara میں الفاظ وہی ہیں، مگر ترتیب غلط ہے، اس لیے مطلب بگڑ جاتا ہے۔",
+      "اب خود ایک جملہ بنائیں: Ali drinks milk."
+    ]
+  },
+  "quiz": [
+    {
+      "q": { "en": "In \"Ali drinks milk\", who is the subject?", "ur": "Ali drinks milk میں فاعل کون ہے؟" },
+      "options": { "en": ["Ali", "drinks", "milk"], "ur": ["Ali", "drinks", "milk"] },
+      "answer": 0,
+      "explain": { "en": "Ali is who the sentence is about, so Ali is the subject.", "ur": "جملہ Ali کے بارے میں ہے، اس لیے Ali فاعل ہے۔" }
+    },
+    {
+      "q": { "en": "Which word is the verb in \"Sara reads a book\"?", "ur": "Sara reads a book میں فعل کون سا لفظ ہے؟" },
+      "options": { "en": ["Sara", "reads", "book"], "ur": ["Sara", "reads", "book"] },
+      "answer": 1,
+      "explain": { "en": "Reads tells what Sara does.", "ur": "reads بتاتا ہے کہ Sara کیا کرتی ہے۔" }
+    },
+    {
+      "q": { "en": "What is the usual order of an English sentence?", "ur": "انگریزی جملے کی عام ترتیب کیا ہے؟" },
+      "options": { "en": ["Verb, subject, object", "Subject, verb, object", "Object, verb, subject"], "ur": ["فعل، فاعل، مفعول", "فاعل، فعل، مفعول", "مفعول، فعل، فاعل"] },
+      "answer": 1,
+      "explain": { "en": "Subject first, then verb, then object: Sara reads a book.", "ur": "پہلے فاعل، پھر فعل، پھر مفعول: Sara reads a book." }
+    },
+    {
+      "q": { "en": "Which sentence is written correctly?", "ur": "کون سا جملہ درست لکھا گیا ہے؟" },
+      "options": { "en": ["the cat sleeps", "The cat sleeps.", "Cat the sleeps."], "ur": ["the cat sleeps", "The cat sleeps.", "Cat the sleeps."] },
+      "answer": 1,
+      "explain": { "en": "It starts with a capital letter, keeps the right order and ends with a full stop.", "ur": "یہ بڑے حرف سے شروع ہوتا ہے، ترتیب درست ہے اور فل اسٹاپ پر ختم ہوتا ہے۔" }
+    },
+    {
+      "q": { "en": "A telling sentence ends with…", "ur": "خبر دینے والا جملہ کس پر ختم ہوتا ہے؟" },
+      "options": { "en": ["A full stop", "A comma", "Nothing"], "ur": ["فل اسٹاپ", "کوما", "کچھ نہیں"] },
+      "answer": 0,
+      "explain": { "en": "A telling sentence ends with a full stop (.)", "ur": "خبر دینے والا جملہ فل اسٹاپ (.) پر ختم ہوتا ہے۔" }
+    }
+  ]
+}

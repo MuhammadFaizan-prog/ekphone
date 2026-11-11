@@ -1,0 +1,17 @@
+{
+  "name": "Ek Phone — one phone, many learners",
+  "short_name": "Ek Phone",
+  "description": "Offline study app for siblings and classmates who share one phone. No account, no data needed.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F1E7",
+  "theme_color": "#F6F1E7",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

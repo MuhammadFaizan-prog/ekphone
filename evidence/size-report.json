@@ -1,0 +1,150 @@
+{
+  "generated": "2026-11-11T16:12:15.628Z",
+  "version": "63c95b161b",
+  "groups": {
+    "shell (first screen: HTML+CSS+own JS)": {
+      "bytes": 104794,
+      "gzip": 31685,
+      "kb": 102.3,
+      "gzipKb": 30.9
+    },
+    "built-in lesson packs (js/packs.js)": {
+      "bytes": 12512,
+      "gzip": 3949,
+      "kb": 12.2,
+      "gzipKb": 3.9
+    },
+    "lazy: QR encoder (share screen only)": {
+      "bytes": 21627,
+      "gzip": 8066,
+      "kb": 21.1,
+      "gzipKb": 7.9
+    },
+    "lazy: jsQR scanner fallback (only if no BarcodeDetector)": {
+      "bytes": 130716,
+      "gzip": 47144,
+      "kb": 127.7,
+      "gzipKb": 46
+    },
+    "Latin fonts (always)": {
+      "bytes": 56592,
+      "gzip": 56676,
+      "kb": 55.3,
+      "gzipKb": 55.3
+    },
+    "lazy: Urdu font + css (only when Urdu is on)": {
+      "bytes": 100954,
+      "gzip": 99831,
+      "kb": 98.6,
+      "gzipKb": 97.5
+    },
+    "icons": {
+      "bytes": 26138,
+      "gzip": 23568,
+      "kb": 25.5,
+      "gzipKb": 23
+    }
+  },
+  "files": {
+    "index.html": {
+      "bytes": 1595,
+      "gzip": 742
+    },
+    "css/kaghaz.css": {
+      "bytes": 22612,
+      "gzip": 5835
+    },
+    "js/i18n.js": {
+      "bytes": 13040,
+      "gzip": 4466
+    },
+    "js/storage.js": {
+      "bytes": 9559,
+      "gzip": 3354
+    },
+    "js/qrchunk.js": {
+      "bytes": 5082,
+      "gzip": 2017
+    },
+    "js/art.js": {
+      "bytes": 7637,
+      "gzip": 2140
+    },
+    "js/app.js": {
+      "bytes": 42713,
+      "gzip": 11956
+    },
+    "manifest.webmanifest": {
+      "bytes": 697,
+      "gzip": 341
+    },
+    "sw.js": {
+      "bytes": 1859,
+      "gzip": 834
+    },
+    "js/packs.js": {
+      "bytes": 12512,
+      "gzip": 3949
+    },
+    "vendor/qrcode-generator.min.js": {
+      "bytes": 21627,
+      "gzip": 8066
+    },
+    "vendor/jsQR.min.js": {
+      "bytes": 130716,
+      "gzip": 47144
+    },
+    "fonts/atkinson-400.woff2": {
+      "bytes": 17208,
+      "gzip": 17236
+    },
+    "fonts/atkinson-700.woff2": {
+      "bytes": 17524,
+      "gzip": 17552
+    },
+    "fonts/literata-600.woff2": {
+      "bytes": 21860,
+      "gzip": 21888
+    },
+    "fonts/nastaliq-urdu-subset.woff2": {
+      "bytes": 100564,
+      "gzip": 99553
+    },
+    "css/urdu.css": {
+      "bytes": 390,
+      "gzip": 278
+    },
+    "icons/icon.svg": {
+      "bytes": 794,
+      "gzip": 382
+    },
+    "icons/icon-192.png": {
+      "bytes": 4328,
+      "gzip": 4152
+    },
+    "icons/icon-512.png": {
+      "bytes": 11368,
+      "gzip": 10463
+    },
+    "icons/icon-maskable-512.png": {
+      "bytes": 9648,
+      "gzip": 8571
+    },
+    "packs/g5-fractions.ekpack.json (minified JSON)": {
+      "bytes": 4193
+    },
+    "packs/g5-water-cycle.ekpack.json (minified JSON)": {
+      "bytes": 4285
+    },
+    "packs/g4-english-sentence.ekpack.json (minified JSON)": {
+      "bytes": 3934
+    }
+  },
+  "totalBytesEverything": 453333,
+  "totalKb": 442.7,
+  "shellBudget": {
+    "limitBytes": 153600,
+    "shellBytes": 104794,
+    "pass": true
+  }
+}

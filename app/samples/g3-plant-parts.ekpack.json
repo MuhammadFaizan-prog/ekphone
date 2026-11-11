@@ -1,0 +1,60 @@
+{
+  "format": "ekphone-pack/1",
+  "id": "g3-plant-parts",
+  "version": 1,
+  "grade": 3,
+  "art": "leaf",
+  "subject": { "en": "Science", "ur": "سائنس" },
+  "title": { "en": "Parts of a Plant", "ur": "پودے کے حصے" },
+  "license": "CC BY 4.0. Sample pack written for Ek Phone to show sharing (synthetic).",
+  "sentences": {
+    "en": [
+      "A plant has roots, a stem, leaves and sometimes flowers.",
+      "The roots hold the plant in the soil and drink water.",
+      "The stem carries water from the roots up to the leaves.",
+      "The leaves use sunlight to make food for the plant.",
+      "The flower makes seeds, and seeds grow into new plants.",
+      "Every part has a job, and together they keep the plant alive."
+    ],
+    "ur": [
+      "پودے کی جڑیں، تنا، پتے اور کبھی کبھی پھول ہوتے ہیں۔",
+      "جڑیں پودے کو مٹی میں تھامے رکھتی ہیں اور پانی پیتی ہیں۔",
+      "تنا جڑوں سے پانی اوپر پتوں تک لے جاتا ہے۔",
+      "پتے دھوپ کی مدد سے پودے کے لیے خوراک بناتے ہیں۔",
+      "پھول بیج بناتا ہے، اور بیجوں سے نئے پودے اگتے ہیں۔",
+      "ہر حصے کا ایک کام ہے، اور سب مل کر پودے کو زندہ رکھتے ہیں۔"
+    ]
+  },
+  "quiz": [
+    {
+      "q": { "en": "Which part holds the plant in the soil?", "ur": "کون سا حصہ پودے کو مٹی میں تھامے رکھتا ہے؟" },
+      "options": { "en": ["The roots", "The leaves", "The flower"], "ur": ["جڑیں", "پتے", "پھول"] },
+      "answer": 0,
+      "explain": { "en": "Roots hold the plant and take in water.", "ur": "جڑیں پودے کو تھامتی ہیں اور پانی لیتی ہیں۔" }
+    },
+    {
+      "q": { "en": "What does the stem carry?", "ur": "تنا کیا لے جاتا ہے؟" },
+      "options": { "en": ["Water", "Seeds", "Sunlight"], "ur": ["پانی", "بیج", "دھوپ"] },
+      "answer": 0,
+      "explain": { "en": "The stem carries water up to the leaves.", "ur": "تنا پانی کو اوپر پتوں تک لے جاتا ہے۔" }
+    },
+    {
+      "q": { "en": "Where does the plant make its food?", "ur": "پودا اپنی خوراک کہاں بناتا ہے؟" },
+      "options": { "en": ["In the roots", "In the leaves", "In the soil"], "ur": ["جڑوں میں", "پتوں میں", "مٹی میں"] },
+      "answer": 1,
+      "explain": { "en": "Leaves use sunlight to make food.", "ur": "پتے دھوپ سے خوراک بناتے ہیں۔" }
+    },
+    {
+      "q": { "en": "What grows into a new plant?", "ur": "کس چیز سے نیا پودا اگتا ہے؟" },
+      "options": { "en": ["A leaf", "A seed", "A stone"], "ur": ["پتا", "بیج", "پتھر"] },
+      "answer": 1,
+      "explain": { "en": "Flowers make seeds, and seeds grow into new plants.", "ur": "پھول بیج بناتے ہیں، اور بیجوں سے نئے پودے اگتے ہیں۔" }
+    },
+    {
+      "q": { "en": "Which part makes seeds?", "ur": "کون سا حصہ بیج بناتا ہے؟" },
+      "options": { "en": ["The stem", "The flower", "The roots"], "ur": ["تنا", "پھول", "جڑیں"] },
+      "answer": 1,
+      "explain": { "en": "The flower makes seeds.", "ur": "پھول بیج بناتا ہے۔" }
+    }
+  ]
+}

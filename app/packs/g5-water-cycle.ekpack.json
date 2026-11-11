@@ -1,0 +1,68 @@
+{
+  "format": "ekphone-pack/1",
+  "id": "g5-water-cycle",
+  "version": 1,
+  "grade": 5,
+  "art": "cloud",
+  "subject": { "en": "Science", "ur": "سائنس" },
+  "title": { "en": "The Water Cycle", "ur": "پانی کا چکر" },
+  "license": "CC BY 4.0. Original text written for Ek Phone (synthetic, no real student data).",
+  "sentences": {
+    "en": [
+      "The water on Earth moves round and round in a cycle.",
+      "The sun heats the water in rivers, lakes and the sea.",
+      "Warm water turns into water vapour, a gas we cannot see; this is evaporation.",
+      "High in the sky the air is cold, so the vapour cools and makes tiny drops.",
+      "Many tiny drops together make clouds; this is condensation.",
+      "When the drops become big and heavy, they fall as rain, hail or snow; this is precipitation.",
+      "Rain water flows into streams and rivers, and some of it soaks into the ground.",
+      "The rivers carry the water back to the sea.",
+      "Then the sun heats it again, and the cycle starts once more.",
+      "So the rain that falls today may once have been in the sea."
+    ],
+    "ur": [
+      "زمین پر پانی ایک چکر میں بار بار گھومتا رہتا ہے۔",
+      "سورج دریاؤں، جھیلوں اور سمندر کے پانی کو گرم کرتا ہے۔",
+      "گرم پانی بھاپ بن جاتا ہے، جو ایک گیس ہے اور ہمیں نظر نہیں آتی؛ اسے تبخیر کہتے ہیں۔",
+      "آسمان میں اونچائی پر ہوا ٹھنڈی ہوتی ہے، اس لیے بھاپ ٹھنڈی ہو کر ننھے قطرے بنا لیتی ہے۔",
+      "بہت سے ننھے قطرے مل کر بادل بناتے ہیں؛ اسے تکثیف کہتے ہیں۔",
+      "جب قطرے بڑے اور بھاری ہو جاتے ہیں تو بارش، اولوں یا برف کی صورت میں گرتے ہیں؛ اسے ترسیب کہتے ہیں۔",
+      "بارش کا پانی ندی نالوں اور دریاؤں میں بہتا ہے، اور کچھ پانی زمین میں جذب ہو جاتا ہے۔",
+      "دریا پانی کو واپس سمندر تک لے جاتے ہیں۔",
+      "پھر سورج اسے دوبارہ گرم کرتا ہے، اور چکر پھر سے شروع ہو جاتا ہے۔",
+      "اس لیے آج برسنے والی بارش کا پانی شاید کبھی سمندر میں تھا۔"
+    ]
+  },
+  "quiz": [
+    {
+      "q": { "en": "What heats the water in rivers and the sea?", "ur": "دریاؤں اور سمندر کے پانی کو کون گرم کرتا ہے؟" },
+      "options": { "en": ["The sun", "The clouds", "The wind"], "ur": ["سورج", "بادل", "ہوا"] },
+      "answer": 0,
+      "explain": { "en": "The sun's heat starts the water cycle.", "ur": "سورج کی گرمی پانی کا چکر شروع کرتی ہے۔" }
+    },
+    {
+      "q": { "en": "Water turning into vapour is called…", "ur": "پانی کا بھاپ بن جانا کہلاتا ہے…" },
+      "options": { "en": ["Evaporation", "Condensation", "Precipitation"], "ur": ["تبخیر", "تکثیف", "ترسیب"] },
+      "answer": 0,
+      "explain": { "en": "Evaporation: warm water becomes a gas called water vapour.", "ur": "تبخیر: گرم پانی بھاپ نامی گیس بن جاتا ہے۔" }
+    },
+    {
+      "q": { "en": "Clouds are made of…", "ur": "بادل کس چیز سے بنتے ہیں؟" },
+      "options": { "en": ["Tiny water drops", "Smoke", "Cotton"], "ur": ["پانی کے ننھے قطرے", "دھواں", "روئی"] },
+      "answer": 0,
+      "explain": { "en": "Cooled vapour makes tiny drops, and many drops make a cloud.", "ur": "ٹھنڈی بھاپ ننھے قطرے بناتی ہے، اور بہت سے قطرے مل کر بادل بنتے ہیں۔" }
+    },
+    {
+      "q": { "en": "Rain, hail and snow are all kinds of…", "ur": "بارش، اولے اور برف سب کس کی قسمیں ہیں؟" },
+      "options": { "en": ["Evaporation", "Precipitation", "Condensation"], "ur": ["تبخیر", "ترسیب", "تکثیف"] },
+      "answer": 1,
+      "explain": { "en": "Precipitation is water falling from clouds.", "ur": "ترسیب کا مطلب ہے بادلوں سے پانی کا گرنا۔" }
+    },
+    {
+      "q": { "en": "Where do rivers carry the water?", "ur": "دریا پانی کو کہاں لے جاتے ہیں؟" },
+      "options": { "en": ["Back to the sea", "Up to the sun", "Into the clouds"], "ur": ["واپس سمندر تک", "اوپر سورج تک", "بادلوں میں"] },
+      "answer": 0,
+      "explain": { "en": "Rivers flow back to the sea, and the cycle starts again.", "ur": "دریا واپس سمندر میں جاتے ہیں، اور چکر پھر شروع ہوتا ہے۔" }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/* Loaded only when the learner switches to Urdu. Subset of Noto Nastaliq Urdu (SIL OFL 1.1). */
+@font-face {
+  font-family: "Noto Nastaliq Urdu";
+  src: url("../fonts/nastaliq-urdu-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF, U+200C-200F, U+2066-2069, U+0030-0039, U+002E, U+002F, U+003D;
+}
