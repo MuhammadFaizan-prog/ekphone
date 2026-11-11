@@ -68,4 +68,4 @@ Ek Phone is an offline-first study app (a PWA) for three to five siblings or cla
 
 ---
 
-**Try it:** [DEMO_URL] · **Code:** https://github.com/MuhammadFaizan-prog/ekphone (private until submission) · **Built during:** AccessED Hacks 2026 (all work on Nov 11, 2026)
+**Try it:** [DEMO_URL] · **Code:** https://github.com/MuhammadFaizan-prog/ekphone (currently private) · **Built during:** AccessED Hacks 2026 (all work on Nov 11, 2026)
