@@ -1,0 +1,109 @@
+{
+  "test": "axe-ur-6-10",
+  "pass": true,
+  "started": "2026-11-11T16:36:18.530Z",
+  "finished": "2026-11-11T16:36:24.133Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "07-quiz: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "08-quiz-feedback: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "09-quiz-wrong: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "10-result: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "zero axe violations on all 4 screens (ur)",
+      "pass": true,
+      "detail": {
+        "total": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "axeVersion": "4.14.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "viewport": "360x740 @2x",
+  "results": [
+    {
+      "screen": "07-quiz",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-07-quiz.png"
+    },
+    {
+      "screen": "08-quiz-feedback",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-08-quiz-feedback.png"
+    },
+    {
+      "screen": "09-quiz-wrong",
+      "url": "/index.html#/quiz/g5-fractions",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-09-quiz-wrong.png"
+    },
+    {
+      "screen": "10-result",
+      "url": "/index.html#/result/g5-fractions",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-10-result.png"
+    }
+  ]
+}

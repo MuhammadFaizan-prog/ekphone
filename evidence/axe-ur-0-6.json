@@ -1,0 +1,147 @@
+{
+  "test": "axe-ur-0-6",
+  "pass": true,
+  "started": "2026-11-11T16:35:58.720Z",
+  "finished": "2026-11-11T16:36:09.421Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "01-picker: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "02-add-learner: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "03-pin: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "04-home: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "05-lesson: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "06-lesson-menu: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "zero axe violations on all 6 screens (ur)",
+      "pass": true,
+      "detail": {
+        "total": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "axeVersion": "4.14.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "viewport": "360x740 @2x",
+  "results": [
+    {
+      "screen": "01-picker",
+      "url": "/index.html#/",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-01-picker.png"
+    },
+    {
+      "screen": "02-add-learner",
+      "url": "/index.html#/add",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-02-add-learner.png"
+    },
+    {
+      "screen": "03-pin",
+      "url": "/index.html#/pin/ubpe56f9",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-03-pin.png"
+    },
+    {
+      "screen": "04-home",
+      "url": "/index.html#/home",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-04-home.png"
+    },
+    {
+      "screen": "05-lesson",
+      "url": "/index.html#/read/g5-fractions",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-05-lesson.png"
+    },
+    {
+      "screen": "06-lesson-menu",
+      "url": "/index.html#/read/g5-water-cycle",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-06-lesson-menu.png"
+    }
+  ]
+}
