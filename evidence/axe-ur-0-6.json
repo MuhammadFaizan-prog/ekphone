@@ -1,8 +1,8 @@
 {
   "test": "axe-ur-0-6",
   "pass": true,
-  "started": "2026-11-11T18:11:51.514Z",
-  "finished": "2026-11-11T18:12:00.259Z",
+  "started": "2026-11-11T18:29:52.721Z",
+  "finished": "2026-11-11T18:30:01.811Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -101,7 +101,7 @@
     },
     {
       "screen": "03-pin",
-      "url": "/index.html#/pin/fiyhgrvm",
+      "url": "/index.html#/pin/exkrt8dq",
       "violations": 0,
       "passes": 41,
       "incomplete": [
