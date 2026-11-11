@@ -1,0 +1,150 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.450
+Ek Phone: an offline study app for several kids who share one phone.
+
+2
+00:00:04.500 --> 00:00:08.950
+The barrier: most study apps assume one child, one phone, an account and mobile data.
+
+3
+00:00:09.000 --> 00:00:12.950
+An empty phone. One tap on "Try the demo" loads 4 made-up learners.
+
+4
+00:00:13.000 --> 00:00:17.450
+Each child has a name tag. No email, no account. Zara's demo PIN is 1234.
+
+5
+00:00:17.500 --> 00:00:22.950
+Zara taps her name and types her 4-digit PIN.
+
+6
+00:00:23.000 --> 00:00:27.450
+Her own shelf opens. Today's lesson shows its size first: 4.2 KB.
+
+7
+00:00:27.500 --> 00:00:30.950
+The yellow highlighter marks one sentence at a time.
+
+8
+00:00:31.000 --> 00:00:38.450
+The arrow keys (or the arrow buttons) move it sentence by sentence.
+
+9
+00:00:38.500 --> 00:00:41.950
+Then a 5-question quiz on the same lesson.
+
+10
+00:00:42.000 --> 00:00:45.950
+Every answer gets feedback. Right...
+
+11
+00:00:46.000 --> 00:00:50.450
+...or wrong, with the right answer and the reason.
+
+12
+00:00:50.500 --> 00:00:54.950
+Zara got 4 of 5. The score is saved on this phone, for Zara only.
+
+13
+00:00:55.000 --> 00:00:58.450
+Her shelf moves on to the next lesson.
+
+14
+00:00:58.500 --> 00:01:02.450
+On the name screen, a tick shows who has studied today.
+
+15
+00:01:02.500 --> 00:01:06.950
+Hamza's shelf is his own. His lesson is still "Not started".
+
+16
+00:01:07.000 --> 00:01:11.450
+One tap switches the whole app to Urdu: right to left, Nastaliq script.
+
+17
+00:01:11.500 --> 00:01:15.950
+In Urdu the arrow keys follow the reading direction.
+
+18
+00:01:16.000 --> 00:01:19.450
+A teacher or older sibling opens "Lesson packs" and "Write a lesson".
+
+19
+00:01:19.500 --> 00:01:22.950
+Open a .txt, .md or .pdf file, or paste the text.
+
+20
+00:01:23.000 --> 00:01:27.450
+A .txt file comes in: 6 sentences and 5 suggested questions.
+
+21
+00:01:27.500 --> 00:01:30.950
+The first line becomes the title. The rest is split into sentences.
+
+22
+00:01:31.000 --> 00:01:34.950
+Suggested questions are fill-in-the-blank, with the right answer marked.
+
+23
+00:01:35.000 --> 00:01:40.950
+The teacher checks each one and edits it before saving.
+
+24
+00:01:41.000 --> 00:01:44.950
+The preview shows the size: 1.2 KB, 6 sentences, 5 questions.
+
+25
+00:01:45.000 --> 00:01:48.450
+Saved. Every learner on this phone now sees it.
+
+26
+00:01:48.500 --> 00:01:51.950
+The new lesson is in the pack list, marked "Written here".
+
+27
+00:01:52.000 --> 00:01:55.950
+"Show QR codes": this lesson needs 3 codes.
+
+28
+00:01:56.000 --> 00:02:00.450
+Each code is a link into the app, so any phone camera can open it.
+
+29
+00:02:00.500 --> 00:02:03.450
+The codes cycle by themselves. Sharing uses 0 MB of mobile data.
+
+30
+00:02:03.500 --> 00:02:07.950
+A second browser, standing in for phone B, opens the links: "Got 1 of 3".
+
+31
+00:02:08.000 --> 00:02:12.450
+After all 3, it shows the size before loading: 1.2 KB.
+
+32
+00:02:12.500 --> 00:02:15.950
+Loaded. The lesson is now on every learner's shelf on phone B.
+
+33
+00:02:16.000 --> 00:02:20.450
+Back on phone A: network off (browser offline mode), page reloaded.
+
+34
+00:02:20.500 --> 00:02:24.950
+It still opens from the service worker, and the lesson still reads.
+
+35
+00:02:25.000 --> 00:02:29.450
+Built during AccessED Hacks (Oct 17 to Nov 20, 2026) by Muhammad Faizan.
+
+36
+00:02:29.500 --> 00:02:33.950
+Not yet tested: real read-aloud voices, TalkBack, and two physical cameras.
+
+37
+00:02:34.000 --> 00:02:38.450
+Try it at ekphone-app.vercel.app. Code: github.com/MuhammadFaizan-prog/ekphone
+
