@@ -56,9 +56,9 @@ There is no build step needed to run it. `tools/build.mjs` only regenerates `js/
 3. Reload. Add a learner, read a lesson, finish the quiz. Everything works and progress is saved.
 
 **Test QR sharing (two phones or two tabs)**
-1. On phone/tab A: *Teacher* → pick a lesson → *Show as QR*. It cycles through numbered codes ("Code 3 of 6").
-2. On phone/tab B: *Receive a lesson* → *Scan*, and point the camera at A. Codes can arrive in any order, and duplicates are ignored.
-3. B shows the pack's title and size before you load it. With no camera, use *Open a file* or paste the pack text instead.
+1. On phone/tab A: *Teacher or older sibling* → *Lesson packs* → **Show QR codes** on a lesson. It cycles through numbered codes ("Code 3 of 6").
+2. On phone/tab B: **Receive a lesson pack** → **Scan QR codes with camera**, and point the camera at A. Codes can arrive in any order, and duplicates are ignored.
+3. B shows the pack's title and size before you load it. With no camera, use **Open a pack file** (A can use **Send as file** over Bluetooth or any share app) or paste the pack text instead.
 
 ---
 
@@ -121,7 +121,7 @@ flowchart LR
 
 - **No backend.** The app is static files. After the first visit, the service worker serves everything from cache.
 - **Lesson packs** are small JSON files (`ekphone-pack/1`): a bilingual title, sentences and 5 questions. The built-in ones are about 4 KB each as minified JSON.
-- **QR sharing:** the pack is serialised, compressed where the browser supports it, split into numbered chunks with a checksum, and shown as a cycling QR sequence. The receiver accepts chunks in any order, drops duplicates, rejects chunks from a different pack, and checks the reassembled pack before saving it.
+- **QR sharing:** the pack is serialised, compressed with `deflate-raw` when the browser has `CompressionStream`, split into numbered chunks with a checksum, and shown as a cycling QR sequence. The receiver accepts chunks in any order, drops duplicates, rejects chunks from a different pack, and checks the reassembled pack before saving it.
 - **Lazy loading:** the QR encoder loads only on the share screen. The jsQR scanner loads only if the phone has no native `BarcodeDetector`. The Urdu font (98.2 KB) loads only when Urdu is turned on.
 
 ## Data handling (summary)
