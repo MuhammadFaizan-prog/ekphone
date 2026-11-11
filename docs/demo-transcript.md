@@ -2,7 +2,7 @@
 
 Video: `docs/demo.mp4`, 1280x720, 2 min 38 s, no voice-over (the captions below are burned into the video and also in `docs/demo.srt` / `docs/demo.vtt`).
 
-Every phone image is a real screenshot of the app, taken by `tools/demo-capture.mjs` in a 360x640 Chromium phone viewport with synthetic demo learners. "Phone B" is a second, separate browser context. "Offline" is the browser's offline mode, not a physical airplane-mode switch. Built by `tools/demo-video.py`.
+Every phone image is a real screenshot of the app, taken by `tools/demo-capture.mjs` in a 360x740 Chromium phone viewport at deviceScaleFactor 2 (the same config as the README screenshots) with synthetic demo learners. "Phone B" is a second, separate browser context. "Offline" is the browser's offline mode, not a physical airplane-mode switch. Built by `tools/demo-video.py`.
 
 | Time | Step | Caption |
 |---|---|---|
