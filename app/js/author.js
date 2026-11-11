@@ -15,6 +15,97 @@
     return out;
   }
 
+  /* ---------- import: .txt / .md / .pdf / pasted text ---------- */
+  var STOP = ('about above after again also among because been before being below between both came come could does down during each even every from have having here into itself just like made make many more most much must near never only other over same should since some such than that their them then there these they thing this those through under until very want were what when where which while with would your yours they\'re it\'s also whole part parts often always').split(' ');
+  var END = /[.!?\u06D4\u061F]["'\u201D\u2019)\]]*$/;
+
+  /** Strip Markdown to plain lines: headings, list markers, emphasis, links, code. */
+  function stripMarkdown(text) {
+    return String(text).split(/\r?\n/).map(function (l, i) {
+      var h = /^\s*#{1,6}\s+/.test(l);
+      l = l.replace(/^\s*#{1,6}\s+/, '').replace(/^\s*(?:[-*+]|\d+[.)])\s+/, '').replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/`{1,3}([^`]*)`{1,3}/g, '$1').replace(/(\*\*|__|\*|_|~~)(.+?)\1/g, '$2').replace(/^\s*>\s?/, '');
+      return (h && i > 0) ? '' : l; // keep only the first heading (it becomes the title)
+    }).join('\n');
+  }
+
+  /** Text -> { title, body }. Title = first non-empty line. kind 'pdf' joins wrapped lines; txt/md join a line onto the previous one when it clearly continues it. */
+  function lessonFromText(text, kind) {
+    if (kind === 'md') text = stripMarkdown(text);
+    var lines = String(text || '').replace(/\u00AD/g, '').split(/\r?\n/).map(function (l) { return l.replace(/\s+/g, ' ').trim(); }).filter(Boolean);
+    if (!lines.length) return { title: '', body: '' };
+    var title = lines.shift().replace(/[.:;,\s]+$/, '');
+    if (title.length > 80) { var cut = title.slice(0, 80); var sp = cut.lastIndexOf(' '); title = (sp > 30 ? cut.slice(0, sp) : cut).trim(); }
+    var body;
+    if (kind === 'pdf') body = lines.join(' ').replace(/(\w)- (\w)/g, '$1$2');
+    else {
+      var out = [];
+      lines.forEach(function (l) {
+        if (out.length && !END.test(out[out.length - 1]) && /^[a-z0-9(]/.test(l)) out[out.length - 1] += ' ' + l; else out.push(l);
+      });
+      body = out.join('\n');
+    }
+    return { title: title, body: body };
+  }
+
+  function words(s) { return String(s).match(/[\p{L}\p{M}][\p{L}\p{M}'\u2019-]*[\p{L}\p{M}]/gu) || []; }
+  function isKey(w) { var l = w.toLowerCase(); return l.length >= 4 && STOP.indexOf(l) < 0 && !/^[A-Z]{2,}$/.test(w); }
+  function latin(s) { return /[A-Za-z]/.test(s) && !/[\u0600-\u06FF]/.test(s); }
+
+  /** Deterministic fill-in-the-blank questions from key sentences (no AI, no network).
+      Keyword = the longest content word, preferring words the lesson repeats. Distractors = other key words of the lesson. */
+  function suggestQuestions(sentences, n) {
+    n = n || NQ;
+    var freq = {};
+    sentences.forEach(function (s) { words(s).filter(isKey).forEach(function (w) { var l = w.toLowerCase(); freq[l] = (freq[l] || 0) + 1; }); });
+    var cands = [];
+    sentences.forEach(function (s, i) {
+      var ws = words(s);
+      if (ws.length < 5 || s.length > 220) return;
+      var seen = {}, keys = [];
+      ws.forEach(function (w, pos) { var l = w.toLowerCase(); if (isKey(w) && !seen[l]) { seen[l] = true; keys.push({ w: w, sc: Math.min(w.length, 12) + (freq[l] > 1 ? 4 : 0), pos: pos }); } });
+      keys.sort(function (a, b) { return b.sc - a.sc || a.pos - b.pos; });
+      if (keys.length) cands.push({ i: i, s: s, keys: keys, score: keys[0].sc + (ws.length >= 6 && ws.length <= 25 ? 2 : 0) });
+    });
+    var picked = [], used = {};
+    cands.slice().sort(function (a, b) { return b.score - a.score || a.i - b.i; }).forEach(function (c) {
+      if (picked.length >= n) return;
+      var k = c.keys.filter(function (x) { return !used[x.w.toLowerCase()]; })[0];
+      if (k) { picked.push({ i: c.i, s: c.s, kw: k.w }); used[k.w.toLowerCase()] = true; }
+    });
+    picked.sort(function (a, b) { return a.i - b.i; });
+    var pool = Object.keys(freq).sort(function (a, b) { return freq[b] - freq[a] || b.length - a.length || (a < b ? -1 : 1); });
+    var quiz = picked.map(function (c, k) {
+      var kwl = c.kw.toLowerCase(), inS = c.s.toLowerCase();
+      var others = picked.map(function (x) { return x.kw.toLowerCase(); }).concat(pool).filter(function (w, j, arr) { return arr.indexOf(w) === j && w !== kwl && inS.indexOf(w) < 0; });
+      var d = others.slice(0, NOPT - 1).map(function (w) { return /^[A-Z]/.test(c.kw) ? w.charAt(0).toUpperCase() + w.slice(1) : w; });
+      while (d.length < NOPT - 1) d.push(d.length ? 'none of these' : 'all of these');
+      var pos = k % NOPT, opts = d.slice(); opts.splice(pos, 0, c.kw);
+      var blank = c.s.replace(c.kw, '_____');
+      return { q: (latin(c.s) ? 'Fill in the blank: ' : 'خالی جگہ پُر کریں: ') + blank, options: opts, answer: pos };
+    });
+    while (quiz.length < n) quiz.push({ q: '', options: ['', '', ''], answer: null });
+    return quiz;
+  }
+
+  /** PDF -> text with pdf.js (loaded only when a PDF is picked). Returns '' when the PDF has no text layer (scanned pages). */
+  async function pdfText(bytes, loadScript) {
+    if (!root.pdfjsLib) await loadScript('vendor/pdf.min.js');
+    var lib = root.pdfjsLib;
+    lib.GlobalWorkerOptions.workerSrc = 'vendor/pdf.worker.min.js';
+    var doc = await lib.getDocument({ data: bytes, isEvalSupported: false, disableFontFace: true, useSystemFonts: false }).promise;
+    var out = [];
+    for (var pg = 1; pg <= Math.min(doc.numPages, 30); pg++) {
+      var page = await doc.getPage(pg);
+      var tc = await page.getTextContent();
+      var line = '';
+      tc.items.forEach(function (it) { line += it.str; if (it.hasEOL) { out.push(line); line = ''; } else if (it.str && !/\s$/.test(it.str)) line += ' '; });
+      if (line.trim()) out.push(line);
+    }
+    try { doc.destroy(); } catch (e) { /* ignore */ }
+    return out.join('\n').replace(/[ \t]+\n/g, '\n').trim();
+  }
+
   function emptyDraft() {
     var qs = [];
     for (var i = 0; i < NQ; i++) qs.push({ q: '', options: ['', '', ''], answer: null });
@@ -64,7 +155,7 @@
     };
   }
 
-  var draft = null, mode = 'edit', errors = {}, saved = null;
+  var draft = null, mode = 'edit', errors = {}, saved = null, importMsg = null;
 
   function screen(u) {
     var h = u.h, t = u.t, btn = u.btn;
@@ -133,7 +224,57 @@
             field('w-text', 'wText', draft.text, { area: true, required: true, hint: t('wTextHint'), after: count, set: function (v) { draft.text = v; }, onchange: function () { count.textContent = t('wSentCount', { n: splitSentences(draft.text).length }); } })),
           h('div', { class: 'w-col' }, qBlocks)),
         h('div', { class: 'row' }, btn(t('wPreview'), { type: 'submit', id: 'w-preview' }), btn(t('cancel'), { kind: 'btn-outline', onclick: function () { u.go('/teacher'); } })));
-      return [h('p', { class: 'lede' }, t('writeIntro')), summary, form];
+      return [h('p', { class: 'lede' }, t('writeIntro')), importBox(), summary, form];
+    }
+
+    function hasContent() { return !!(draft.titleEn.trim() || draft.text.trim() || draft.quiz.some(function (q) { return q.q.trim(); })); }
+    function applyImport(text, kind) {
+      var l = lessonFromText(text, kind);
+      var sents = splitSentences(l.body);
+      if (!l.title && !sents.length) { importMsg = { ok: false, text: t('wNoText') }; u.render(true); focusMsg(); return; }
+      if (hasContent() && !root.confirm(t('wReplace'))) return;
+      draft.titleEn = l.title; draft.text = l.body;
+      draft.quiz = suggestQuestions(sents);
+      var nq = draft.quiz.filter(function (q) { return q.q; }).length;
+      errors = {}; mode = 'edit';
+      importMsg = { ok: true, text: t('wImported', { title: l.title, n: sents.length, q: nq }) };
+      u.render(true); focusMsg();
+    }
+    function focusMsg() { var m = document.getElementById('w-import-msg'); if (m) m.focus(); }
+    function importBox() {
+      var msg = h('p', { class: 'file-msg ' + (importMsg ? (importMsg.ok ? 'file-msg--ok' : 'file-msg--bad') : ''), id: 'w-import-msg', role: 'status', tabindex: '-1' }, importMsg ? importMsg.text : '');
+      var file = h('input', { type: 'file', id: 'w-import-file', class: 'sr-file', accept: '.txt,.md,.markdown,.pdf,text/plain,text/markdown,application/pdf', onchange: function () {
+        var f = file.files && file.files[0]; if (!f) return;
+        var name = f.name.toLowerCase();
+        var kind = /\.pdf$/.test(name) || f.type === 'application/pdf' ? 'pdf' : /\.(md|markdown)$/.test(name) ? 'md' : 'txt';
+        if (kind === 'pdf') {
+          msg.className = 'file-msg'; msg.textContent = t('wPdfLoading');
+          f.arrayBuffer().then(function (buf) { return pdfText(new Uint8Array(buf), u.loadScript); }).then(function (txt) {
+            if (!txt || txt.replace(/\s/g, '').length < 3) { importMsg = { ok: false, text: t('wNoText') }; u.render(true); focusMsg(); return; }
+            applyImport(txt, 'pdf');
+          }).catch(function () { importMsg = { ok: false, text: t('wPdfFail') }; u.render(true); focusMsg(); });
+        } else {
+          f.text().then(function (txt) { applyImport(txt, kind); });
+        }
+        file.value = '';
+      } });
+      var paste = h('textarea', { id: 'w-import-paste', class: 'field field-text field-paste', rows: '4', dir: 'auto', 'aria-describedby': 'w-import-paste-hint' });
+      return h('section', { class: 'card w-import', 'aria-labelledby': 'w-imp-h' },
+        h('h2', { id: 'w-imp-h', class: 'kicker' }, t('wImport')),
+        h('p', { class: 'hint' }, t('wImportHint')),
+        h('div', { class: 'row' }, file, h('label', { for: 'w-import-file', class: 'btn btn-outline btn-small', id: 'w-import-file-label' }, u.icon('file'), h('span', null, t('wImportFile')))),
+        h('label', { for: 'w-import-paste', class: 'label' }, t('wPasteLabel')), paste,
+        h('p', { class: 'hint', id: 'w-import-paste-hint' }, t('wPasteHint')),
+        h('div', { class: 'row' },
+          btn(t('wUsePaste'), { kind: 'btn-outline btn-small', id: 'w-import-paste-btn', onclick: function () { if (paste.value.trim()) applyImport(paste.value, 'txt'); } }),
+          btn(t('wSuggest'), { kind: 'btn-link btn-small', id: 'w-suggest', onclick: function () {
+            var sents = splitSentences(draft.text);
+            if (sents.length < 2) { importMsg = { ok: false, text: t('wErrText') }; u.render(true); focusMsg(); return; }
+            draft.quiz = suggestQuestions(sents); errors = {};
+            importMsg = { ok: true, text: t('wSuggested', { q: draft.quiz.filter(function (q) { return q.q; }).length }) };
+            u.render(true); focusMsg();
+          } })),
+        msg);
     }
 
     function previewView() {
@@ -168,7 +309,7 @@
         h('p', { class: 'success', id: 'w-done', tabindex: '-1' }, u.icon('tick'), h('span', null, t('wSaved', { title: saved.title.en }))),
         h('div', { class: 'row' },
           btn(t('shareQR'), { href: '#/share/' + saved.id, icon: 'qr', id: 'w-share' }),
-          btn(t('wWriteAnother'), { kind: 'btn-outline', onclick: function () { draft = emptyDraft(); errors = {}; mode = 'edit'; saved = null; u.render(true); } }),
+          btn(t('wWriteAnother'), { kind: 'btn-outline', onclick: function () { draft = emptyDraft(); errors = {}; mode = 'edit'; saved = null; importMsg = null; u.render(true); } }),
           btn(t('teacherTitle'), { href: '#/teacher', kind: 'btn-outline' })));
     }
 
@@ -179,7 +320,8 @@
       h('main', { id: 'main', class: 'page page-wide' }, u.underlined('h1', t('writeLesson')), body));
   }
 
-  function reset() { draft = null; mode = 'edit'; errors = {}; saved = null; }
-  var EkAuthor = { splitSentences: splitSentences, validateDraft: validateDraft, buildPack: buildPack, emptyDraft: emptyDraft, screen: screen, reset: reset };
+  function reset() { draft = null; mode = 'edit'; errors = {}; saved = null; importMsg = null; }
+  var EkAuthor = { splitSentences: splitSentences, validateDraft: validateDraft, buildPack: buildPack, emptyDraft: emptyDraft, screen: screen, reset: reset,
+    lessonFromText: lessonFromText, stripMarkdown: stripMarkdown, suggestQuestions: suggestQuestions, pdfText: pdfText };
   if (typeof module !== 'undefined' && module.exports) module.exports = EkAuthor; else root.EkAuthor = EkAuthor;
 })(typeof self !== 'undefined' ? self : globalThis);

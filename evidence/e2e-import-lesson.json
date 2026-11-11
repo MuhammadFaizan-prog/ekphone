@@ -1,0 +1,129 @@
+{
+  "test": "e2e-import-lesson",
+  "pass": true,
+  "started": "2026-11-11T18:27:12.239Z",
+  "finished": "2026-11-11T18:27:14.484Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "made synthetic files",
+      "pass": true,
+      "detail": {
+        "txt": "water-cycle.txt",
+        "md": "plants.md",
+        "pdf": "day-night.pdf (text)",
+        "scanned": "scanned.pdf (picture only)"
+      }
+    },
+    {
+      "step": ".txt: title from the first line",
+      "pass": true,
+      "detail": "The Water Cycle"
+    },
+    {
+      "step": ".txt: text split into sentences",
+      "pass": true,
+      "detail": "6 sentences found"
+    },
+    {
+      "step": ".txt: 5 fill-in-the-blank questions suggested with a right answer",
+      "pass": true,
+      "detail": [
+        "Fill in the blank: _____ moves around the Earth in a cycle.",
+        "Fill in the blank: The Sun heats water in _____ and seas, and it turns into vapour.",
+        "Fill in the blank: The _____ rises, cools and forms clouds.",
+        "Fill in the blank: When the _____ are heavy, water falls as rain.",
+        "Fill in the blank: _____ flows into rivers and back to the sea."
+      ]
+    },
+    {
+      "step": "options include the blanked word; focus on the status message",
+      "pass": true,
+      "detail": {
+        "opt0": [
+          "Water",
+          "Rivers",
+          "Vapour"
+        ],
+        "msg": "Imported \"The Water Cycle\": 6 sentences and 5 suggested questions. Check them before saving."
+      }
+    },
+    {
+      "step": "pdf.js not loaded for a text file",
+      "pass": true,
+      "detail": [
+        "/vendor/pdf.min.js",
+        "/vendor/pdf.worker.min.js",
+        "/vendor/pdf.worker.min.js",
+        "/vendor/pdf.min.js",
+        "/vendor/pdf.worker.min.js"
+      ]
+    },
+    {
+      "step": "suggested questions are editable before saving",
+      "pass": true
+    },
+    {
+      "step": "imported lesson saved as a pack",
+      "pass": true
+    },
+    {
+      "step": ".md: Markdown removed, wrapped lines joined",
+      "pass": true,
+      "detail": {
+        "title": "Parts of a Plant",
+        "text": "A plant has roots, a stem and leaves.\nThe roots hold the plant in the soil and take in water.\nLeaves use sunlight to make food for the plant.\nThe stem carries water from the roots to the leaves.\nFlowers make seeds that grow into new plants."
+      }
+    },
+    {
+      "step": ".pdf: text extracted by pdf.js, title + sentences + questions",
+      "pass": true,
+      "detail": {
+        "title": "Day and Night",
+        "count": "6 sentences found",
+        "q0": "Fill in the blank: The _____ spins like a top on its axis.",
+        "msg": "Imported \"Day and Night\": 6 sentences and 5 suggested questions. Check them before saving.",
+        "lib": true
+      }
+    },
+    {
+      "step": "pdf.js loaded only when a PDF was picked",
+      "pass": true,
+      "detail": [
+        "/vendor/pdf.min.js",
+        "/vendor/pdf.worker.min.js",
+        "/vendor/pdf.worker.min.js",
+        "/vendor/pdf.min.js",
+        "/vendor/pdf.worker.min.js"
+      ]
+    },
+    {
+      "step": "scanned/picture-only PDF: clear \"no text found\" message",
+      "pass": true,
+      "detail": "No text found in this file. If it is a scanned picture, type or paste the lesson instead."
+    },
+    {
+      "step": "a failed import leaves the draft unchanged",
+      "pass": true
+    },
+    {
+      "step": "pasted text: title + 5 sentences",
+      "pass": true,
+      "detail": "5 sentences found"
+    },
+    {
+      "step": "Suggest 5 questions works on typed text",
+      "pass": true
+    },
+    {
+      "step": "offline: PDF import works (pdf.js cached by the service worker on first use)",
+      "pass": true,
+      "detail": "Imported \"Day and Night\": 6 sentences and 5 suggested questions. Check them before saving."
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}

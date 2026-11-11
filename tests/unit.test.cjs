@@ -203,3 +203,31 @@ test('save as page: plain HTML, no script, escaped text, both languages', () => 
   assert.ok(html.includes('lang="ur" dir="rtl"'));
   assert.equal((html.match(/<details>/g) || []).length, 2);
 });
+
+test('lesson import: title from first line, Markdown stripped, deterministic fill-in-the-blank questions', () => {
+  const l = Author.lessonFromText('The Water Cycle\nWater moves around the Earth in a cycle.\nThe Sun heats water in rivers and seas.\nThe vapour rises, cools and forms clouds.\nWhen the clouds are heavy, water falls as rain.\nRain flows into rivers and back to the sea.', 'txt');
+  assert.equal(l.title, 'The Water Cycle');
+  const s = Author.splitSentences(l.body);
+  const q1 = Author.suggestQuestions(s), q2 = Author.suggestQuestions(s);
+  assert.deepEqual(q1, q2, 'same text -> same questions');
+  assert.equal(q1.filter((q) => q.q).length, 5);
+  q1.forEach((q) => { assert.match(q.q, /_____/); assert.equal(q.options.length, 3); assert.ok(q.answer >= 0 && q.answer < 3); assert.equal(new Set(q.options.map((o) => o.toLowerCase())).size, 3); });
+  const md = Author.lessonFromText('# Plants\n\nA **plant** has [roots](x).\n## More\n- Leaves make food.', 'md');
+  assert.deepEqual(md, { title: 'Plants', body: 'A plant has roots.\nLeaves make food.' });
+  assert.equal(Author.lessonFromText('Title\nThe Earth spins like a\ntop on its axis.', 'pdf').body, 'The Earth spins like a top on its axis.');
+  assert.deepEqual(Author.lessonFromText('  \n ', 'txt'), { title: '', body: '' });
+});
+
+test('QR link chunks: any order, size limit, old text form still accepted', async () => {
+  const p = packs[0];
+  const links = await QR.encode(p, { base: 'https://ekphone-app.vercel.app/' });
+  assert.ok(links.every((l) => l.startsWith('https://ekphone-app.vercel.app/#/r/g5-fractions/') && l.length <= QR.MAX_QR_CHARS));
+  const a = QR.createAssembler();
+  links.slice().reverse().forEach((l) => a.add(l));
+  assert.equal(await a.finish(), JSON.stringify(p));
+  const saved = a.toState(); const b = QR.createAssembler(saved); assert.equal(b.complete(), true, 'state survives save/restore');
+  const old = await QR.encode(p); const c = QR.createAssembler(); old.forEach((x) => c.add(x));
+  assert.equal(await c.finish(), JSON.stringify(p));
+  assert.equal(QR.splitPasted(links.join('\n') + '\n' + old.join(' ')).length, links.length + old.length);
+  assert.equal(QR.labelFromId('my-day-and-night-ab12'), 'Day and night');
+});

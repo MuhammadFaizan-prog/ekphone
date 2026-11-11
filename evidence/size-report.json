@@ -1,16 +1,16 @@
 {
-  "generated": "2026-11-11T18:23:33.652Z",
-  "version": "79d4b08b3b",
+  "generated": "2026-11-11T18:26:13.667Z",
+  "version": "094cf742d1",
   "groups": {
     "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
-      "bytes": 125771,
-      "gzip": 37193,
-      "kb": 122.8,
-      "gzipKb": 36.3
+      "bytes": 130353,
+      "gzip": 38360,
+      "kb": 127.3,
+      "gzipKb": 37.5
     },
     "built-in lesson packs (js/packs.js)": {
-      "bytes": 12577,
-      "gzip": 4005,
+      "bytes": 12639,
+      "gzip": 4044,
       "kb": 12.3,
       "gzipKb": 3.9
     },
@@ -21,10 +21,10 @@
       "gzipKb": 2.7
     },
     "lazy: lesson writer (Write a lesson screen only)": {
-      "bytes": 10892,
-      "gzip": 3743,
-      "kb": 10.6,
-      "gzipKb": 3.7
+      "bytes": 20562,
+      "gzip": 6962,
+      "kb": 20.1,
+      "gzipKb": 6.8
     },
     "lazy: Save as page (lesson menu only)": {
       "bytes": 4192,
@@ -43,6 +43,12 @@
       "gzip": 8066,
       "kb": 21.1,
       "gzipKb": 7.9
+    },
+    "lazy: PDF reader pdf.js (only when a PDF lesson is imported; cached on first use)": {
+      "bytes": 1407216,
+      "gzip": 380559,
+      "kb": 1374.2,
+      "gzipKb": 371.6
     },
     "lazy: jsQR scanner fallback (only if no BarcodeDetector)": {
       "bytes": 130716,
@@ -75,12 +81,12 @@
       "gzip": 4914
     },
     "css/screens.css": {
-      "bytes": 15673,
-      "gzip": 4045
+      "bytes": 15780,
+      "gzip": 4074
     },
     "js/i18n.js": {
-      "bytes": 20925,
-      "gzip": 6554
+      "bytes": 24490,
+      "gzip": 7502
     },
     "js/storage.js": {
       "bytes": 11079,
@@ -91,28 +97,28 @@
       "gzip": 2111
     },
     "js/app.js": {
-      "bytes": 52451,
-      "gzip": 14580
+      "bytes": 53298,
+      "gzip": 14743
     },
     "manifest.webmanifest": {
       "bytes": 697,
       "gzip": 341
     },
     "sw.js": {
-      "bytes": 1890,
-      "gzip": 843
+      "bytes": 1953,
+      "gzip": 870
     },
     "js/packs.js": {
-      "bytes": 12577,
-      "gzip": 4005
+      "bytes": 12639,
+      "gzip": 4044
     },
     "js/qrchunk.js": {
       "bytes": 7226,
       "gzip": 2802
     },
     "js/author.js": {
-      "bytes": 10892,
-      "gzip": 3743
+      "bytes": 20562,
+      "gzip": 6962
     },
     "js/export.js": {
       "bytes": 4192,
@@ -137,6 +143,14 @@
     "vendor/qrcode-generator.min.js": {
       "bytes": 21627,
       "gzip": 8066
+    },
+    "vendor/pdf.min.js": {
+      "bytes": 320004,
+      "gzip": 89006
+    },
+    "vendor/pdf.worker.min.js": {
+      "bytes": 1087212,
+      "gzip": 291553
     },
     "vendor/jsQR.min.js": {
       "bytes": 130716,
@@ -188,11 +202,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 519368,
-  "totalKb": 507.2,
+  "totalBytesEverything": 1940898,
+  "totalKb": 1895.4,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 125771,
+    "shellBytes": 130353,
     "pass": true
   }
 }

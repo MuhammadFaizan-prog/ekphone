@@ -490,6 +490,7 @@
         h('button', { type: 'button', class: 'btn btn-link btn-small', 'aria-label': t('remove') + ' ' + pr.name, onclick: function () { if (confirm(t('confirmRemove', { name: pr.name }))) { store.removeProfile(pr.id); render(true); } } }, t('remove'))));
     });
     var fontStatus = h('p', { class: 'hint', role: 'status' });
+    var pdfStatus = h('p', { class: 'hint', role: 'status', id: 'pdf-status' });
     var fontBytes = (window.EK_ASSET_BYTES || {})['fonts/nastaliq-urdu-subset.woff2'] || 0;
     var fontBtn = btn(t('urduFontSave', { kb: (fontBytes / 1024).toFixed(1) }), { kind: 'btn-outline btn-small', onclick: function () {
       fetch('fonts/nastaliq-urdu-subset.woff2').then(function (r) { if (!r.ok) throw 0; fontStatus.textContent = t('urduFontSaved'); }).catch(function () { fontStatus.textContent = t('cameraOff').split('.')[0]; });
@@ -532,6 +533,13 @@
         learners,
         h('h2', { class: 'section-h' }, t('urduFont')),
         fontBtn, fontStatus,
+        h('h2', { class: 'section-h' }, t('pdfReader')),
+        h('p', { class: 'hint', id: 'pdf-hint' }, t('pdfReaderHint')),
+        btn(t('pdfSave', { kb: Math.round(((window.EK_ASSET_BYTES || {})['vendor/pdf.min.js'] + (window.EK_ASSET_BYTES || {})['vendor/pdf.worker.min.js']) / 1024) || 0 }), { kind: 'btn-outline btn-small', id: 'pdf-save', describedby: 'pdf-hint', onclick: function () {
+          Promise.all(['vendor/pdf.min.js', 'vendor/pdf.worker.min.js'].map(function (f) { return fetch(f).then(function (r) { if (!r.ok) throw 0; return r.blob(); }); }))
+            .then(function () { pdfStatus.textContent = t('pdfSaved'); }).catch(function () { pdfStatus.textContent = t('pdfSaveFail'); });
+        } }),
+        pdfStatus,
         h('h2', { class: 'section-h' }, t('demoSection')),
         h('p', { class: 'hint', id: 'reset-demo-hint' }, t('resetDemoHint')),
         btn(t('resetDemo'), { kind: 'btn-outline btn-small', id: 'reset-demo', describedby: 'reset-demo-hint', onclick: function () {
@@ -546,7 +554,7 @@
       loadScript('js/author.js').then(function () { if ((location.hash || '').indexOf('#/write') === 0) render(); });
       return h('div', { class: 'screen' }, topbar(backBtn('/teacher'), langToggle()), h('main', { id: 'main', class: 'page' }, underlined('h1', t('writeLesson'))));
     }
-    return window.EkAuthor.screen({ h: h, t: t, btn: btn, go: go, store: store, Store: Store, rich: rich, announce: announce, lang: lang, icon: icon, topbar: topbar, backBtn: backBtn, langToggle: langToggle, underlined: underlined, size: size, render: render });
+    return window.EkAuthor.screen({ h: h, t: t, btn: btn, go: go, store: store, Store: Store, rich: rich, announce: announce, lang: lang, icon: icon, topbar: topbar, backBtn: backBtn, langToggle: langToggle, underlined: underlined, size: size, render: render, loadScript: loadScript });
   };
 
   function loadScript(src) {
