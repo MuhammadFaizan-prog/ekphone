@@ -1,6 +1,6 @@
 # Byte-size report
 
-Generated 2026-11-11T18:02:08.083Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T18:07:48.512Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
@@ -23,14 +23,14 @@ Shell budget ≤150 KB: **PASS** (115.8 KB).
 
 | File | Bytes | gzip |
 |---|---|---|
-| index.html | 15523 | 4916 |
+| index.html | 15524 | 4914 |
 | css/screens.css | 15339 | 3969 |
 | js/i18n.js | 18234 | 5888 |
 | js/storage.js | 11079 | 3805 |
 | js/art.js | 7532 | 2111 |
 | js/app.js | 48285 | 13266 |
 | manifest.webmanifest | 697 | 341 |
-| sw.js | 1890 | 842 |
+| sw.js | 1890 | 843 |
 | js/packs.js | 12577 | 4005 |
 | js/qrchunk.js | 5082 | 2018 |
 | js/author.js | 10824 | 3719 |

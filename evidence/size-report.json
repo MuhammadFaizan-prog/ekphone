@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-11T18:02:08.083Z",
-  "version": "fff1901128",
+  "generated": "2026-11-11T18:07:48.512Z",
+  "version": "8e9b9b52a6",
   "groups": {
     "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
-      "bytes": 118579,
-      "gzip": 35138,
+      "bytes": 118580,
+      "gzip": 35137,
       "kb": 115.8,
       "gzipKb": 34.3
     },
@@ -71,8 +71,8 @@
   },
   "files": {
     "index.html": {
-      "bytes": 15523,
-      "gzip": 4916
+      "bytes": 15524,
+      "gzip": 4914
     },
     "css/screens.css": {
       "bytes": 15339,
@@ -100,7 +100,7 @@
     },
     "sw.js": {
       "bytes": 1890,
-      "gzip": 842
+      "gzip": 843
     },
     "js/packs.js": {
       "bytes": 12577,
@@ -188,11 +188,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 509964,
+  "totalBytesEverything": 509965,
   "totalKb": 498,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 118579,
+    "shellBytes": 118580,
     "pass": true
   }
 }

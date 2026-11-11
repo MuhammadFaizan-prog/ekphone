@@ -173,7 +173,7 @@ html[lang="ur"] .label { font-weight: 400; }
 @media (min-width: 768px) {
   .topbar { width: 100%; max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
   .page { max-width: 640px; padding-inline: 24px; }
-  .screen-picker .page { max-width: 960px; }
+  .screen-picker .page { max-width: 1080px; }
   .tags { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .demo-box { max-width: 440px; }
   .screen-picker .lede, .demo-note { max-width: 65ch; }

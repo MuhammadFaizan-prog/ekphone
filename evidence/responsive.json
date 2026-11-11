@@ -1,6 +1,6 @@
 {
   "test": "responsive",
-  "generated": "2026-11-11T18:07:25.930Z",
+  "generated": "2026-11-11T18:08:03.114Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "views": [
     "320 phone",
@@ -1166,6 +1166,638 @@
     "checks": 121,
     "failures": 0,
     "axeScans": 22,
+    "axeViolations": 0
+  },
+  "ur": {
+    "screens": [
+      {
+        "screen": "01-picker",
+        "route": "/",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      },
+      {
+        "screen": "02-add-learner",
+        "route": "/add",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      },
+      {
+        "screen": "03-pin",
+        "route": "/pin/7gjthirp",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      },
+      {
+        "screen": "04-home",
+        "route": "/home",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      },
+      {
+        "screen": "05-lesson",
+        "route": "/read/g5-fractions",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      },
+      {
+        "screen": "07-quiz",
+        "route": "/quiz/g5-fractions",
+        "results": [
+          {
+            "view": "320 phone",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "360 phone",
+            "width": 360,
+            "height": 740,
+            "scrollWidth": 360,
+            "clientWidth": 360,
+            "pass": true
+          },
+          {
+            "view": "414 phone",
+            "width": 414,
+            "height": 896,
+            "scrollWidth": 414,
+            "clientWidth": 414,
+            "pass": true
+          },
+          {
+            "view": "740x360 landscape phone",
+            "width": 740,
+            "height": 360,
+            "scrollWidth": 740,
+            "clientWidth": 740,
+            "pass": true
+          },
+          {
+            "view": "768 tablet",
+            "width": 768,
+            "height": 1024,
+            "scrollWidth": 768,
+            "clientWidth": 768,
+            "pass": true
+          },
+          {
+            "view": "1024 laptop",
+            "width": 1024,
+            "height": 768,
+            "scrollWidth": 1024,
+            "clientWidth": 1024,
+            "pass": true
+          },
+          {
+            "view": "1280 desktop",
+            "width": 1280,
+            "height": 800,
+            "scrollWidth": 1280,
+            "clientWidth": 1280,
+            "pass": true
+          },
+          {
+            "view": "1920 desktop",
+            "width": 1920,
+            "height": 1080,
+            "scrollWidth": 1920,
+            "clientWidth": 1920,
+            "pass": true
+          },
+          {
+            "view": "200% zoom of a 1280 window (= 640 CSS px)",
+            "width": 640,
+            "height": 400,
+            "scrollWidth": 640,
+            "clientWidth": 640,
+            "pass": true
+          },
+          {
+            "view": "400% zoom of a 1280 window (= 320 CSS px, WCAG reflow)",
+            "width": 320,
+            "height": 200,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          },
+          {
+            "view": "320 phone + app text size 160%",
+            "width": 320,
+            "height": 640,
+            "scrollWidth": 320,
+            "clientWidth": 320,
+            "pass": true
+          }
+        ],
+        "axe": {
+          "768": {
+            "violations": 0,
+            "ids": []
+          },
+          "1280": {
+            "violations": 0,
+            "ids": []
+          }
+        }
+      }
+    ],
+    "checks": 66,
+    "failures": 0,
+    "axeScans": 12,
     "axeViolations": 0
   }
 }

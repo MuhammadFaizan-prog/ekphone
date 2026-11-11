@@ -1,0 +1,63 @@
+{
+  "test": "responsive-ur-0-6",
+  "pass": true,
+  "started": "2026-11-11T18:07:48.879Z",
+  "finished": "2026-11-11T18:08:03.122Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "01-picker: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "02-add-learner: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "03-pin: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "04-home: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "05-lesson: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "07-quiz: no horizontal scroll in 11 views; axe 768+1280: 0 violations",
+      "pass": true,
+      "detail": {
+        "fails": 0,
+        "axeV": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "rows": 6
+}
