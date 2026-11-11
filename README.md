@@ -7,7 +7,7 @@
 `offline-first PWA` · `0 MB to share a lesson` · `EN + اردو (RTL)` · `axe: 0 violations, 28 screens` · `Lighthouse A11y 100` · `no server, no accounts, no analytics` · `MIT`
 
 > AccessED Hacks 2026, Connect door. Built during the event window (Oct 17 to Nov 20, 2026).
-> Live demo: [DEMO_URL]
+> Live demo: https://ekphone-app.vercel.app
 
 ---
 
@@ -38,7 +38,7 @@ Siblings or classmates (three to five of them) who share **one** older Android p
 
 ## Try it in 60 seconds
 
-**Online:** open [DEMO_URL] in Chrome on Android (or any modern browser). On a phone, use *Add to Home screen* to install it.
+**Online:** open https://ekphone-app.vercel.app in Chrome on Android (or any modern browser). On a phone, use *Add to Home screen* to install it.
 
 **Locally:**
 

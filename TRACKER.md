@@ -15,7 +15,7 @@ Build window: Oct 17 to Nov 20, 2026 (Devpost). All work below was done on Nov 1
 | Lighthouse (simulated 3G, 4× CPU) | Done: 80 / 100 / 100 / 100 | `evidence/lighthouse-summary.md` |
 | "Save Urdu font" shows the real file size | Done (98.2 KB, from build) | `evidence/e2e-offline.json` |
 | README, CREDITS, DATA-HANDLING, LICENSE, Devpost story, hero image | Done | repo root, `docs/hero.png` |
-| Deploy demo + fill [DEMO_URL] | **Open** (Faizi) | |
+| Deploy demo + fill https://ekphone-app.vercel.app | **Open** (Faizi) | |
 | Demo video | **Open** (Faizi) | |
 | Real-phone test (low-end Android, real voices, two cameras) | **Open** (Faizi) | |
 | Fill [FAIZI: …] slots in README and devpost-story.md | **Open** (Faizi) | |
