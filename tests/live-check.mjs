@@ -59,6 +59,8 @@ try {
   await page.goto(LIVE + '#/teacher'); await page.waitForTimeout(300); await axe('teacher');
   await page.goto(LIVE + '#/write'); await page.waitForSelector('#w-title'); await axe('write a lesson');
   await page.goto(LIVE + '#/share/g5-fractions'); await page.waitForSelector('#qr-canvas[data-chunk]'); await axe('share by QR');
+  const link = await page.locator('#qr-canvas').getAttribute('data-chunk');
+  R.check(link.startsWith(LIVE + '#/r/g5-fractions/') && link.length <= 300, 'live: QR codes are links into the live app (any camera can open them)', { start: link.slice(0, 60) + '…', length: link.length });
   await page.goto(LIVE + '#/'); await page.getByRole('button', { name: 'اردو' }).click(); await page.waitForTimeout(500); await axe('picker (Urdu)');
   await page.getByRole('button', { name: 'English' }).click();
 
