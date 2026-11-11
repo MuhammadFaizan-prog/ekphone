@@ -155,3 +155,51 @@ test('i18n: every English key has an Urdu string; placeholders match', () => {
   }
   assert.equal(I18N.t('ur', 'gotCodes', { r: 2, n: 5 }), '5 میں سے 2 کوڈ مل گئے');
 });
+
+const Author = require('../app/js/author.js');
+const Exporter = require('../app/js/export.js');
+
+test('lesson writer: sentence split, validation, pack build', () => {
+  assert.deepEqual(Author.splitSentences('One. Two!  Three?\nFour has 1.5 cups\n\nکسر ایک حصہ ہے۔ دوسرا جملہ؟'),
+    ['One.', 'Two!', 'Three?', 'Four has 1.5 cups', 'کسر ایک حصہ ہے۔', 'دوسرا جملہ؟']);
+  const d = Author.emptyDraft();
+  const e = Author.validateDraft(d);
+  assert.equal(Object.keys(e).length, 2 + 5 * (1 + 3 + 1), 'empty draft: title, text, and 5 x (question, 3 answers, right answer)');
+  d.titleEn = 'Day and Night'; d.titleUr = 'دن اور رات'; d.text = 'The Earth spins. It takes one day.';
+  d.quiz.forEach((q, i) => { q.q = 'Q' + i + '?'; q.options = ['a', 'b', 'c']; q.answer = i % 3; });
+  assert.deepEqual(Author.validateDraft(d), {});
+  const p = Author.buildPack(d, 'ab12');
+  assert.equal(p.id, 'my-day-and-night-ab12');
+  assert.equal(p.title.ur, 'دن اور رات');
+  assert.equal(p.sentences.en.length, 2);
+  assert.equal(p.quiz[4].answer, 1);
+  assert.equal(Store.validatePack(p).ok, true, 'a written lesson passes the same validator as a shared pack');
+  d.text = Array.from({ length: 61 }, (_, i) => 'S' + i + '.').join(' ');
+  assert.equal(Author.validateDraft(d)['w-text'], 'wErrTooMany');
+});
+
+test('demo mode: 4 synthetic learners, only Zara has PIN 1234, starting progress, reset keeps packs', async () => {
+  const s = Store.createStore(memLS());
+  await s.addProfile('Real kid');
+  s.importPack(sample);
+  await s.loadDemo();
+  assert.deepEqual(s.listProfiles().map((p) => p.name), ['Ayesha', 'Bilal', 'Zara', 'Hamza']);
+  assert.equal(s.isDemo(), true);
+  const by = (n) => s.listProfiles().find((p) => p.name === n);
+  assert.equal(s.hasPin(by('Zara').id), true);
+  assert.equal((await s.checkPin(by('Zara').id, '1234')).ok, true);
+  assert.equal(['Ayesha', 'Bilal', 'Hamza'].some((n) => s.hasPin(by(n).id)), false);
+  assert.equal(s.getPackProgress(by('Ayesha').id, 'g5-fractions').best, 4);
+  s.saveQuiz(by('Hamza').id, 'g5-fractions', 2, 5);
+  await s.loadDemo();
+  assert.equal(s.getPackProgress(by('Hamza').id, 'g5-fractions').best, null, 'reset restores starting progress');
+  assert.equal(s.listImportedPacks().length, 1, 'received packs stay after reset');
+});
+
+test('save as page: plain HTML, no script, escaped text, both languages', () => {
+  const html = Exporter.packToHtml(Object.assign({}, packs[0], { title: { en: 'A <b> & "c"', ur: packs[0].title.ur } }));
+  assert.ok(!/<script/i.test(html));
+  assert.ok(html.includes('A &lt;b&gt; &amp; &quot;c&quot;'));
+  assert.ok(html.includes('lang="ur" dir="rtl"'));
+  assert.equal((html.match(/<details>/g) || []).length, 2);
+});

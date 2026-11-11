@@ -1,6 +1,6 @@
 # Byte-size report
 
-Generated 2026-11-11T18:07:48.512Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T18:08:58.687Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
@@ -15,7 +15,7 @@ Generated 2026-11-11T18:07:48.512Z by tools/build.mjs (uncompressed bytes; gzip 
 | Latin fonts (always) | 55.3 KB | 55.3 KB |
 | lazy: Urdu font + css (only when Urdu is on) | 98.6 KB | 97.5 KB |
 | icons | 25.5 KB | 23 KB |
-| **Everything (incl. fonts, icons, lazy parts)** | **498 KB** | |
+| **Everything (incl. fonts, icons, lazy parts)** | **498.1 KB** | |
 
 Shell budget ≤150 KB: **PASS** (115.8 KB).
 
@@ -25,7 +25,7 @@ Shell budget ≤150 KB: **PASS** (115.8 KB).
 |---|---|---|
 | index.html | 15524 | 4914 |
 | css/screens.css | 15339 | 3969 |
-| js/i18n.js | 18234 | 5888 |
+| js/i18n.js | 18276 | 5916 |
 | js/storage.js | 11079 | 3805 |
 | js/art.js | 7532 | 2111 |
 | js/app.js | 48285 | 13266 |

@@ -20,7 +20,7 @@
       wTitleUr: 'Title in Urdu (optional)',
       wSubject: 'Subject (optional)',
       wText: 'Lesson text',
-      wTextHint: 'Write or paste the lesson. It is split into sentences at each . ? ! or ۔',
+      wTextHint: 'Write or paste the lesson. A new sentence starts after each full stop, question mark, exclamation mark or new line.',
       wSentCount: '{n} sentences found',
       wQ: 'Question {i}',
       wQText: 'Question {i} text',

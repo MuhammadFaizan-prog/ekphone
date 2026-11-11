@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-11T18:07:48.512Z",
-  "version": "8e9b9b52a6",
+  "generated": "2026-11-11T18:08:58.687Z",
+  "version": "d678bdb777",
   "groups": {
     "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
-      "bytes": 118580,
-      "gzip": 35137,
+      "bytes": 118622,
+      "gzip": 35165,
       "kb": 115.8,
       "gzipKb": 34.3
     },
@@ -79,8 +79,8 @@
       "gzip": 3969
     },
     "js/i18n.js": {
-      "bytes": 18234,
-      "gzip": 5888
+      "bytes": 18276,
+      "gzip": 5916
     },
     "js/storage.js": {
       "bytes": 11079,
@@ -188,11 +188,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 509965,
-  "totalKb": 498,
+  "totalBytesEverything": 510007,
+  "totalKb": 498.1,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 118580,
+    "shellBytes": 118622,
     "pass": true
   }
 }
