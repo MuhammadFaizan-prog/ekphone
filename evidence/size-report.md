@@ -1,6 +1,6 @@
 # Byte-size report
 
-Generated 2026-11-11T16:47:44.530Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T16:48:59.102Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
