@@ -1,0 +1,127 @@
+{
+  "test": "live-check",
+  "pass": true,
+  "started": "2026-11-11T18:15:36.101Z",
+  "finished": "2026-11-11T18:15:44.261Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "live site serves the same build as this commit",
+      "pass": true,
+      "detail": {
+        "live": "ekphone-09c7bfe8e2",
+        "local": "ekphone-09c7bfe8e2"
+      }
+    },
+    {
+      "step": "live: first screen loads",
+      "pass": true
+    },
+    {
+      "step": "live: one tap loads 4 demo learners, PIN shown",
+      "pass": true
+    },
+    {
+      "step": "live: PIN 1234 opens Zara",
+      "pass": true
+    },
+    {
+      "step": "live: arrow keys move the highlighter",
+      "pass": true
+    },
+    {
+      "step": "live: quiz finished, 5 of 5",
+      "pass": true
+    },
+    {
+      "step": "live: score saved for Zara only",
+      "pass": true,
+      "detail": {
+        "best": 5
+      }
+    },
+    {
+      "step": "live offline: app reloads from the service worker",
+      "pass": true
+    },
+    {
+      "step": "live offline: lesson opens",
+      "pass": true
+    },
+    {
+      "step": "live offline: Write a lesson opens",
+      "pass": true
+    },
+    {
+      "step": "live offline: 0 app requests to the network (11 from the service worker cache)",
+      "pass": true,
+      "detail": {
+        "fromCache": 11,
+        "toNetwork": []
+      }
+    },
+    {
+      "step": "live: axe-core 0 violations on 9 screens",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "step": "live: no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "url": "https://ekphone-app.vercel.app/",
+  "deploy": {
+    "live": "ekphone-09c7bfe8e2",
+    "local": "ekphone-09c7bfe8e2"
+  },
+  "axe": [
+    {
+      "screen": "picker (empty)",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "picker (demo)",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "home",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "lesson",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "quiz feedback",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "teacher",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "write a lesson",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "share by QR",
+      "violations": 0,
+      "ids": []
+    },
+    {
+      "screen": "picker (Urdu)",
+      "violations": 0,
+      "ids": []
+    }
+  ],
+  "note": "Run from a cloud sandbox against the public deploy. Chromium offline emulation; Playwright cannot see requests the browser makes for its own service-worker update check."
+}
