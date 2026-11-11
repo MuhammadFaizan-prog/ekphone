@@ -156,6 +156,7 @@ Full list in [`CREDITS.md`](CREDITS.md).
 
 - **qrcode-generator** 2.0.4, © 2009 Kazuhiko Arase, MIT. [`app/vendor/LICENSE-qrcode-generator.txt`](app/vendor/LICENSE-qrcode-generator.txt)
 - **jsQR** 1.4.0, © Cosmo Wolfe, Apache-2.0. [`app/vendor/LICENSE-jsQR.txt`](app/vendor/LICENSE-jsQR.txt)
+- **pdf.js** (pdfjs-dist) 3.11.174, © Mozilla Foundation, Apache-2.0. [`app/vendor/LICENSE-pdfjs.txt`](app/vendor/LICENSE-pdfjs.txt). Lazy-loaded only for PDF lesson import.
 - **Fonts** (SIL Open Font License 1.1): Atkinson Hyperlegible (Braille Institute), Literata (TypeTogether for Google), Noto Nastaliq Urdu (Google). Licenses in [`app/fonts/`](app/fonts/).
 - **Illustrations and icons:** drawn in code for this project (`app/js/art.js`, `app/icons/icon.svg`).
 - **Datasets:** none. All lesson text, names and test learners are synthetic. No real student data was used.

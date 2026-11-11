@@ -8,11 +8,12 @@ Ek Phone discloses every library, dataset, asset, AI tool and piece of pre-exist
 |---|---|---|---|---|---|
 | qrcode-generator | 2.0.4 | Kazuhiko Arase (© 2009) | MIT | `app/vendor/qrcode-generator.min.js` · [license](app/vendor/LICENSE-qrcode-generator.txt) | Drawing the QR code sequence on the share screen (lazy-loaded) |
 | jsQR | 1.4.0 | Cosmo Wolfe | Apache-2.0 | `app/vendor/jsQR.min.js` · [license](app/vendor/LICENSE-jsQR.txt) | Reading QR codes from the camera when the phone has no native `BarcodeDetector` (lazy-loaded) |
+| pdf.js (pdfjs-dist) | 3.11.174 | Mozilla Foundation and contributors | Apache-2.0 | `app/vendor/pdf.min.js`, `app/vendor/pdf.worker.min.js` · [license](app/vendor/LICENSE-pdfjs.txt) | Reading the text out of a PDF when a teacher imports a lesson (lazy-loaded only when a PDF is picked, then cached by the service worker; 1374.2 KB, 371.6 KB gzip) |
 | Atkinson Hyperlegible (400, 700) | via @fontsource 5.x | Braille Institute of America | SIL OFL 1.1 | `app/fonts/atkinson-*.woff2` · [license](app/fonts/OFL-Atkinson-Hyperlegible.txt) | Body text |
 | Literata (600) | via @fontsource 5.x | TypeTogether for Google | SIL OFL 1.1 | `app/fonts/literata-600.woff2` · [license](app/fonts/OFL-Literata.txt) | Headings |
 | Noto Nastaliq Urdu (subset) | via @fontsource 5.x | Google | SIL OFL 1.1 | `app/fonts/nastaliq-urdu-subset.woff2` · [license](app/fonts/OFL-Noto-Nastaliq-Urdu.txt) | Urdu text (loaded only when Urdu is on) |
 
-Both libraries are vendored as minified files with their license headers kept (`tools/vendor.mjs` builds them from the npm packages).
+All three libraries are vendored as minified files with their license headers kept (`tools/vendor.mjs` builds them from the npm packages).
 
 ## Development tools only (not shipped)
 
