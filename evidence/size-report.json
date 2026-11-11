@@ -1,18 +1,36 @@
 {
-  "generated": "2026-11-11T16:59:22.382Z",
-  "version": "9ba2f572cb",
+  "generated": "2026-11-11T17:57:23.109Z",
+  "version": "085908c752",
   "groups": {
-    "shell (first screen: HTML+CSS+own JS)": {
-      "bytes": 105185,
-      "gzip": 31818,
-      "kb": 102.7,
-      "gzipKb": 31.1
+    "shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS)": {
+      "bytes": 122706,
+      "gzip": 36902,
+      "kb": 119.8,
+      "gzipKb": 36
     },
     "built-in lesson packs (js/packs.js)": {
       "bytes": 12577,
       "gzip": 4005,
       "kb": 12.3,
       "gzipKb": 3.9
+    },
+    "lazy: lesson writer (Write a lesson screen only)": {
+      "bytes": 11089,
+      "gzip": 3781,
+      "kb": 10.8,
+      "gzipKb": 3.7
+    },
+    "lazy: Save as page (lesson menu only)": {
+      "bytes": 4192,
+      "gzip": 1990,
+      "kb": 4.1,
+      "gzipKb": 1.9
+    },
+    "static lesson pages (JS-off fallback, not cached)": {
+      "bytes": 22683,
+      "gzip": 9130,
+      "kb": 22.2,
+      "gzipKb": 8.9
     },
     "lazy: QR encoder (share screen only)": {
       "bytes": 21627,
@@ -47,20 +65,20 @@
   },
   "files": {
     "index.html": {
-      "bytes": 1595,
-      "gzip": 742
+      "bytes": 15645,
+      "gzip": 4956
     },
-    "css/kaghaz.css": {
-      "bytes": 22771,
-      "gzip": 5874
+    "css/screens.css": {
+      "bytes": 15324,
+      "gzip": 3966
     },
     "js/i18n.js": {
-      "bytes": 13031,
-      "gzip": 4460
+      "bytes": 18234,
+      "gzip": 5888
     },
     "js/storage.js": {
-      "bytes": 9559,
-      "gzip": 3354
+      "bytes": 11079,
+      "gzip": 3805
     },
     "js/qrchunk.js": {
       "bytes": 5082,
@@ -71,20 +89,44 @@
       "gzip": 2111
     },
     "js/app.js": {
-      "bytes": 43059,
-      "gzip": 12084
+      "bytes": 47223,
+      "gzip": 12974
     },
     "manifest.webmanifest": {
       "bytes": 697,
       "gzip": 341
     },
     "sw.js": {
-      "bytes": 1859,
-      "gzip": 834
+      "bytes": 1890,
+      "gzip": 843
     },
     "js/packs.js": {
       "bytes": 12577,
       "gzip": 4005
+    },
+    "js/author.js": {
+      "bytes": 11089,
+      "gzip": 3781
+    },
+    "js/export.js": {
+      "bytes": 4192,
+      "gzip": 1990
+    },
+    "lessons/g5-fractions.html": {
+      "bytes": 5902,
+      "gzip": 2332
+    },
+    "lessons/g5-water-cycle.html": {
+      "bytes": 6133,
+      "gzip": 2495
+    },
+    "lessons/g4-english-sentence.html": {
+      "bytes": 5798,
+      "gzip": 2292
+    },
+    "lessons/g3-plant-parts.html": {
+      "bytes": 4850,
+      "gzip": 2011
     },
     "vendor/qrcode-generator.min.js": {
       "bytes": 21627,
@@ -140,11 +182,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 453789,
-  "totalKb": 443.2,
+  "totalBytesEverything": 509274,
+  "totalKb": 497.3,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 105185,
+    "shellBytes": 122706,
     "pass": true
   }
 }

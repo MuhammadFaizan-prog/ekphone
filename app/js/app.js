@@ -360,13 +360,16 @@
     var screen = h('div', { class: 'screen screen-read' },
       topbar(backBtn('/home'), h('div', { class: 'menu-wrap' }, menuBtn, menuPanel)),
       h('main', { id: 'main', class: 'page page-book' },
-        h('p', { class: 'kicker' }, L(p.subject)),
-        h('h1', { class: 'lesson-title', tabindex: '-1', id: 'screen-title' }, rich(L(p.title))),
-        artFor(p),
-        help, text, counter, note,
-        h('p', { class: 'hint', role: 'status', id: 'page-msg' }),
-        h('div', { class: 'after-text' }, btn(t('startQuiz'), { href: '#/quiz/' + p.id, kind: 'btn-outline', id: 'start-quiz' })),
-        printQuiz(p),
+        h('div', { class: 'read-main' },
+          h('p', { class: 'kicker' }, L(p.subject)),
+          h('h1', { class: 'lesson-title', tabindex: '-1', id: 'screen-title' }, rich(L(p.title))),
+          help, text, counter, note,
+          h('p', { class: 'hint', role: 'status', id: 'page-msg' }),
+          printQuiz(p)),
+        h('div', { class: 'read-side' },
+          artFor(p),
+          h('div', { class: 'side-meta' }, packMeta(p, prog)),
+          h('div', { class: 'after-text' }, btn(t('startQuiz'), { href: '#/quiz/' + p.id, kind: 'btn-outline', id: 'start-quiz' }))),
         h('div', { class: 'toolbar' }, offlineChip(), playBtn, h('span', { class: 'spacer' }), prevBtn, nextBtn)));
     setTimeout(function () { move(cur, false); }, 0);
     // Hide the speak button entirely only if the browser has no speech engine.

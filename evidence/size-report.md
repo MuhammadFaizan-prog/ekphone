@@ -1,34 +1,43 @@
 # Byte-size report
 
-Generated 2026-11-11T16:59:22.382Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
+Generated 2026-11-11T17:57:23.109Z by tools/build.mjs (uncompressed bytes; gzip -9 in brackets).
 
 | Group | Size | gzip |
 |---|---|---|
-| shell (first screen: HTML+CSS+own JS) | 102.7 KB | 31.1 KB |
+| shell (first screen: HTML with inlined critical CSS + deferred screens.css + own JS) | 119.8 KB | 36 KB |
 | built-in lesson packs (js/packs.js) | 12.3 KB | 3.9 KB |
+| lazy: lesson writer (Write a lesson screen only) | 10.8 KB | 3.7 KB |
+| lazy: Save as page (lesson menu only) | 4.1 KB | 1.9 KB |
+| static lesson pages (JS-off fallback, not cached) | 22.2 KB | 8.9 KB |
 | lazy: QR encoder (share screen only) | 21.1 KB | 7.9 KB |
 | lazy: jsQR scanner fallback (only if no BarcodeDetector) | 127.7 KB | 46 KB |
 | Latin fonts (always) | 55.3 KB | 55.3 KB |
 | lazy: Urdu font + css (only when Urdu is on) | 98.6 KB | 97.5 KB |
 | icons | 25.5 KB | 23 KB |
-| **Everything (incl. fonts, icons, lazy parts)** | **443.2 KB** | |
+| **Everything (incl. fonts, icons, lazy parts)** | **497.3 KB** | |
 
-Shell budget ≤150 KB: **PASS** (102.7 KB).
+Shell budget ≤150 KB: **PASS** (119.8 KB).
 
 ## Files
 
 | File | Bytes | gzip |
 |---|---|---|
-| index.html | 1595 | 742 |
-| css/kaghaz.css | 22771 | 5874 |
-| js/i18n.js | 13031 | 4460 |
-| js/storage.js | 9559 | 3354 |
+| index.html | 15645 | 4956 |
+| css/screens.css | 15324 | 3966 |
+| js/i18n.js | 18234 | 5888 |
+| js/storage.js | 11079 | 3805 |
 | js/qrchunk.js | 5082 | 2018 |
 | js/art.js | 7532 | 2111 |
-| js/app.js | 43059 | 12084 |
+| js/app.js | 47223 | 12974 |
 | manifest.webmanifest | 697 | 341 |
-| sw.js | 1859 | 834 |
+| sw.js | 1890 | 843 |
 | js/packs.js | 12577 | 4005 |
+| js/author.js | 11089 | 3781 |
+| js/export.js | 4192 | 1990 |
+| lessons/g5-fractions.html | 5902 | 2332 |
+| lessons/g5-water-cycle.html | 6133 | 2495 |
+| lessons/g4-english-sentence.html | 5798 | 2292 |
+| lessons/g3-plant-parts.html | 4850 | 2011 |
 | vendor/qrcode-generator.min.js | 21627 | 8066 |
 | vendor/jsQR.min.js | 130716 | 47144 |
 | fonts/atkinson-400.woff2 | 17208 | 17236 |
