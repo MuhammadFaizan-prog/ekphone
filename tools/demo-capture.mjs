@@ -2,11 +2,10 @@
 // Run from repo root: node tools/demo-capture.mjs <outDir>   (needs the Chromium headless shell, see tools/pw.mjs)
 // Every frame is a real screenshot of the app served from app/ by tools/serve.mjs. Learners are synthetic.
 import fs from 'node:fs';
-import { launch, serve } from './helpers.mjs';
+import { launch, serve, PHONE } from './helpers.mjs'; // same phone config as the README screenshots (tests/e2e/screens.mjs via newPhone): 360x740 CSS @2x = 720x1480
 const OUT = process.argv[2] || '/tmp/ekfin/frames';
 const ROOT = new URL('../', import.meta.url).pathname;
 fs.mkdirSync(OUT, { recursive: true });
-const PHONE = { viewport: { width: 360, height: 640 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, reducedMotion: 'reduce' };
 const shots = [];
 let n = 0;
 async function shot(page, name, meta = {}) {

@@ -79,28 +79,30 @@ def underline(d, x, y, w):
 
 def phone_still(name, label):
     im = Image.new('RGB', (W, H), PAPER); d = ImageDraw.Draw(im)
-    scr = Image.open(os.path.join(FR, shots[name])).convert('RGB').resize((315, 560), Image.LANCZOS)
-    bw = 12; pw, ph = 315 + 2 * bw, 560 + 2 * bw; x0 = (W - pw) // 2; y0 = 14
-    d.rounded_rectangle([x0 + 6, y0 + 8, x0 + pw + 6, y0 + ph + 8], radius=38, fill=(0xE4, 0xDC, 0xCB))
-    d.rounded_rectangle([x0, y0, x0 + pw, y0 + ph], radius=38, fill=INK)
-    mask = Image.new('L', (315, 560), 0); ImageDraw.Draw(mask).rounded_rectangle([0, 0, 314, 559], radius=26, fill=255)
+    # 720x1480 screenshot (360x740 CSS @2x, same config as screenshots/en-*.png), shown at 320x658 (1:2.06)
+    SW, SH = 320, 658
+    scr = Image.open(os.path.join(FR, shots[name])).convert('RGB').resize((SW, SH), Image.LANCZOS)
+    bw = 10; pw, ph = SW + 2 * bw, SH + 2 * bw; x0 = (W - pw) // 2 - 70; y0 = (H - ph) // 2 - 4
+    d.rounded_rectangle([x0 + 6, y0 + 8, x0 + pw + 6, y0 + ph + 8], radius=36, fill=(0xE4, 0xDC, 0xCB))
+    d.rounded_rectangle([x0, y0, x0 + pw, y0 + ph], radius=36, fill=INK)
+    mask = Image.new('L', (SW, SH), 0); ImageDraw.Draw(mask).rounded_rectangle([0, 0, SW - 1, SH - 1], radius=26, fill=255)
     im.paste(scr, (x0 + bw, y0 + bw), mask)
     # left column: step label
     if label:
         num, title = label.split('  ', 1)
         fN, fT = font('lit', 700, 64), font('lit', 600, 34)
-        d.text((70, 150), num, font=fN, fill=RUST)
+        d.text((60, 150), num, font=fN, fill=RUST)
         yy = 240
-        for ln in wrap(d, title, fT, 330):
-            d.text((70, yy), ln, font=fT, fill=INK); yy += 46
-        underline(d, 70, yy + 6, 200)
-    d.text((W - 70, 560), 'Real screenshots of the app', font=font('atk', 400, 20), fill=(0x5A, 0x55, 0x4C), anchor='rs')
-    d.text((W - 70, 586), '360 x 640 phone, Chromium', font=font('atk', 400, 20), fill=(0x5A, 0x55, 0x4C), anchor='rs')
+        for ln in wrap(d, title, fT, 300):
+            d.text((60, yy), ln, font=fT, fill=INK); yy += 46
+        underline(d, 60, yy + 6, 200)
+    d.text((W - 50, 668), 'Real screenshots of the app', font=font('atk', 400, 20), fill=(0x5A, 0x55, 0x4C), anchor='rs')
+    d.text((W - 50, 694), '360 x 740 phone (@2x), Chromium', font=font('atk', 400, 20), fill=(0x5A, 0x55, 0x4C), anchor='rs')
     tag = SIDE.get(name)
     if tag:
         f = font('atk', 700, 26); tw = d.textlength(tag, font=f)
-        bx = W - 70 - tw - 36
-        d.rounded_rectangle([bx, 150, W - 70, 200], radius=25, fill=RUST if tag == 'OFFLINE' else INK)
+        bx = W - 50 - tw - 36
+        d.rounded_rectangle([bx, 150, W - 50, 200], radius=25, fill=RUST if tag == 'OFFLINE' else INK)
         d.text((bx + 18, 175), tag, font=f, fill=CARD, anchor='lm')
     return im
 
@@ -151,22 +153,23 @@ title_card().save(OUT + '/thumb.png')
 cues, t = [], 0.0
 for (name, sec, label, cap) in TL:
     if cues and cues[-1][2] == cap: cues[-1][1] = t + sec
-    else: cues.append([t, t + sec, cap])
+    else: cues.append([t, t + sec, cap, 'Cap' if name in (T, C) else 'Side'])
     t += sec
 TOTAL = t
 def ts(x, sep): h = int(x // 3600); m = int(x % 3600 // 60); s = x % 60; return f'{h:02d}:{m:02d}:{int(s):02d}{sep}{int(round((s - int(s)) * 1000)):03d}'
 with open(OUT + '/demo.srt', 'w') as f:
-    for i, (a, b, c) in enumerate(cues, 1): f.write(f'{i}\n{ts(a, ",")} --> {ts(b - 0.05, ",")}\n{c}\n\n')
+    for i, (a, b, c, _) in enumerate(cues, 1): f.write(f'{i}\n{ts(a, ",")} --> {ts(b - 0.05, ",")}\n{c}\n\n')
 with open(OUT + '/demo.vtt', 'w') as f:
     f.write('WEBVTT\n\n')
-    for i, (a, b, c) in enumerate(cues, 1): f.write(f'{i}\n{ts(a, ".")} --> {ts(b - 0.05, ".")}\n{c}\n\n')
+    for i, (a, b, c, _) in enumerate(cues, 1): f.write(f'{i}\n{ts(a, ".")} --> {ts(b - 0.05, ".")}\n{c}\n\n')
 def ass_t(x): return f'{int(x // 3600)}:{int(x % 3600 // 60):02d}:{x % 60:05.2f}'
 with open(OUT + '/demo.ass', 'w') as f:
     f.write('[Script Info]\nScriptType: v4.00+\nPlayResX: 1280\nPlayResY: 720\nWrapStyle: 0\n\n[V4+ Styles]\n'
             'Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n'
-            'Style: Cap,Atkinson Hyperlegible,30,&H00E7F1F6,&H00E7F1F6,&H00171A1B,&H00171A1B,-1,0,0,0,100,100,0,0,3,10,0,2,120,120,26,1\n\n'
+            'Style: Cap,Atkinson Hyperlegible,30,&H00E7F1F6,&H00E7F1F6,&H00171A1B,&H00171A1B,-1,0,0,0,100,100,0,0,3,10,0,2,120,120,26,1\n'
+            'Style: Side,Atkinson Hyperlegible,30,&H00E7F1F6,&H00E7F1F6,&H00171A1B,&H00171A1B,-1,0,0,0,100,100,0,0,3,10,0,4,790,50,0,1\n\n'
             '[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n')
-    for a, b, c in cues: f.write(f'Dialogue: 0,{ass_t(a)},{ass_t(b - 0.05)},Cap,,0,0,0,,{c}\n')
+    for a, b, c, st in cues: f.write(f'Dialogue: 0,{ass_t(a)},{ass_t(b - 0.05)},{st},,0,0,0,,{c}\n')
 with open(OUT + '/list.txt', 'w') as f:
     for p, s in stills: f.write(f"file '{p}'\nduration {s}\n")
     f.write(f"file '{stills[-1][0]}'\n")
@@ -174,7 +177,7 @@ with open(OUT + '/list.txt', 'w') as f:
 with open(OUT + '/demo-transcript.md', 'w') as f:
     f.write('# Ek Phone demo video: transcript\n\n')
     f.write(f'Video: `docs/demo.mp4`, 1280x720, {int(TOTAL // 60)} min {int(TOTAL % 60):02d} s, no voice-over (the captions below are burned into the video and also in `docs/demo.srt` / `docs/demo.vtt`).\n\n')
-    f.write('Every phone image is a real screenshot of the app, taken by `tools/demo-capture.mjs` in a 360x640 Chromium phone viewport with synthetic demo learners. "Phone B" is a second, separate browser context. "Offline" is the browser\'s offline mode, not a physical airplane-mode switch. Built by `tools/demo-video.py`.\n\n')
+    f.write('Every phone image is a real screenshot of the app, taken by `tools/demo-capture.mjs` in a 360x740 Chromium phone viewport at deviceScaleFactor 2 (the same config as the README screenshots) with synthetic demo learners. "Phone B" is a second, separate browser context. "Offline" is the browser\'s offline mode, not a physical airplane-mode switch. Built by `tools/demo-video.py`.\n\n')
     f.write('| Time | Step | Caption |\n|---|---|---|\n')
     t = 0.0; seen = set()
     for (name, sec, label, cap) in TL:
