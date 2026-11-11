@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-11T16:12:15.628Z",
-  "version": "63c95b161b",
+  "generated": "2026-11-11T16:24:09.798Z",
+  "version": "006e837325",
   "groups": {
     "shell (first screen: HTML+CSS+own JS)": {
-      "bytes": 104794,
-      "gzip": 31685,
+      "bytes": 104786,
+      "gzip": 31676,
       "kb": 102.3,
       "gzipKb": 30.9
     },
@@ -51,12 +51,12 @@
       "gzip": 742
     },
     "css/kaghaz.css": {
-      "bytes": 22612,
-      "gzip": 5835
+      "bytes": 22718,
+      "gzip": 5860
     },
     "js/i18n.js": {
-      "bytes": 13040,
-      "gzip": 4466
+      "bytes": 13031,
+      "gzip": 4460
     },
     "js/storage.js": {
       "bytes": 9559,
@@ -64,11 +64,11 @@
     },
     "js/qrchunk.js": {
       "bytes": 5082,
-      "gzip": 2017
+      "gzip": 2018
     },
     "js/art.js": {
-      "bytes": 7637,
-      "gzip": 2140
+      "bytes": 7532,
+      "gzip": 2111
     },
     "js/app.js": {
       "bytes": 42713,
@@ -140,11 +140,11 @@
       "bytes": 3934
     }
   },
-  "totalBytesEverything": 453333,
+  "totalBytesEverything": 453325,
   "totalKb": 442.7,
   "shellBudget": {
     "limitBytes": 153600,
-    "shellBytes": 104794,
+    "shellBytes": 104786,
     "pass": true
   }
 }

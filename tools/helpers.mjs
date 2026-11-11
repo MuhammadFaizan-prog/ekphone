@@ -13,6 +13,7 @@ export const DEMO = [
 export async function newPhone(browser, extra = {}) {
   const ctx = await browser.newContext({ ...PHONE, ...extra });
   const page = await ctx.newPage();
+  page.setDefaultTimeout(8000);
   const errors = [];
   page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
   page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text()); });

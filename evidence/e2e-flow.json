@@ -1,0 +1,181 @@
+{
+  "test": "e2e-flow",
+  "pass": true,
+  "started": "2026-11-11T16:23:15.571Z",
+  "finished": "2026-11-11T16:23:21.153Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "picker shows with no learners",
+      "pass": true
+    },
+    {
+      "step": "bad PIN shows error",
+      "pass": true,
+      "detail": "PIN must be exactly 4 numbers."
+    },
+    {
+      "step": "bad PIN field marked aria-invalid",
+      "pass": true
+    },
+    {
+      "step": "two name tags on the takhti",
+      "pass": true,
+      "detail": [
+        "Ayesha",
+        "Bilal"
+      ]
+    },
+    {
+      "step": "PIN not stored in plain text",
+      "pass": true
+    },
+    {
+      "step": "wrong PIN refused",
+      "pass": true
+    },
+    {
+      "step": "right PIN opens Ayesha's shelf",
+      "pass": true
+    },
+    {
+      "step": "today's lesson = first unmastered pack",
+      "pass": true
+    },
+    {
+      "step": "pack size shown in KB and MB before opening",
+      "pass": true,
+      "detail": "4.1 KB · 0.004 MB · 5 questions · Not started"
+    },
+    {
+      "step": "ArrowDown x3 moves highlight to sentence 4",
+      "pass": true,
+      "detail": {
+        "on": "3"
+      }
+    },
+    {
+      "step": "ArrowUp moves back",
+      "pass": true,
+      "detail": {
+        "on": "2"
+      }
+    },
+    {
+      "step": "screen reader live region announces sentence",
+      "pass": true,
+      "detail": "Sentence 3 of 10. Each part is one half, and we write it as 1/2."
+    },
+    {
+      "step": "highlighter band colour #F2D27A",
+      "pass": true,
+      "detail": "rgb(242, 210, 122)"
+    },
+    {
+      "step": "highlight follows each spoken sentence",
+      "pass": true,
+      "detail": {
+        "highlighted": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "spoken": 4
+      }
+    },
+    {
+      "step": "pause stops the highlight",
+      "pass": true
+    },
+    {
+      "step": "check with no answer asks to choose",
+      "pass": true
+    },
+    {
+      "step": "question 1 correct feedback",
+      "pass": true
+    },
+    {
+      "step": "wrong answer: feedback names the right one",
+      "pass": true,
+      "detail": "Not quite. The answer is: 4The denominator is the bottom number. It shows 4 equal parts make the whole."
+    },
+    {
+      "step": "question 3 correct feedback",
+      "pass": true
+    },
+    {
+      "step": "question 4 correct feedback",
+      "pass": true
+    },
+    {
+      "step": "question 5 correct feedback",
+      "pass": true
+    },
+    {
+      "step": "result: 4 of 5",
+      "pass": true
+    },
+    {
+      "step": "score saved for Ayesha",
+      "pass": true,
+      "detail": {
+        "read": false,
+        "sentence": 5,
+        "best": 4,
+        "last": 4,
+        "attempts": 1,
+        "updated": 1794414200024,
+        "total": 5,
+        "doneDay": "Wed Nov 11 2026"
+      }
+    },
+    {
+      "step": "Ayesha shows a done-today tick",
+      "pass": true
+    },
+    {
+      "step": "Bilal opens without PIN",
+      "pass": true
+    },
+    {
+      "step": "Bilal does not inherit Ayesha's score",
+      "pass": true
+    },
+    {
+      "step": "Urdu switches lang=ur dir=rtl",
+      "pass": true,
+      "detail": [
+        "ur",
+        "rtl"
+      ]
+    },
+    {
+      "step": "Noto Nastaliq Urdu font loaded lazily after switching",
+      "pass": true
+    },
+    {
+      "step": "lesson title in Urdu",
+      "pass": true
+    },
+    {
+      "step": "RTL: ArrowLeft moves forward",
+      "pass": true
+    },
+    {
+      "step": "maths like 1/2 isolated as LTR inside Urdu",
+      "pass": true
+    },
+    {
+      "step": "no Urdu voice -> honest notice shown (test engine has English only)",
+      "pass": true,
+      "detail": "اس فون میں اردو آواز موجود نہیں۔ تیر والے بٹنوں سے آگے بڑھیں اور ساتھ ساتھ پڑھیں۔"
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ]
+}
