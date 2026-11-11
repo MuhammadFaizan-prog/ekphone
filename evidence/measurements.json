@@ -1,0 +1,86 @@
+{
+  "generated": "2026-11-11T18:13:23.834Z",
+  "before": "commit f4e2acd (Nov 11, before this round of work)",
+  "after": "this commit",
+  "rows": [
+    {
+      "metric": "First-screen code (HTML + CSS + own JS)",
+      "before": "102.7 KB (31.1 KB gzip)",
+      "after": "115.8 KB (34.3 KB gzip)",
+      "source": "evidence/size-report.json",
+      "note": "after includes the deferred screens.css and the new demo/print code; budget 150 KB"
+    },
+    {
+      "metric": "Lesson pack size: g5-fractions",
+      "before": "4.1 KB",
+      "after": "4.1 KB",
+      "source": "evidence/size-report.json",
+      "note": "minified JSON, unchanged content"
+    },
+    {
+      "metric": "Lesson pack size: g5-water-cycle",
+      "before": "4.2 KB",
+      "after": "4.2 KB",
+      "source": "evidence/size-report.json",
+      "note": "minified JSON, unchanged content"
+    },
+    {
+      "metric": "Lesson pack size: g4-english-sentence",
+      "before": "3.8 KB",
+      "after": "3.8 KB",
+      "source": "evidence/size-report.json",
+      "note": "minified JSON, unchanged content"
+    },
+    {
+      "metric": "QR codes to share g5-fractions",
+      "before": "not measured",
+      "after": "6 codes for 4.1 KB",
+      "source": "evidence/e2e-qr-transfer.json"
+    },
+    {
+      "metric": "QR codes to share g5-water-cycle",
+      "before": "not measured",
+      "after": "7 codes for 4.2 KB",
+      "source": "evidence/e2e-qr-transfer.json"
+    },
+    {
+      "metric": "QR codes to share g4-english-sentence",
+      "before": "not measured",
+      "after": "6 codes for 3.8 KB",
+      "source": "evidence/e2e-qr-transfer.json"
+    },
+    {
+      "metric": "QR transfer of the sample pack (camera scan to preview)",
+      "before": "4 codes, time not measured",
+      "after": "4 codes in 2.4 s",
+      "source": "evidence/e2e-qr-transfer.json",
+      "note": "fake camera feed showing each code for 0.6 s in a loop; a real hand-held phone camera is untested"
+    },
+    {
+      "metric": "Lesson data sent over the network to share a pack by QR",
+      "before": "not measured",
+      "after": "0 bytes (0 server requests during the scan)",
+      "source": "evidence/e2e-qr-transfer.json",
+      "note": "requests seen while scanning: /vendor/jsQR.min.js (the app's own scanner file, answered by the service worker)"
+    },
+    {
+      "metric": "App requests that reached the network during the offline run",
+      "before": "not measured",
+      "after": "0 (26 answered from the service worker cache)",
+      "source": "evidence/e2e-offline.json",
+      "note": "plus 1 browser service-worker update check for /sw.js, which Chromium's offline emulation does not block"
+    },
+    {
+      "metric": "Lighthouse Performance (mobile, simulated Regular 3G, 4x CPU)",
+      "before": "80 (LCP 4.6 s, test server sent files uncompressed)",
+      "after": "90 (LCP 3.4 s, median of 3, gzip like the host)",
+      "source": "evidence/lighthouse-summary.md"
+    },
+    {
+      "metric": "Lighthouse Accessibility",
+      "before": "100",
+      "after": "100",
+      "source": "evidence/lighthouse-summary.md"
+    }
+  ]
+}
