@@ -5,6 +5,8 @@
   var NS = 'ekphone:v1:';
   var MAX_PROFILES = 8;
   var MAX_PACK_BYTES = 200 * 1024;
+  /** Synthetic demo learners (made up, no real children). Zara has PIN 1234, shown on screen. */
+  var DEMO = [{ name: 'Ayesha', pin: '' }, { name: 'Bilal', pin: '' }, { name: 'Zara', pin: '1234' }, { name: 'Hamza', pin: '' }];
   var COLORS = ['rust', 'blue', 'sage', 'ochre', 'plum', 'teal', 'clay', 'olive'];
 
   function utf8Bytes(str) {
@@ -146,6 +148,22 @@
         all[packId] = cur; write('progress:' + id, all); return cur;
       },
 
+      /** Replace all learners with the 4 demo learners and their starting progress. Packs stay. */
+      loadDemo: async function () {
+        api.listProfiles().forEach(function (p) { api.removeProfile(p.id); });
+        for (var i = 0; i < DEMO.length; i++) await api.addProfile(DEMO[i].name, DEMO[i].pin);
+        var list = api.listProfiles().map(function (p) { p.demo = true; return p; });
+        write('profiles', list);
+        var id = function (n) { return list.filter(function (p) { return p.name === n; })[0].id; };
+        api.saveReading(id('Ayesha'), 'g5-fractions', 9, true); api.saveQuiz(id('Ayesha'), 'g5-fractions', 4, 5);
+        api.saveReading(id('Bilal'), 'g5-water-cycle', 3, false);
+        api.saveReading(id('Zara'), 'g5-fractions', 9, true); api.saveQuiz(id('Zara'), 'g5-fractions', 5, 5);
+        api.saveReading(id('Zara'), 'g4-english-sentence', 2, false);
+        return list;
+      },
+      isDemo: function () { var l = api.listProfiles(); return l.length > 0 && l.every(function (p) { return p.demo; }); },
+      listMine: function () { return read('mine', []); },
+      saveMine: function (pack) { api.importPack(pack); var m = api.listMine().filter(function (x) { return x !== pack.id; }); m.push(pack.id); write('mine', m); return pack; },
       listImportedPacks: function () { return read('packs', []); },
       importPack: function (pack) {
         var v = validatePack(pack);
@@ -168,6 +186,6 @@
     return api;
   }
 
-  var EkStore = { createStore: createStore, validatePack: validatePack, packBytes: packBytes, formatSize: formatSize, utf8Bytes: utf8Bytes, fnv1a: fnv1a, validPin: validPin, cleanName: cleanName, MAX_PROFILES: MAX_PROFILES };
+  var EkStore = { createStore: createStore, validatePack: validatePack, packBytes: packBytes, formatSize: formatSize, utf8Bytes: utf8Bytes, fnv1a: fnv1a, validPin: validPin, cleanName: cleanName, MAX_PROFILES: MAX_PROFILES, DEMO: DEMO };
   if (typeof module !== 'undefined' && module.exports) module.exports = EkStore; else root.EkStore = EkStore;
 })(typeof self !== 'undefined' ? self : globalThis);

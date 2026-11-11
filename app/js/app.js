@@ -120,6 +120,18 @@
   screens.picker = function () {
     setProfile(null);
     var profiles = store.listProfiles();
+    var demo = store.isDemo();
+    function demoBox() {
+      return h('div', { class: 'demo-box' },
+        btn(t('tryDemo'), { id: 'try-demo', icon: 'play', describedby: 'try-demo-hint', onclick: startDemo }),
+        h('p', { class: 'hint', id: 'try-demo-hint' }, t('tryDemoHint')));
+    }
+    function startDemo() {
+      store.loadDemo().then(function () {
+        render(true); announce(t('demoLoaded') + ' ' + t('demoNote'));
+        var first = document.querySelector('.tag'); if (first) first.focus();
+      });
+    }
     var list = h('ul', { class: 'tags', role: 'list' });
     profiles.forEach(function (p) {
       var done = Object.keys(store.getProgress(p.id)).some(function (k) { return store.getProgress(p.id)[k].doneDay === today(); });
@@ -136,8 +148,12 @@
       h('main', { id: 'main', class: 'page' },
         underlined('h1', t('whoStudying')),
         h('p', { class: 'lede' }, profiles.length ? t('tapYourName') : t('noLearners')),
+        demo ? h('p', { class: 'demo-note', id: 'demo-note' }, rich(t('demoNote'))) : null,
+        profiles.length ? null : demoBox(),
         list,
-        profiles.length < Store.MAX_PROFILES ? btn(t('addLearner'), { kind: 'btn-outline', icon: 'plus', onclick: function () { go('/add'); } }) : null,
+        h('div', { class: 'picker-actions' },
+          profiles.length < Store.MAX_PROFILES ? btn(t('addLearner'), { kind: 'btn-outline', icon: 'plus', onclick: function () { go('/add'); } }) : null,
+          profiles.length && !demo ? btn(t('tryDemo'), { kind: 'btn-link', id: 'try-demo', onclick: function () { if (confirm(t('confirmDemoReplace'))) startDemo(); } }) : null),
         h('div', { class: 'foot-row' }, btn(t('teacherMode'), { kind: 'btn-link', onclick: function () { go('/teacher'); } }), offlineChip())));
   };
 
@@ -235,6 +251,23 @@
     return { ok: false, reason: 'lang' };
   }
 
+  function printQuiz(p) {
+    var ol = h('ol', { class: 'pq-list' });
+    p.quiz.forEach(function (q) { var o = h('ul', { class: 'pq-opts' }); optionsOf(q).forEach(function (x) { o.appendChild(h('li', null, rich(x))); }); ol.appendChild(h('li', null, h('p', null, rich(L(q.q))), o)); });
+    var ans = p.quiz.map(function (q, i) { return (i + 1) + ': ' + optionsOf(q)[q.answer]; }).join(' · ');
+    return h('section', { class: 'print-only', 'aria-hidden': 'true' }, h('h2', null, t('printQuiz')), ol, h('p', { class: 'pq-ans' }, t('printAnswers') + ': ', rich(ans)));
+  }
+  function savePage(p) {
+    loadScript('js/export.js').then(function () {
+      var html = window.EkExport.packToHtml(cleanPack(p));
+      var fname = p.id + '.html';
+      var url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      var a = h('a', { href: url, download: fname }); document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      var m = document.getElementById('page-msg'); if (m) m.textContent = t('pageSaved', { file: fname });
+    });
+  }
+
   screens.read = function (packId) {
     var who = currentProfile();
     if (!who) { go('/', true); return null; }
@@ -257,6 +290,8 @@
     var menuOpen = false;
     var menuPanel = h('div', { class: 'menu', id: 'lesson-menu', hidden: true },
       h('a', { class: 'menu-item', href: '#/share/' + p.id }, icon('qr'), h('span', null, t('shareThis'))),
+      h('button', { type: 'button', class: 'menu-item', id: 'print-lesson', onclick: function () { setMenu(false); window.print(); } }, icon('file'), h('span', null, t('printLesson'))),
+      h('button', { type: 'button', class: 'menu-item', id: 'save-page', onclick: function () { setMenu(false); savePage(p); } }, icon('file'), h('span', null, t('savePage'))),
       h('button', { type: 'button', class: 'menu-item', onclick: function () { textSize(0.1); } }, h('span', { class: 'aa', 'aria-hidden': 'true' }, 'A+'), h('span', null, t('bigger'))),
       h('button', { type: 'button', class: 'menu-item', onclick: function () { textSize(-0.1); } }, h('span', { class: 'aa', 'aria-hidden': 'true' }, 'A−'), h('span', null, t('smaller'))));
     var menuBtn = h('button', { type: 'button', class: 'icon-btn', 'aria-label': t('menu'), 'aria-expanded': 'false', 'aria-controls': 'lesson-menu', onclick: function () { setMenu(!menuOpen); } }, icon('dots'));
@@ -329,7 +364,9 @@
         h('h1', { class: 'lesson-title', tabindex: '-1', id: 'screen-title' }, rich(L(p.title))),
         artFor(p),
         help, text, counter, note,
+        h('p', { class: 'hint', role: 'status', id: 'page-msg' }),
         h('div', { class: 'after-text' }, btn(t('startQuiz'), { href: '#/quiz/' + p.id, kind: 'btn-outline', id: 'start-quiz' })),
+        printQuiz(p),
         h('div', { class: 'toolbar' }, offlineChip(), playBtn, h('span', { class: 'spacer' }), prevBtn, nextBtn)));
     setTimeout(function () { move(cur, false); }, 0);
     // Hide the speak button entirely only if the browser has no speech engine.
@@ -430,11 +467,12 @@
 
   /* ---------- teacher: packs, sharing, receiving ---------- */
   screens.teacher = function () {
+    var mine = store.listMine();
     var list = h('ul', { class: 'packlist', role: 'list' });
     allPacks().forEach(function (p) {
       var f = size(p);
       list.appendChild(h('li', { class: 'card packrow' },
-        h('p', { class: 'spine-subj' }, (p._imported ? t('received') : t('builtIn')) + ' · ' + (L(p.subject) || '')),
+        h('p', { class: 'spine-subj' }, (mine.indexOf(p.id) >= 0 ? t('writtenHere') : p._imported ? t('received') : t('builtIn')) + ' · ' + (L(p.subject) || '')),
         h('h2', { class: 'spine-title' }, rich(L(p.title))),
         h('p', { class: 'meta' }, t('sizeLine', { kb: f.kb, mb: f.mb }) + ' · ' + t('sentences', { n: p.sentences.en.length })),
         h('div', { class: 'row' },
@@ -471,13 +509,30 @@
       h('main', { id: 'main', class: 'page' },
         underlined('h1', t('teacherTitle')),
         h('p', { class: 'lede' }, t('teacherIntro')),
-        btn(t('receivePack'), { href: '#/receive', icon: 'camera', id: 'go-receive' }),
+        h('div', { class: 'teacher-actions' },
+          btn(t('receivePack'), { href: '#/receive', icon: 'camera', id: 'go-receive' }),
+          btn(t('writeLesson'), { href: '#/write', icon: 'plus', kind: 'btn-outline', id: 'go-write' })),
         fileMsg,
         list,
         h('h2', { class: 'section-h' }, t('learners')),
         learners,
         h('h2', { class: 'section-h' }, t('urduFont')),
-        fontBtn, fontStatus));
+        fontBtn, fontStatus,
+        h('h2', { class: 'section-h' }, t('demoSection')),
+        h('p', { class: 'hint', id: 'reset-demo-hint' }, t('resetDemoHint')),
+        btn(t('resetDemo'), { kind: 'btn-outline btn-small', id: 'reset-demo', describedby: 'reset-demo-hint', onclick: function () {
+          if (!confirm(t('confirmResetDemo'))) return;
+          store.loadDemo().then(function () { render(true); var m = document.getElementById('demo-msg'); m.textContent = t('demoReset'); var b = document.getElementById('reset-demo'); if (b) b.focus(); });
+        } }),
+        h('p', { class: 'hint', role: 'status', id: 'demo-msg' })));
+  };
+
+  screens.write = function () {
+    if (!window.EkAuthor) {
+      loadScript('js/author.js').then(function () { if ((location.hash || '').indexOf('#/write') === 0) render(); });
+      return h('div', { class: 'screen' }, topbar(backBtn('/teacher'), langToggle()), h('main', { id: 'main', class: 'page' }, underlined('h1', t('writeLesson'))));
+    }
+    return window.EkAuthor.screen({ h: h, t: t, btn: btn, go: go, store: store, Store: Store, rich: rich, announce: announce, lang: lang, icon: icon, topbar: topbar, backBtn: backBtn, langToggle: langToggle, underlined: underlined, size: size, render: render });
   };
 
   function loadScript(src) {
@@ -669,6 +724,7 @@
   window.addEventListener('popstate', function () { render(); });
   window.addEventListener('offline', function () { announce(t('offlineNow')); });
   document.documentElement.style.setProperty('--ts', settings.textSize || 1);
+  var rest = document.getElementById('screens-css'); if (rest) rest.media = 'all';
   applyLang();
   render();
 
