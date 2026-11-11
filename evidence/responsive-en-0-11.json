@@ -1,8 +1,8 @@
 {
   "test": "responsive-en-0-11",
   "pass": true,
-  "started": "2026-11-11T18:06:58.031Z",
-  "finished": "2026-11-11T18:07:25.938Z",
+  "started": "2026-11-11T18:31:17.101Z",
+  "finished": "2026-11-11T18:31:45.502Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
