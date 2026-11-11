@@ -60,6 +60,25 @@ try {
   await press('Enter');
   R.check(await page.evaluate(() => document.documentElement.dir) === 'rtl', 'Urdu switched by keyboard');
   R.check((await focused()).name === 'اردو', 'focus kept on the toggle after re-render');
+  // teacher writes a lesson, keyboard only
+  await tabTo((x) => x.name === 'English', 'English toggle'); await press('Enter');
+  await tabTo((x) => x.name.includes('My lessons'), 'My lessons'); await press('Enter');
+  await tabTo((x) => x.name.includes('Switch learner'), 'Switch learner'); await press('Enter');
+  await tabTo((x) => x.name.includes('Teacher or older sibling'), 'Teacher or older sibling'); await press('Enter');
+  await tabTo((x) => x.id === 'go-write', 'Write a lesson'); await press('Enter');
+  await page.waitForSelector('#w-title');
+  const type = async (txt) => { await page.keyboard.type(txt); log.push({ key: 'type "' + txt + '"' }); };
+  await tabTo((x) => x.id === 'w-title', 'lesson title field'); await type('Kites');
+  await tabTo((x) => x.id === 'w-text', 'lesson text field'); await type('A kite flies in the wind. It needs a long string.');
+  for (let q = 0; q < 5; q++) {
+    await tabTo((x) => x.id === 'w-q' + q, 'question ' + (q + 1) + ' text'); await type('Question ' + (q + 1) + '?');
+    for (let k = 0; k < 3; k++) { await tabTo((x) => x.id === 'w-q' + q + '-o' + k, 'q' + (q + 1) + ' answer ' + 'ABC'[k]); await type('Answer ' + 'ABC'[k]); }
+    await tabTo((x) => x.id === 'w-q' + q + '-r0', 'q' + (q + 1) + ' right-answer radios'); await press('Space', 'choose A');
+  }
+  await tabTo((x) => x.id === 'w-preview', 'Preview'); await press('Enter');
+  R.check((await focused()).id === 'w-pv-h', 'focus moves to the preview heading');
+  await tabTo((x) => x.id === 'w-save', 'Save lesson'); await press('Enter');
+  R.check((await focused()).id === 'w-done', 'lesson saved by keyboard; focus on the confirmation');
   R.check(errors.length === 0, 'no console errors', errors);
   const rings = log.filter((l) => l.tag && ['button', 'a'].includes(l.tag));
   R.check(rings.every((l) => l.ring), 'every focused button/link showed a ≥2px focus outline', { checked: rings.length });

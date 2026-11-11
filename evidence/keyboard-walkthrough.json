@@ -1,8 +1,8 @@
 {
   "test": "keyboard-walkthrough",
   "pass": true,
-  "started": "2026-11-11T16:59:51.000Z",
-  "finished": "2026-11-11T16:59:56.567Z",
+  "started": "2026-11-11T18:10:47.867Z",
+  "finished": "2026-11-11T18:10:59.430Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -164,6 +164,184 @@
       "pass": true
     },
     {
+      "step": "focus ring visible on English toggle",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on My lessons",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Switch learner",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Teacher or older sibling",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Write a lesson",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on lesson title field",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on lesson text field",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on question 1 text",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q1 answer A",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q1 answer B",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q1 answer C",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q1 right-answer radios",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on question 2 text",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q2 answer A",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q2 answer B",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q2 answer C",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q2 right-answer radios",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on question 3 text",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q3 answer A",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q3 answer B",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q3 answer C",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q3 right-answer radios",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on question 4 text",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q4 answer A",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q4 answer B",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q4 answer C",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q4 right-answer radios",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on question 5 text",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q5 answer A",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q5 answer B",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q5 answer C",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on q5 right-answer radios",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus ring visible on Preview",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "focus moves to the preview heading",
+      "pass": true
+    },
+    {
+      "step": "focus ring visible on Save lesson",
+      "pass": true,
+      "detail": "solid 3px"
+    },
+    {
+      "step": "lesson saved by keyboard; focus on the confirmation",
+      "pass": true
+    },
+    {
       "step": "no console errors",
       "pass": true,
       "detail": []
@@ -172,11 +350,11 @@
       "step": "every focused button/link showed a ≥2px focus outline",
       "pass": true,
       "detail": {
-        "checked": 24
+        "checked": 47
       }
     }
   ],
-  "keyPresses": 58,
+  "keyPresses": 145,
   "log": [
     {
       "key": "Tab",
@@ -202,6 +380,15 @@
       "tag": "button",
       "id": "",
       "name": "اردو",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "try-demo",
+      "name": "Try the demo",
       "ring": true,
       "outline": "solid 3px"
     },
@@ -689,6 +876,640 @@
       "name": "اردو",
       "ring": true,
       "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "میرے اسباق",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "مشق دوبارہ کریں",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "سبق دوبارہ پڑھیں",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "name": "(body)"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Skip to main content",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "English",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "English",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "اردو",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "My lessons",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Salaam, Ayesha",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Start reading",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "MathsFractions: Halves and Quarters4.1 KB · 0.004 MB · 5 que",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "ScienceThe Water Cycle4.2 KB · 0.004 MB · 5 questions · Not ",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "EnglishA Simple English Sentence3.8 KB · 0.004 MB · 5 questi",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "name": "(body)"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "",
+      "name": "Skip to main content",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "Switch learner",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Who is studying?",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "Ayesha, done todayA",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "Add a learner",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "try-demo",
+      "name": "Try the demo",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "",
+      "name": "Teacher or older sibling",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Lesson packs",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "go-receive",
+      "name": "Receive a lesson pack",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "a",
+      "id": "go-write",
+      "name": "Write a lesson",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h1",
+      "id": "screen-title",
+      "name": "Write a lesson",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-title",
+      "name": "Lesson title",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Kites\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-title-ur",
+      "name": "Title in Urdu (optional)",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-subject",
+      "name": "Subject (optional)",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "textarea",
+      "id": "w-text",
+      "name": "Lesson text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"A kite flies in the wind. It needs a long string.\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q0",
+      "name": "Question 1 text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Question 1?\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q0-o0",
+      "name": "Answer A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer A\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q0-o1",
+      "name": "Answer B",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer B\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q0-o2",
+      "name": "Answer C",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer C\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q0-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "choose A",
+      "tag": "input",
+      "id": "w-q0-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q1",
+      "name": "Question 2 text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Question 2?\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q1-o0",
+      "name": "Answer A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer A\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q1-o1",
+      "name": "Answer B",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer B\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q1-o2",
+      "name": "Answer C",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer C\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q1-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "choose A",
+      "tag": "input",
+      "id": "w-q1-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q2",
+      "name": "Question 3 text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Question 3?\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q2-o0",
+      "name": "Answer A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer A\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q2-o1",
+      "name": "Answer B",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer B\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q2-o2",
+      "name": "Answer C",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer C\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q2-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "choose A",
+      "tag": "input",
+      "id": "w-q2-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q3",
+      "name": "Question 4 text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Question 4?\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q3-o0",
+      "name": "Answer A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer A\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q3-o1",
+      "name": "Answer B",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer B\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q3-o2",
+      "name": "Answer C",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer C\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q3-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "choose A",
+      "tag": "input",
+      "id": "w-q3-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q4",
+      "name": "Question 5 text",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Question 5?\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q4-o0",
+      "name": "Answer A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer A\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q4-o1",
+      "name": "Answer B",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer B\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q4-o2",
+      "name": "Answer C",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "type \"Answer C\""
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "input",
+      "id": "w-q4-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Space",
+      "note": "choose A",
+      "tag": "input",
+      "id": "w-q4-r0",
+      "name": "A",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "w-preview",
+      "name": "Preview",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "h2",
+      "id": "w-pv-h",
+      "name": "Preview",
+      "ring": false,
+      "outline": "none 0px"
+    },
+    {
+      "key": "Tab",
+      "note": "",
+      "tag": "button",
+      "id": "w-save",
+      "name": "Save lesson",
+      "ring": true,
+      "outline": "solid 3px"
+    },
+    {
+      "key": "Enter",
+      "note": "",
+      "tag": "p",
+      "id": "w-done",
+      "name": "\"Kites\" is saved on this phone. Every learner sees it on the",
+      "ring": false,
+      "outline": "none 0px"
     }
   ]
 }
