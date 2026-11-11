@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-11T18:13:23.834Z",
+  "generated": "2026-11-11T18:14:10.157Z",
   "before": "commit f4e2acd (Nov 11, before this round of work)",
   "after": "this commit",
   "rows": [
@@ -75,6 +75,13 @@
       "before": "80 (LCP 4.6 s, test server sent files uncompressed)",
       "after": "90 (LCP 3.4 s, median of 3, gzip like the host)",
       "source": "evidence/lighthouse-summary.md"
+    },
+    {
+      "metric": "Lighthouse Performance, same gzip server and settings for both",
+      "before": "85 (FCP 2.4 s, LCP 3.8 s)",
+      "after": "90 (FCP 2.1 s, LCP 3.4 s)",
+      "source": "evidence/lighthouse-before-f4e2acd.md, evidence/lighthouse-summary.md",
+      "note": "fair comparison: the old code re-run with today's test server; median of 3 runs each"
     },
     {
       "metric": "Lighthouse Accessibility",

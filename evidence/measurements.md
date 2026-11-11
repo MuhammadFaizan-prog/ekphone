@@ -1,6 +1,6 @@
 # Measured numbers, before and after
 
-Generated 2026-11-11T18:13:23.834Z by tools/measure.mjs from the test output files. Before = commit f4e2acd (Nov 11, before this round of work).
+Generated 2026-11-11T18:14:10.157Z by tools/measure.mjs from the test output files. Before = commit f4e2acd (Nov 11, before this round of work).
 
 | Metric | Before | After | Source | Note |
 |---|---|---|---|---|
@@ -15,4 +15,5 @@ Generated 2026-11-11T18:13:23.834Z by tools/measure.mjs from the test output fil
 | Lesson data sent over the network to share a pack by QR | not measured | 0 bytes (0 server requests during the scan) | `evidence/e2e-qr-transfer.json` | requests seen while scanning: /vendor/jsQR.min.js (the app's own scanner file, answered by the service worker) |
 | App requests that reached the network during the offline run | not measured | 0 (26 answered from the service worker cache) | `evidence/e2e-offline.json` | plus 1 browser service-worker update check for /sw.js, which Chromium's offline emulation does not block |
 | Lighthouse Performance (mobile, simulated Regular 3G, 4x CPU) | 80 (LCP 4.6 s, test server sent files uncompressed) | 90 (LCP 3.4 s, median of 3, gzip like the host) | `evidence/lighthouse-summary.md` |  |
+| Lighthouse Performance, same gzip server and settings for both | 85 (FCP 2.4 s, LCP 3.8 s) | 90 (FCP 2.1 s, LCP 3.4 s) | `evidence/lighthouse-before-f4e2acd.md, evidence/lighthouse-summary.md` | fair comparison: the old code re-run with today's test server; median of 3 runs each |
 | Lighthouse Accessibility | 100 | 100 | `evidence/lighthouse-summary.md` |  |

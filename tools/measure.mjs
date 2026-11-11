@@ -14,6 +14,7 @@ const shellKey = Object.keys(size.groups)[0], shellKeyOld = sizeOld && Object.ke
 const qr = E('e2e-qr-transfer.json'), qrOld = old('e2e-qr-transfer.json');
 const off = E('e2e-offline.json');
 const lhMd = fs.readFileSync(ROOT + 'evidence/lighthouse-summary.md', 'utf8'), lhOldMd = oldText('lighthouse-summary.md');
+const lhBeforeSame = fs.existsSync(ROOT + 'evidence/lighthouse-before-f4e2acd.md') ? fs.readFileSync(ROOT + 'evidence/lighthouse-before-f4e2acd.md', 'utf8') : '';
 const grab = (md, label) => { const m = md.match(new RegExp('\\| ' + label + ' \\| ([^|]+) \\|')); return m ? m[1].trim() : null; };
 const packs = Object.entries(size.files).filter(([f]) => f.startsWith('packs/')).map(([f, v]) => ({ pack: f.replace('packs/', '').replace(/\.ekpack\.json.*/, ''), kb: kb(v.bytes) }));
 const m = {
@@ -26,6 +27,7 @@ const m = {
     { metric: 'Lesson data sent over the network to share a pack by QR', before: 'not measured', after: qr.scanNetwork.serverBytes + ' bytes (' + qr.scanNetwork.serverHits + ' server requests during the scan)', source: 'evidence/e2e-qr-transfer.json', note: 'requests seen while scanning: ' + (qr.scanNetwork.requests.join(', ') || 'none') + ' (the app\'s own scanner file, answered by the service worker)' },
     { metric: 'App requests that reached the network during the offline run', before: 'not measured', after: off.offlineRequests.appRequestsToNetwork + ' (' + off.offlineRequests.fromServiceWorkerCache + ' answered from the service worker cache)', source: 'evidence/e2e-offline.json', note: 'plus ' + off.offlineRequests.browserSwUpdateChecks + ' browser service-worker update check for /sw.js, which Chromium\'s offline emulation does not block' },
     { metric: 'Lighthouse Performance (mobile, simulated Regular 3G, 4x CPU)', before: (grab(lhOldMd, 'Performance') || 'n/a') + ' (LCP ' + (grab(lhOldMd, 'Largest Contentful Paint') || 'n/a') + ', test server sent files uncompressed)', after: grab(lhMd, 'Performance') + ' (LCP ' + grab(lhMd, 'Largest Contentful Paint') + ', median of 3, gzip like the host)', source: 'evidence/lighthouse-summary.md' },
+    { metric: 'Lighthouse Performance, same gzip server and settings for both', before: (grab(lhBeforeSame, 'Performance') || 'n/a') + ' (FCP ' + grab(lhBeforeSame, 'First Contentful Paint') + ', LCP ' + grab(lhBeforeSame, 'Largest Contentful Paint') + ')', after: grab(lhMd, 'Performance') + ' (FCP ' + grab(lhMd, 'First Contentful Paint') + ', LCP ' + grab(lhMd, 'Largest Contentful Paint') + ')', source: 'evidence/lighthouse-before-f4e2acd.md, evidence/lighthouse-summary.md', note: 'fair comparison: the old code re-run with today\'s test server; median of 3 runs each' },
     { metric: 'Lighthouse Accessibility', before: grab(lhOldMd, 'Accessibility') || 'n/a', after: grab(lhMd, 'Accessibility'), source: 'evidence/lighthouse-summary.md' }
   ]
 };
