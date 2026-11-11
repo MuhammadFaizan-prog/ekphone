@@ -1,8 +1,8 @@
 {
   "test": "e2e-qr-transfer",
   "pass": true,
-  "started": "2026-11-11T18:23:33.953Z",
-  "finished": "2026-11-11T18:23:45.558Z",
+  "started": "2026-11-11T18:28:01.775Z",
+  "finished": "2026-11-11T18:28:07.753Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -89,15 +89,15 @@
       "detail": {
         "g5-fractions": {
           "bytes": 4193,
-          "codes": 6
+          "codes": 9
         },
         "g5-water-cycle": {
           "bytes": 4285,
-          "codes": 7
+          "codes": 10
         },
         "g4-english-sentence": {
           "bytes": 3934,
-          "codes": 6
+          "codes": 9
         }
       }
     }
@@ -115,15 +115,15 @@
   "packCodes": {
     "g5-fractions": {
       "bytes": 4193,
-      "codes": 6
+      "codes": 9
     },
     "g5-water-cycle": {
       "bytes": 4285,
-      "codes": 7
+      "codes": 10
     },
     "g4-english-sentence": {
       "bytes": 3934,
-      "codes": 6
+      "codes": 9
     }
   }
 }

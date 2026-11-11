@@ -1,8 +1,8 @@
 {
   "test": "e2e-share-camera",
   "pass": true,
-  "started": "2026-11-11T18:24:28.326Z",
-  "finished": "2026-11-11T18:24:31.442Z",
+  "started": "2026-11-11T18:28:08.119Z",
+  "finished": "2026-11-11T18:28:11.334Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -47,7 +47,7 @@
       "detail": {
         "n": 9,
         "longest": 296,
-        "first": "http://127.0.0.1:41849/index.html#/r/g5-fractions/1/9/z.691bd3c0.rVfNa…"
+        "first": "http://127.0.0.1:34235/index.html#/r/g5-fractions/1/9/z.691bd3c0.rVfNa…"
       }
     },
     {
