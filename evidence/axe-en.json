@@ -1,8 +1,8 @@
 {
   "test": "axe-en",
   "pass": true,
-  "started": "2026-11-11T17:00:45.192Z",
-  "finished": "2026-11-11T17:01:23.348Z",
+  "started": "2026-11-11T18:11:17.600Z",
+  "finished": "2026-11-11T18:11:42.130Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -90,7 +90,7 @@
       "pass": true,
       "detail": {
         "violations": 0,
-        "passes": 39
+        "passes": 40
       }
     },
     {
@@ -118,7 +118,39 @@
       }
     },
     {
-      "step": "zero axe violations on all 14 screens (en)",
+      "step": "15-demo: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "16-write-errors: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "17-write-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "18-write-saved: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "zero axe violations on all 18 screens (en)",
       "pass": true,
       "detail": {
         "total": 0
@@ -165,7 +197,7 @@
     },
     {
       "screen": "03-pin",
-      "url": "/index.html#/pin/mmxijc7e",
+      "url": "/index.html#/pin/7zrye3vt",
       "violations": 0,
       "passes": 41,
       "incomplete": [
@@ -255,7 +287,7 @@
       "screen": "11-teacher",
       "url": "/index.html#/teacher",
       "violations": 0,
-      "passes": 39,
+      "passes": 40,
       "incomplete": [
         "color-contrast"
       ],
@@ -294,6 +326,50 @@
       ],
       "details": [],
       "screenshot": "screenshots/en-14-receive-preview.png"
+    },
+    {
+      "screen": "15-demo",
+      "url": "/index.html#/",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-15-demo.png"
+    },
+    {
+      "screen": "16-write-errors",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-16-write-errors.png"
+    },
+    {
+      "screen": "17-write-preview",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-17-write-preview.png"
+    },
+    {
+      "screen": "18-write-saved",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/en-18-write-saved.png"
     }
   ]
 }

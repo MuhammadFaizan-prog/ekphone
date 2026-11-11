@@ -30,7 +30,16 @@ try {
     ['11-teacher', '/teacher', null],
     ['12-share-qr', '/share/g5-fractions', async () => { await page.waitForSelector('#qr-canvas[data-chunk]'); await page.locator('#qr-pause').click(); await page.locator('#qr-next').click(); await page.locator('#qr-next').click(); await page.locator('#qr-next').blur(); }],
     ['13-receive', '/receive', null],
-    ['14-receive-preview', null, async () => { await page.setInputFiles('#rx-file', ROOT + 'app/samples/g3-plant-parts.ekpack.json'); await page.waitForSelector('.pv-size'); }]
+    ['14-receive-preview', null, async () => { await page.setInputFiles('#rx-file', ROOT + 'app/samples/g3-plant-parts.ekpack.json'); await page.waitForSelector('.pv-size'); }],
+    ['15-demo', null, async () => { await page.goto(url + 'index.html#/'); await page.evaluate(() => localStorage.removeItem('ekphone:v1:profiles')); await page.reload(); await page.locator('#try-demo').click(); await page.waitForSelector('.tag'); await page.locator('#try-demo, .tag').first().blur(); }],
+    ['16-write-errors', '/write', async () => { await page.waitForSelector('#w-title'); await page.locator('#w-preview').click(); await page.waitForSelector('#w-summary:not([hidden])'); await page.evaluate(() => window.scrollTo(0, 0)); }],
+    ['17-write-preview', null, async () => {
+      await page.locator('#w-title').fill(T('Day and Night', 'Day and Night')); await page.locator('#w-title-ur').fill('دن اور رات');
+      await page.locator('#w-text').fill('The Earth spins like a top. It takes one day to spin once. When our side faces the Sun, it is day.');
+      for (let i = 0; i < 5; i++) { await page.locator('#w-q' + i).fill('Question ' + (i + 1) + '?'); for (let k = 0; k < 3; k++) await page.locator('#w-q' + i + '-o' + k).fill('Answer ' + 'ABC'[k]); await page.locator('#w-q' + i + '-r' + (i % 3)).check(); }
+      await page.locator('#w-preview').click(); await page.waitForSelector('#w-pv-h'); await page.evaluate(() => window.scrollTo(0, 0));
+    }],
+    ['18-write-saved', null, async () => { await page.locator('#w-save').click(); await page.waitForSelector('#w-done'); }]
   ];
   for (const [idx, [name, route, action, who]] of screens.entries()) {
     if (idx < from || idx >= to) { if (idx < from && action && !route) { /* stateful step skipped */ } continue; }
