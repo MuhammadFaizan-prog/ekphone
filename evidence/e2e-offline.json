@@ -1,15 +1,15 @@
 {
   "test": "e2e-offline",
   "pass": true,
-  "started": "2026-11-11T16:25:54.393Z",
-  "finished": "2026-11-11T16:26:02.875Z",
+  "started": "2026-11-11T16:49:37.278Z",
+  "finished": "2026-11-11T16:49:39.533Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
       "step": "service worker precached the app",
       "pass": true,
       "detail": {
-        "name": "ekphone-006e837325",
+        "name": "ekphone-e600c411e7",
         "count": 21
       }
     },
@@ -42,7 +42,7 @@
         "best": 5,
         "last": 5,
         "attempts": 1,
-        "updated": 1794414362223,
+        "updated": 1794415779014,
         "total": 5,
         "doneDay": "Wed Nov 11 2026"
       }
