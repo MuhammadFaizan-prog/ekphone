@@ -1,8 +1,8 @@
 {
   "test": "e2e-demo-author",
   "pass": false,
-  "started": "2026-11-11T17:58:52.650Z",
-  "finished": "2026-11-11T17:59:02.356Z",
+  "started": "2026-11-11T17:59:19.199Z",
+  "finished": "2026-11-11T17:59:21.582Z",
   "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
   "steps": [
     {
@@ -101,12 +101,63 @@
     {
       "step": "saved as local pack with an id",
       "pass": true,
-      "detail": "my-day-and-night-xx38"
+      "detail": "my-day-and-night-y9ag"
     },
     {
       "step": "saved pack passes the same validator as shared packs",
       "pass": true
+    },
+    {
+      "step": "written lesson shares by QR",
+      "pass": true,
+      "detail": {
+        "chunks": 2
+      }
+    },
+    {
+      "step": "teacher list labels it \"Written here\"",
+      "pass": true
+    },
+    {
+      "step": "learner reads the written lesson",
+      "pass": true
+    },
+    {
+      "step": "print: toolbar hidden, 5 quiz questions printed",
+      "pass": true,
+      "detail": {
+        "toolbar": "none",
+        "quiz": "block",
+        "qs": 5
+      }
+    },
+    {
+      "step": "print preview saved",
+      "pass": true,
+      "detail": {
+        "file": "docs/print-sample.pdf",
+        "bytes": 28992
+      }
+    },
+    {
+      "step": "Save as page: one HTML file, no scripts",
+      "pass": true,
+      "detail": {
+        "bytes": 2908
+      }
+    },
+    {
+      "step": "saved page opens with JavaScript OFF: text + quiz + answers",
+      "pass": true
+    },
+    {
+      "step": "app with JS off: heading + noscript lesson links",
+      "pass": true
+    },
+    {
+      "step": "static lesson page (EN + UR) works with JS off",
+      "pass": false
     }
   ],
-  "error": "locator.click: Timeout 8000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: 'Share by QR' })\u001b[22m\n"
+  "error": "FAILED: static lesson page (EN + UR) works with JS off \"\""
 }

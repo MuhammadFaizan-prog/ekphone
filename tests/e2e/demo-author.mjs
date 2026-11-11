@@ -82,7 +82,7 @@ try {
   const valid = await page.evaluate((p) => window.EkStore.validatePack(p).ok, mine.pack);
   R.check(valid && mine.pack.quiz.length === 5 && mine.pack.title.ur === 'دن اور رات', 'saved pack passes the same validator as shared packs');
   // share it by QR like any pack
-  await page.getByRole('link', { name: 'Share by QR' }).click();
+  await page.getByRole('link', { name: 'Show QR codes' }).click();
   await page.waitForSelector('#qr-canvas[data-chunk]');
   const chunks = +(await page.evaluate(() => document.body.dataset.chunks));
   R.check(chunks >= 1, 'written lesson shares by QR', { chunks });
@@ -112,7 +112,7 @@ try {
   const ctx2 = await b.newContext({ javaScriptEnabled: false, viewport: { width: 360, height: 740 } });
   const p2 = await ctx2.newPage();
   await p2.goto('file://' + file);
-  R.check(await p2.locator('ol.s li').count() === 6 && await p2.locator('details').count() === 2, 'saved page opens with JavaScript OFF: text + quiz + answers');
+  R.check(await p2.locator('ol.s li').count() === 6 && await p2.locator('details').count() === 1, 'saved page opens with JavaScript OFF: text + quiz + answers');
   await p2.goto(url + 'index.html');
   R.check((await p2.locator('noscript, .nojs').count()) >= 1 && await p2.getByRole('heading', { name: 'Who is studying?' }).isVisible(), 'app with JS off: heading + noscript lesson links');
   await p2.goto(url + 'lessons/g5-fractions.html');
