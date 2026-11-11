@@ -1,0 +1,147 @@
+{
+  "test": "axe-ur-14-20",
+  "pass": true,
+  "started": "2026-11-11T18:30:33.551Z",
+  "finished": "2026-11-11T18:30:43.500Z",
+  "browser": "Chromium headless shell 141 (Playwright 1.56.1)",
+  "steps": [
+    {
+      "step": "15-demo: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 38
+      }
+    },
+    {
+      "step": "16-write-errors: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "17-write-preview: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 39
+      }
+    },
+    {
+      "step": "18-write-saved: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 36
+      }
+    },
+    {
+      "step": "19-write-imported: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "20-receive-camera-error: axe ran",
+      "pass": true,
+      "detail": {
+        "violations": 0,
+        "passes": 41
+      }
+    },
+    {
+      "step": "zero axe violations on all 6 screens (ur)",
+      "pass": true,
+      "detail": {
+        "total": 0
+      }
+    },
+    {
+      "step": "no console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "axeVersion": "4.14.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "viewport": "360x740 @2x",
+  "results": [
+    {
+      "screen": "15-demo",
+      "url": "/index.html#/",
+      "violations": 0,
+      "passes": 38,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-15-demo.png"
+    },
+    {
+      "screen": "16-write-errors",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-16-write-errors.png"
+    },
+    {
+      "screen": "17-write-preview",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 39,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-17-write-preview.png"
+    },
+    {
+      "screen": "18-write-saved",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 36,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-18-write-saved.png"
+    },
+    {
+      "screen": "19-write-imported",
+      "url": "/index.html#/write",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-19-write-imported.png"
+    },
+    {
+      "screen": "20-receive-camera-error",
+      "url": "/index.html#/receive",
+      "violations": 0,
+      "passes": 41,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "details": [],
+      "screenshot": "screenshots/ur-20-receive-camera-error.png"
+    }
+  ]
+}
